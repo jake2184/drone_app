@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lhs"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/lhs_up"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/control_pad_button"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/lhs_left"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:rotation="270"
+                android:background="@drawable/control_pad_button"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                />
+            <Button
+                android:id="@+id/lhs_right"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:rotation="90"
+                android:background="@drawable/control_pad_button"
+                />
+        </LinearLayout>
+        <Button
+            android:id="@+id/lhs_down"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:rotation="180"
+            android:background="@drawable/control_pad_button"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rhs"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/rhs_up"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/control_pad_button"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/rhs_left"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:rotation="270"
+                android:background="@drawable/control_pad_button"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/rhs_right"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:minHeight="70dp"
+                android:rotation="90"
+                android:background="@drawable/control_pad_button"
+                />
+        </LinearLayout>
+        <Button
+            android:id="@+id/rhs_down"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:rotation="180"
+            android:background="@drawable/control_pad_button"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
