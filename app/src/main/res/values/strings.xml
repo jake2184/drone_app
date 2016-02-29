@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Drone</string>
     <string name="action_settings">Settings</string>
+    <string name="connection_video">For image stream:</string>
+    <string name="connection_mqtt">For drone control/logging:</string>
     <string name="domain">&lt;domain&gt;.mybluemix.net</string>
     <string name="organisation">Organisation</string>
     <string name="auth_token">"Auth-token</string>

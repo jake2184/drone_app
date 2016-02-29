@@ -7,18 +7,51 @@
     android:layout_marginLeft="32dp"
     android:layout_marginRight="32dp">
 
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:text="@string/connect"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/connection_video"
+        android:textSize="25sp"/>
+
     <EditText
         android:id="@+id/domain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:hint="@string/domain"
         android:textSize="20sp"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/connection_mqtt"
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/organisation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:hint="@string/organisation"
         android:textSize="20sp"
         />
@@ -27,6 +60,7 @@
         android:id="@+id/deviceID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:hint="@string/deviceID"
         android:textSize="20sp"
         />
@@ -35,6 +69,7 @@
         android:id="@+id/auth_token"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:inputType="textPassword"
         android:hint="@string/auth_token"
         android:textSize="20sp"
@@ -45,17 +80,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:gravity="center"
         android:paddingTop="20dp"
         android:text="@string/updateCreds"
         android:textSize="20sp"
-        />
-    <Button
-        android:id="@+id/connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="20dp"
-        android:text="@string/connect"
-        android:textSize="30sp"
         />
 </LinearLayout>

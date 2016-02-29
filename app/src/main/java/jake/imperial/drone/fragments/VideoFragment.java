@@ -31,6 +31,7 @@ public class VideoFragment extends Fragment {
     private Handler mHandler;
     private int mInterval = 10000;
     private ImageView imageView;
+    private String domain = " ";
 
     public VideoFragment() {
     }
@@ -60,6 +61,16 @@ public class VideoFragment extends Fragment {
 
         getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
                 new IntentFilter(Constants.APP_ID + Constants.INTENT_CONTROL));
+        domain = getActivity().getPreferences(0).getString("domain", "drone-nodes.eu-gb");
+        String url = "http://"+domain+".mybluemix.net/getLatestImage";
+
+        Ion     .with(getContext())
+                .load(url)
+                .noCache()
+                .withBitmap()
+                .error(R.drawable.control_pad_button)
+                .crossfade(true)
+                .intoImageView(imageView);
     }
 
     @Override
@@ -71,18 +82,23 @@ public class VideoFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        stopRepeatingTask();
+    }
+
     Runnable updateView = new Runnable() {
         @Override
         public void run() {
 
-            Log.d(TAG, "Updating image");
+            String url = "http://"+domain+".mybluemix.net/getLatestImage";
+            Log.d(TAG, "Updating image from " + url);
 
-            Long tsLong = System.currentTimeMillis()/1000;
-            String ts = tsLong.toString();
+            // null check on context?
+
             Ion     .with(getContext())
-                    .load("http://drone-nodes.eu-gb.mybluemix.net/getLatestImage?time=" + ts)
-                    //.setHeader("Cache-Control", "no-cache")
-                    //.addHeader("Cache-Control", "no-cache")
+                    .load(url)
                     .noCache()
                     .withBitmap()
                     .error(R.drawable.control_pad_button)
@@ -109,9 +125,9 @@ public class VideoFragment extends Fragment {
         } else if (data.equals(Constants.ALERT_EVENT)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
-                    .setTitle("Bing")
+                    .setTitle("Alert")
                     .setMessage(message)
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                         }
                     }).show();

@@ -72,6 +72,7 @@ public class ConnectionFragment extends Fragment {
 
         SharedPreferences settings = getActivity().getPreferences(0);
 
+        ((EditText)rootView.findViewById(R.id.domain)).setText(settings.getString("domain", ""));
         ((EditText)rootView.findViewById(R.id.organisation)).setText(settings.getString("organisation", ""));
         ((EditText)rootView.findViewById(R.id.auth_token)).setText(settings.getString("auth_token", ""));
         ((EditText)rootView.findViewById(R.id.deviceID)).setText(settings.getString("device_id", ""));
@@ -108,7 +109,8 @@ public class ConnectionFragment extends Fragment {
         new AlertDialog.Builder(getActivity())
                 .setTitle("Credentials Saved")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton){}
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
                 }).show();
     }
 
