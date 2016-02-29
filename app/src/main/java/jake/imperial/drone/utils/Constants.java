@@ -56,6 +56,7 @@ public class Constants {
     public final static String INTENT_CONTROL = "INTENT_CONTROL";
     public final static String INTENT_VIDEO = "INTENT_VIDEO";
     public final static String INTENT_LOG = "INTENT_LOG";
+    public final static String INTENT_MAP = "INTENT_MAP";
     public final static String INTENT_DATA = "data";
 
     // MQTT action intent data

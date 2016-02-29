@@ -18,6 +18,7 @@ import android.view.View;
 import jake.imperial.drone.fragments.ConnectionFragment;
 import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.fragments.LogFragment;
+import jake.imperial.drone.fragments.MapFragment;
 import jake.imperial.drone.fragments.VideoFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -109,13 +110,15 @@ public class MainActivity extends AppCompatActivity {
                     return ControlFragment.newInstance();
                 case 3:
                     return LogFragment.newInstance();
+                case 4:
+                    return MapFragment.newInstance();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
 
         @Override
@@ -129,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
                     return "Control";
                 case 3:
                     return "Log";
+                case 4:
+                    return "Map";
             }
             return null;
         }
