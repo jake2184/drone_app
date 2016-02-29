@@ -12,11 +12,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import jake.imperial.drone.ConnectionFragment;
-import jake.imperial.drone.ControlFragment;
+import jake.imperial.drone.fragments.ConnectionFragment;
+import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.DroneApplication;
-import jake.imperial.drone.LogFragment;
-import jake.imperial.drone.VideoFragment;
+import jake.imperial.drone.fragments.LogFragment;
+import jake.imperial.drone.fragments.VideoFragment;
 
 /**
  * Steer incoming MQTT messages to the proper activities based on their content.
@@ -80,7 +80,7 @@ public class MessageConductor {
             app.setUnreadCount(++unreadCount);
 
             // save payload in an arrayList
-            List messageRecvd = new ArrayList<String>();
+            //List messageRecvd = new ArrayList<String>();
             //messageRecvd.add(payload);
 
             app.getMessageLog().add(d.getString("text"));

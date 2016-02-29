@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import jake.imperial.drone.ConnectionFragment;
-import jake.imperial.drone.ControlFragment;
+import jake.imperial.drone.fragments.ConnectionFragment;
+import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.DroneApplication;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
@@ -220,7 +220,7 @@ public class MqttHandler implements MqttCallback {
 
     /**
      * Handle loss of connection from the MQTT server.
-     * @param throwable
+     * @param throwable throws
      */
     @Override
     public void connectionLost(Throwable throwable) {

@@ -1,4 +1,4 @@
-package jake.imperial.drone;
+package jake.imperial.drone.fragments;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import jake.imperial.drone.DroneApplication;
+import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
 import jake.imperial.drone.utils.MqttHandler;
 import jake.imperial.drone.utils.RepeatListener;

@@ -15,6 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import jake.imperial.drone.fragments.ConnectionFragment;
+import jake.imperial.drone.fragments.ControlFragment;
+import jake.imperial.drone.fragments.LogFragment;
+import jake.imperial.drone.fragments.VideoFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     /**

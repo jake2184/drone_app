@@ -8,6 +8,14 @@
     android:layout_marginRight="32dp">
 
     <EditText
+        android:id="@+id/domain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/domain"
+        android:textSize="20sp"
+        />
+
+    <EditText
         android:id="@+id/organisation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

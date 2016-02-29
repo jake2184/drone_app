@@ -1,4 +1,4 @@
-package jake.imperial.drone;
+package jake.imperial.drone.fragments;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -9,7 +9,6 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +19,8 @@ import android.widget.EditText;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import jake.imperial.drone.DroneApplication;
+import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
 import jake.imperial.drone.utils.MqttHandler;
 
@@ -93,15 +94,22 @@ public class ConnectionFragment extends Fragment {
     }
 
     public void EditSettings(View rootView){
+        String domain = ((EditText) rootView.findViewById(R.id.domain)).getText().toString();
         String organisation = ((EditText)rootView.findViewById(R.id.organisation)).getText().toString();
         String auth_token = ((EditText)rootView.findViewById(R.id.auth_token)).getText().toString();
         String deviceID = ((EditText)rootView.findViewById(R.id.deviceID)).getText().toString();
 
         SharedPreferences.Editor settings = getActivity().getPreferences(0).edit();
+        settings.putString("domain", domain);
         settings.putString("organisation", organisation);
         settings.putString("auth_token", auth_token);
         settings.putString("device_id", deviceID);
         settings.commit();
+        new AlertDialog.Builder(getActivity())
+                .setTitle("Credentials Saved")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton){}
+                }).show();
     }
 
     private void Connect() {
@@ -115,8 +123,14 @@ public class ConnectionFragment extends Fragment {
         if (checkCanConnect()) {
             if(mqttHandle.connect()){
                 Log.d(TAG, "Connection successful");
-                app.getMessageLog().add("["+new Timestamp((new Date()).getTime())+"]: Connected successfully");
-                ((ViewPager)getActivity().findViewById(R.id.container)).setCurrentItem(3);
+                app.getMessageLog().add("[" + new Timestamp((new Date()).getTime()) + "]: Connected successfully");
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Connected Successfully")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                // Do nothing.
+                            }
+                        }).show();
             }
         } else {
             displaySetPropertiesDialog();
@@ -148,7 +162,7 @@ public class ConnectionFragment extends Fragment {
 
     private void displaySetPropertiesDialog() {
         new AlertDialog.Builder(getActivity())
-                .setTitle("Can't connect, please fill in details")
+                .setTitle("Can't connect, please verify details")
                 //.setMessage(getResources().getString(R.string.connect_props_text))
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {

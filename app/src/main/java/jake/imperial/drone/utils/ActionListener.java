@@ -20,7 +20,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import jake.imperial.drone.DroneApplication;
-import jake.imperial.drone.ConnectionFragment;
+import jake.imperial.drone.fragments.ConnectionFragment;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 
