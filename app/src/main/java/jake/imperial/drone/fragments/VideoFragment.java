@@ -78,6 +78,7 @@ public class VideoFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         imageView = (ImageView) rootView.findViewById(R.id.imageview);
         mHandler = new Handler();
+
         startRepeatingTask();
         return rootView;
     }
