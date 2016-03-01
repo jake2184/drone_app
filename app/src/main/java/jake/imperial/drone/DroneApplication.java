@@ -17,6 +17,7 @@ public class DroneApplication extends Application{
     private String currentRunningActivity;
 
     // Values needed for connecting to IoT
+    private String domain;
     private String organization;
     private String deviceId;
     private String authToken;
@@ -53,6 +54,14 @@ public class DroneApplication extends Application{
     public String getCurrentRunningActivity() { return currentRunningActivity; }
 
     public void setCurrentRunningActivity(String currentRunningActivity) { this.currentRunningActivity = currentRunningActivity; }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
 
     public String getOrganization() {
         return organization;

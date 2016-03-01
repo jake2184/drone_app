@@ -100,6 +100,8 @@ public class ConnectionFragment extends Fragment {
         String auth_token = ((EditText)rootView.findViewById(R.id.auth_token)).getText().toString();
         String deviceID = ((EditText)rootView.findViewById(R.id.deviceID)).getText().toString();
 
+        app.setDomain(domain);
+
         SharedPreferences.Editor settings = getActivity().getPreferences(0).edit();
         settings.putString("domain", domain);
         settings.putString("organisation", organisation);
@@ -118,6 +120,7 @@ public class ConnectionFragment extends Fragment {
         Log.d(TAG, ".Connect() entered");
 
         MqttHandler mqttHandle = MqttHandler.getInstance(getActivity().getApplicationContext());
+        app.setDomain(((EditText)getActivity().findViewById(R.id.domain)).getText().toString());
         app.setDeviceId(((EditText) getActivity().findViewById(R.id.deviceID)).getText().toString());
         app.setOrganization(((EditText) getActivity().findViewById(R.id.organisation)).getText().toString());
         app.setAuthToken(((EditText) getActivity().findViewById(R.id.auth_token)).getText().toString());

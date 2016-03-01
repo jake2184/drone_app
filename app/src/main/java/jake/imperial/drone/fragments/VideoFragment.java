@@ -31,7 +31,7 @@ public class VideoFragment extends Fragment {
     private Handler mHandler;
     private int mInterval = 10000;
     private ImageView imageView;
-    private String domain = " ";
+    private String domain = "";
 
     public VideoFragment() {
     }
@@ -61,9 +61,9 @@ public class VideoFragment extends Fragment {
 
         getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
                 new IntentFilter(Constants.APP_ID + Constants.INTENT_CONTROL));
-        domain = getActivity().getPreferences(0).getString("domain", "drone-nodes.eu-gb");
-        String url = "http://"+domain+".mybluemix.net/getLatestImage";
 
+        domain = app.getDomain();
+        String url = "http://"+domain+"/getLatestImage";
         Ion     .with(getContext())
                 .load(url)
                 .noCache()
@@ -91,20 +91,21 @@ public class VideoFragment extends Fragment {
     Runnable updateView = new Runnable() {
         @Override
         public void run() {
+            if(app != null) {
+                domain = app.getDomain();
+                String url = "http://" + domain + "/getLatestImage";
+                Log.d(TAG, "Updating image from " + url);
 
-            String url = "http://"+domain+".mybluemix.net/getLatestImage";
-            Log.d(TAG, "Updating image from " + url);
+                // null check on context?
 
-            // null check on context?
-
-            Ion     .with(getContext())
-                    .load(url)
-                    .noCache()
-                    .withBitmap()
-                    .error(R.drawable.control_pad_button)
-                    .crossfade(true)
-                    .intoImageView(imageView);
-
+                Ion.with(getContext())
+                        .load(url)
+                        .noCache()
+                        .withBitmap()
+                        .error(R.drawable.control_pad_button)
+                        .crossfade(true)
+                        .intoImageView(imageView);
+            }
             mHandler.postDelayed(updateView, mInterval);
         }
     };

@@ -26,7 +26,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private static final String TAG = MapFragment.class.getName();
     protected DroneApplication app;
     protected BroadcastReceiver broadcastReceiver;
-    
+    protected MapView mapView;
     public static MapFragment newInstance() {
         return new MapFragment();
     }
@@ -38,11 +38,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setContentView(R.layout.fragment_map);
-
-//        SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -50,10 +45,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         Log.d(TAG, ".onMapReady()");
         mMap = googleMap;
 
-        // Add a marker in Sydney, Australia, and move the camera.
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+
+        // Change to load latest from drone.
+        LatLng London = new LatLng(51.5, -0.12);
+        mMap.addMarker(new MarkerOptions().position(London).title("Marker in London"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(London));
     }
 
     @Override
@@ -62,6 +60,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         super.onResume();
         app = (DroneApplication) getActivity().getApplication();
         app.setCurrentRunningActivity(TAG);
+        mapView.onResume();
         if (broadcastReceiver == null) {
             Log.d(TAG, ".onResume() - Registering LogBroadcastReceiver");
             broadcastReceiver = new BroadcastReceiver() {
@@ -81,16 +80,32 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.fragment_map, container, false);
 
-        MapView mapView = (MapView) rootView.findViewById(R.id.map);
+        mapView = (MapView) rootView.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
-
-
         mapView.getMapAsync(this);
-//        SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
+
         return rootView;
     }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory(){
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        mapView.onPause();
+    }
+
+
 
     private void processIntent(Intent intent){
         String data = intent.getStringExtra(Constants.INTENT_DATA);
