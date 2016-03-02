@@ -9,8 +9,8 @@
     <string name="deviceID">Device ID</string>
     <string name="updateCreds">Update Credentials</string>
     <string name="connect">Connect</string>
-    <string name="drawer_open">Open?</string>
-    <string name="drawer_close">Closed?</string>
+    <string name="drawer_open">Open Nav Drawer</string>
+    <string name="drawer_close">Close Nav Drawer</string>
 
     <string-array name="page_titles">
         <item>Connection</item>

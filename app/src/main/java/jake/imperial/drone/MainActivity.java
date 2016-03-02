@@ -52,8 +52,12 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
+        mPageTitles = getResources().getStringArray(R.array.page_titles);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -72,36 +76,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
 
-        mPageTitles = getResources().getStringArray(R.array.page_titles);
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         // Set the adapter for the list view
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_item_single, mPageTitles));
-        // Set the list's click listener
+        mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_item_single, mPageTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
-                R.string.drawer_open, R.string.drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,R.string.drawer_open, R.string.drawer_close){
 
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                //getActionBar().setTitle(mTitle);
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                invalidateOptionsMenu();
             }
-
 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-               // getActionBar().setTitle(mDrawerTitle);
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                invalidateOptionsMenu();
             }
-
         };
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -111,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
     }
 
@@ -139,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -151,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        if(mDrawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -176,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+            // Order should match that defined in string-array page_titles
             switch(position){
                 case 0:
                     return ConnectionFragment.newInstance();
@@ -193,24 +191,26 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return mPageTitles.length;
+            //return 5;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Connection";
-                case 1:
-                    return "Video Stream";
-                case 2:
-                    return "Control";
-                case 3:
-                    return "Log";
-                case 4:
-                    return "Map";
-            }
-            return null;
+            return mPageTitles[position];
+//            switch (position) {
+//                case 0:
+//                    return "Connection";
+//                case 1:
+//                    return "Video Stream";
+//                case 2:
+//                    return "Control";
+//                case 3:
+//                    return "Log";
+//                case 4:
+//                    return "Map";
+//            }
+//            return null;
         }
 
     }
