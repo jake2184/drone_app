@@ -22,7 +22,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
@@ -64,8 +63,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
-        } else {
-            // Show rationale and request permission.
         }
 
 
@@ -172,7 +169,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                                     Log.d(TAG, "New drone position is: " + String.valueOf(lat) + "," + String.valueOf(lon) );
 
                                 }catch (JSONException e){
-
+                                    Log.d(TAG, e.toString());
                                 }
                             }
                         }, new Response.ErrorListener() {

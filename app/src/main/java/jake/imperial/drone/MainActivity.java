@@ -1,8 +1,5 @@
 package jake.imperial.drone;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -25,14 +22,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.sql.Connection;
-
 import jake.imperial.drone.fragments.ConnectionFragment;
 import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.fragments.LogFragment;
 import jake.imperial.drone.fragments.MapFragment;
 import jake.imperial.drone.fragments.VideoFragment;
-import jake.imperial.drone.utils.Constants;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -23,7 +23,6 @@ public class DroneApplication extends Application{
     private String authToken;
     private Constants.ConnectionType connectionType;
 
-    private SharedPreferences settings;
 
     // Application state variables
     private boolean connected = false;
@@ -44,10 +43,6 @@ public class DroneApplication extends Application{
     public void onCreate() {
         Log.d(TAG, ".onCreate() entered");
         super.onCreate();
-
-        settings = getSharedPreferences(Constants.SETTINGS, 0);
-
-
     }
 
     // Getters and Setters

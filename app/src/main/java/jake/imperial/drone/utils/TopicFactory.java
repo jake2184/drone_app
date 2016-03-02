@@ -23,9 +23,8 @@ public class TopicFactory {
     }
 
     public static String getTextMessage(String text) {
-        String messageData = "{\"d\":{" +
+        return "{\"d\":{" +
                 "\"text\":\"" + text + "\"" +
                 " } }";
-        return messageData;
     }
 }

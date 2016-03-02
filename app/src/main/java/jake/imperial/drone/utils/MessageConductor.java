@@ -9,15 +9,8 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import jake.imperial.drone.fragments.ConnectionFragment;
 import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.DroneApplication;
-import jake.imperial.drone.fragments.LogFragment;
-import jake.imperial.drone.fragments.MapFragment;
-import jake.imperial.drone.fragments.VideoFragment;
 
 /**
  * Steer incoming MQTT messages to the proper activities based on their content.
