@@ -24,7 +24,7 @@ public class TopicFactory {
 
     public static String getTextMessage(String text) {
         String messageData = "{\"d\":{" +
-                "\"text\":\"" + text.toString() + "\"" +
+                "\"text\":\"" + text + "\"" +
                 " } }";
         return messageData;
     }

@@ -27,8 +27,8 @@ import jake.imperial.drone.utils.MqttHandler;
 
 public class ConnectionFragment extends Fragment {
     private final static String TAG = ConnectionFragment.class.getName();
-    protected DroneApplication app;
-    protected BroadcastReceiver broadcastReceiver;
+    private DroneApplication app;
+    private BroadcastReceiver broadcastReceiver;
 
 
     public ConnectionFragment() {
@@ -94,7 +94,7 @@ public class ConnectionFragment extends Fragment {
         return rootView;
     }
 
-    public void EditSettings(View rootView){
+    private void EditSettings(View rootView){
         String domain = ((EditText) rootView.findViewById(R.id.domain)).getText().toString();
         String organisation = ((EditText)rootView.findViewById(R.id.organisation)).getText().toString();
         String auth_token = ((EditText)rootView.findViewById(R.id.auth_token)).getText().toString();

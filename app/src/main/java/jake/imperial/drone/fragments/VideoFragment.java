@@ -25,8 +25,8 @@ import jake.imperial.drone.utils.Constants;
 
 public class VideoFragment extends Fragment {
     private static final String TAG = VideoFragment.class.getName();
-    protected DroneApplication app;
-    protected BroadcastReceiver broadcastReceiver;
+    private DroneApplication app;
+    private BroadcastReceiver broadcastReceiver;
 
     private Handler mHandler;
     private int mInterval = 10000;
@@ -89,7 +89,7 @@ public class VideoFragment extends Fragment {
         stopRepeatingTask();
     }
 
-    Runnable updateView = new Runnable() {
+    private Runnable updateView = new Runnable() {
         @Override
         public void run() {
             if(app != null) {
@@ -111,11 +111,11 @@ public class VideoFragment extends Fragment {
         }
     };
 
-    void startRepeatingTask() {
+    private void startRepeatingTask() {
         updateView.run();
     }
 
-    void stopRepeatingTask() {
+    private void stopRepeatingTask() {
         mHandler.removeCallbacks(updateView);
     }
 

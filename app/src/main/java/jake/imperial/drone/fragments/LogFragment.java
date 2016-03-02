@@ -22,8 +22,8 @@ import jake.imperial.drone.utils.Constants;
 
 public class LogFragment extends ListFragment {
     private static final String TAG = LogFragment.class.getName();
-    protected DroneApplication app;
-    protected BroadcastReceiver broadcastReceiver;
+    private DroneApplication app;
+    private BroadcastReceiver broadcastReceiver;
 
     private ArrayAdapter<String> listAdapter;
 

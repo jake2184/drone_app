@@ -24,8 +24,8 @@ import jake.imperial.drone.utils.TopicFactory;
 
 public class ControlFragment extends Fragment {
     private static final String TAG = ControlFragment.class.getName();
-    protected DroneApplication app;
-    protected BroadcastReceiver broadcastReceiver;
+    private DroneApplication app;
+    private BroadcastReceiver broadcastReceiver;
 
     public ControlFragment() {
     }

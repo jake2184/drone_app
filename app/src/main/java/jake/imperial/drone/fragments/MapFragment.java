@@ -34,14 +34,12 @@ import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
 
-/**
- * Created by root on 29/02/16.
- */
+
 public class MapFragment extends Fragment implements OnMapReadyCallback{
     private static final String TAG = MapFragment.class.getName();
-    protected DroneApplication app;
-    protected BroadcastReceiver broadcastReceiver;
-    protected MapView mapView;
+    private DroneApplication app;
+    private BroadcastReceiver broadcastReceiver;
+    private MapView mapView;
 
     private int mInterval = 5000;
     private Handler mHandler;
@@ -59,7 +57,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -154,7 +151,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         mapView.onPause();
     }
 
-    Runnable updateDronePosition = new Runnable() {
+    private Runnable updateDronePosition = new Runnable() {
         @Override
         public void run() {
             if(app != null){
@@ -192,11 +189,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         }
     };
 
-    void startDronePositionUpdate() {
+    private void startDronePositionUpdate() {
         updateDronePosition.run();
     }
 
-    void stopDronePositionUpdate() {
+    private void stopDronePositionUpdate() {
         mHandler.removeCallbacks(updateDronePosition);
     }
 
