@@ -48,14 +48,15 @@ public class LogFragment extends ListFragment {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    Log.d(TAG, ".onReceive() - Received intent for logBroadcastReceiver");
+                    Log.d(TAG, ".onReceive() - Received intent for LogBroadcastReceiver");
                     processIntent(intent);
                 }
             };
         }
 
-        getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
-                new IntentFilter(Constants.APP_ID + Constants.INTENT_LOG));
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        intentFilter.addAction(Constants.APP_ID + "." + Constants.LOG_EVENT);
+        getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
     }
 
     @Override
@@ -73,9 +74,9 @@ public class LogFragment extends ListFragment {
             listAdapter.notifyDataSetInvalidated();
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
-                    .setTitle("Bing")
+                    .setTitle("Alert:")
                     .setMessage(message)
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                         }
                     }).show();

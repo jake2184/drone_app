@@ -45,6 +45,7 @@ public class Constants {
     public final static String TEXT_EVENT = "text";
     public final static String ALERT_EVENT = "alert";
     public final static String UNREAD_EVENT = "unread";
+    public final static String LOG_EVENT = "log";
     public final static String STATUS_EVENT = "status";
 
     public final static String CONNECTIVITY_MESSAGE = "connectivityMessage";

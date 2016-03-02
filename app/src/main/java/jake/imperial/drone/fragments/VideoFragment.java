@@ -45,22 +45,24 @@ public class VideoFragment extends Fragment {
         Log.d(TAG, ".onResume() entered()");
         super.onResume();
         app = (DroneApplication) getActivity().getApplication();
-        app.setCurrentRunningActivity(TAG);
+        //app.setCurrentRunningActivity(TAG);
 
         if (broadcastReceiver == null) {
-            Log.d(TAG, ".onResume() - Registering LogBroadcastReceiver");
+            Log.d(TAG, ".onResume() - Registering VideoBroadcastReceiver");
             broadcastReceiver = new BroadcastReceiver() {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    Log.d(TAG, ".onReceive() - Received intent for videoBroadcastReceiver");
-                    processIntent(intent);
+                    if(app.getCurrentRunningActivity().equals(TAG)) {
+                        Log.d(TAG, ".onReceive() - Received intent for VideoBroadcastReceiver");
+                        processIntent(intent);
+                    }
                 }
             };
         }
 
-        getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
-                new IntentFilter(Constants.APP_ID + Constants.INTENT_CONTROL));
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
 
         domain = app.getDomain();
         String url = "http://"+domain+"/getLatestImage";
@@ -79,7 +81,7 @@ public class VideoFragment extends Fragment {
         imageView = (ImageView) rootView.findViewById(R.id.imageview);
         mHandler = new Handler();
 
-        startRepeatingTask();
+        //startRepeatingTask();
         return rootView;
     }
 
@@ -122,12 +124,10 @@ public class VideoFragment extends Fragment {
     private void processIntent(Intent intent){
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
-        if (data.equals(Constants.TEXT_EVENT)) {
-            // Log them somehow?
-        } else if (data.equals(Constants.ALERT_EVENT)) {
+        if (data.equals(Constants.ALERT_EVENT)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
-                    .setTitle("Alert")
+                    .setTitle("Alert:")
                     .setMessage(message)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {

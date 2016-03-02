@@ -46,13 +46,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private RequestQueue requestQueue;
 
     private Marker droneMarker;
+    private GoogleMap mMap;
 
     public static MapFragment newInstance() {
         return new MapFragment();
     }
-
-
-    private GoogleMap mMap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,18 +96,19 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         app.setCurrentRunningActivity(TAG);
         mapView.onResume();
         if (broadcastReceiver == null) {
-            Log.d(TAG, ".onResume() - Registering LogBroadcastReceiver");
+            Log.d(TAG, ".onResume() - Registering MapBroadcastReceiver");
             broadcastReceiver = new BroadcastReceiver() {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    Log.d(TAG, ".onReceive() - Received intent for logBroadcastReceiver");
+                    Log.d(TAG, ".onReceive() - Received intent for MapBroadcastReceiver");
                     processIntent(intent);
                 }
             };
         }
-        getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
-                new IntentFilter(Constants.APP_ID + Constants.INTENT_MAP));
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        intentFilter.addAction(Constants.APP_ID + "." + Constants.LOG_EVENT);
+        getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
     }
 
     @Override
@@ -147,6 +146,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
 
     @Override
     public void onPause(){
+        //should unregister broadcast receiver
         super.onPause();
         mapView.onPause();
     }
@@ -200,14 +200,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private void processIntent(Intent intent){
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
-        if (data.equals(Constants.TEXT_EVENT)) {
-            // Log them somehow?
-        } else if (data.equals(Constants.ALERT_EVENT)) {
+        if (data.equals(Constants.ALERT_EVENT)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
-                    .setTitle("Bing")
+                    .setTitle("Alert:")
                     .setMessage(message)
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                         }
                     }).show();

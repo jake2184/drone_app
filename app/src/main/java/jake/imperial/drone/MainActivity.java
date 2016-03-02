@@ -1,5 +1,8 @@
 package jake.imperial.drone;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +17,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,11 +25,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.sql.Connection;
+
 import jake.imperial.drone.fragments.ConnectionFragment;
 import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.fragments.LogFragment;
 import jake.imperial.drone.fragments.MapFragment;
 import jake.imperial.drone.fragments.VideoFragment;
+import jake.imperial.drone.utils.Constants;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,12 +51,13 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
+    private DroneApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        app = (DroneApplication) getApplication();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -63,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+
+                app.setCurrentRunningActivity(mSectionsPagerAdapter.getPageFragmentName(position));
+            }
+
+        });
+        app.setCurrentRunningActivity(mSectionsPagerAdapter.getPageFragmentName(0));
+        Log.d("SETUP", app.getCurrentRunningActivity());
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
@@ -161,6 +180,23 @@ public class MainActivity extends AppCompatActivity {
     public void setPagerView(int num){
         mViewPager.setCurrentItem(num);
     }
+
+    /*
+    private void showAlert(String message){
+        new AlertDialog.Builder(this)
+                .setTitle("Alert:")
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {}
+                }).show();
+
+    }
+    */
+
+
+
+
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -211,6 +247,24 @@ public class MainActivity extends AppCompatActivity {
 //                    return "Map";
 //            }
 //            return null;
+        }
+
+        public String getPageFragmentName(int position){
+            switch(position){
+                case 0:
+                    return ConnectionFragment.class.getName();
+                case 1:
+                    return VideoFragment.class.getName();
+                case 2:
+                    return ControlFragment.class.getName();
+                case 3:
+                    return LogFragment.class.getName();
+                case 4:
+                    return MapFragment.class.getName();
+
+
+            }
+            return null;
         }
 
     }

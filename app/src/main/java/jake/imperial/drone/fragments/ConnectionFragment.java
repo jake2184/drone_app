@@ -43,22 +43,21 @@ public class ConnectionFragment extends Fragment {
         Log.d(TAG, ".onResume() entered");
         super.onResume();
         app = (DroneApplication) getActivity().getApplication();
-        app.setCurrentRunningActivity(TAG);
+        //app.setCurrentRunningActivity(TAG);
 
         if (broadcastReceiver == null) {
-            Log.d(TAG, ".onResume() - Registering LogBroadcastReceiver");
+            Log.d(TAG, ".onResume() - Registering ConnectionBroadcastReceiver");
             broadcastReceiver = new BroadcastReceiver() {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    Log.d(TAG, ".onReceive() - Received intent for connectionBroadcastReceiver");
+                    Log.d(TAG, ".onReceive() - Received intent for ConnectionBroadcastReceiver");
                     processIntent(intent);
                 }
             };
         }
-
-        getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
-                new IntentFilter(Constants.APP_ID + Constants.INTENT_CONTROL));
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
 
     }
 
@@ -179,17 +178,17 @@ public class ConnectionFragment extends Fragment {
     private void processIntent(Intent intent){
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
-        if (data.equals(Constants.TEXT_EVENT)) {
-            // Log them somehow?
-        } else if (data.equals(Constants.ALERT_EVENT)) {
+        if (data.equals(Constants.ALERT_EVENT)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
-                    .setTitle("Bing")
+                    .setTitle("Alert:")
                     .setMessage(message)
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                         }
                     }).show();
+        } else {
+            Log.d(TAG, data);
         }
 
     }
