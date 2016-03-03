@@ -1,6 +1,8 @@
 
 package jake.imperial.drone.utils;
 
+import android.content.pm.FeatureInfo;
+
 public class Constants {
 
     public final static String APP_ID = "jake.imperial.drone";
@@ -66,6 +68,8 @@ public class Constants {
     public final static String INTENT_DATA_PUBLISHED = "publish";
     public final static String INTENT_DATA_RECEIVED = "receive";
     public final static String INTENT_DATA_MESSAGE = "message";
+    public final static String INTENT_DATA_LOC_LAT = "lat";
+    public final static String INTENT_DATA_LOC_LON = "lon";
 
     public final static int ERROR_BROKER_UNAVAILABLE = 3;
 

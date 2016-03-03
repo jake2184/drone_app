@@ -78,9 +78,13 @@ public class MessageConductor {
             if (runningActivity != null) {
                 Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
                 String messageText = d.getString("text");
+                JSONObject location = d.getJSONObject("location");
                 if (messageText != null) {
                     logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
                     logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
+                    logIntent.putExtra(Constants.INTENT_DATA_LOC_LAT, location.getDouble("lat"));
+                    logIntent.putExtra(Constants.INTENT_DATA_LOC_LON, location.getDouble("lon"));
+                    Log.d(TAG, String.valueOf(location.toString()));
                     context.sendBroadcast(logIntent);
                 }
             }

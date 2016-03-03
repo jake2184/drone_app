@@ -206,6 +206,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                         public void onClick(DialogInterface dialog, int whichButton) {
                         }
                     }).show();
+        } else if(data.equals(Constants.LOG_EVENT)){
+            String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
+            double lat = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LAT, 0.0);
+            double lon = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LON, 0.0);
+            Log.d(TAG, message+ " "+String.valueOf(lat) + " " + String.valueOf(lon));
+            mMap.addMarker(new MarkerOptions().title(message).position(new LatLng(lat,lon))
+
+            );
         }
 
     }

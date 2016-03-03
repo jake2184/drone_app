@@ -70,7 +70,7 @@ public class LogFragment extends ListFragment {
         assert data != null;
         if (data.equals(Constants.TEXT_EVENT)) {
             listAdapter.notifyDataSetInvalidated();
-        } else if (data.equals(Constants.ALERT_EVENT)) {
+        } else if (data.equals(Constants.ALERT_EVENT) && app.getCurrentRunningActivity().equals(TAG)) {
             listAdapter.notifyDataSetInvalidated();
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())

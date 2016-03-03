@@ -132,6 +132,7 @@ public class ControlFragment extends Fragment {
     }
 
     private void processIntent(Intent intent) {
+        if(!app.getCurrentRunningActivity().equals(TAG)){return;}
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
         if (data.equals(Constants.ALERT_EVENT)) {
