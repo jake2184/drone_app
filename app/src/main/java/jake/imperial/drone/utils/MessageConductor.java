@@ -6,8 +6,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.sql.Timestamp;
+import java.util.Date;
 
 import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.DroneApplication;
@@ -70,15 +76,21 @@ public class MessageConductor {
                 context.sendBroadcast(actionIntent);
             }
         }  else if (topic.contains(Constants.LOG_EVENT)) {
-            app.setUnreadCount(app.getUnreadCount()+1);
+            app.setUnreadCount(app.getUnreadCount() + 1);
 
-            app.getMessageLog().add(d.getString("text"));
+            String messageText = d.getString("text");
+            JSONObject location = d.getJSONObject("location");
+
+            app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + messageText);
+            app.getMarkerList().add(new MarkerOptions()
+                    .position(new LatLng(location.getDouble("lat"), location.getDouble("lon")))
+                    .title(messageText)
+                    //.icon // somehow select depending on thingymagig
+                    );
 
             String runningActivity = app.getCurrentRunningActivity();
             if (runningActivity != null) {
                 Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
-                String messageText = d.getString("text");
-                JSONObject location = d.getJSONObject("location");
                 if (messageText != null) {
                     logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
                     logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
@@ -94,7 +106,6 @@ public class MessageConductor {
         } else if (topic.contains(Constants.ALERT_EVENT)) {
 
             app.setUnreadCount(app.getUnreadCount() + 1);
-            app.getMessageLog().add(d.getString("text"));
 
             String runningActivity = app.getCurrentRunningActivity();
             if (runningActivity != null) {

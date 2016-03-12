@@ -29,6 +29,8 @@ import com.google.android.gms.maps.model.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
@@ -80,6 +82,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             .title("Drone")
             .icon(BitmapDescriptorFactory.fromResource(R.drawable.drone_icon2))
         );
+
+        ArrayList <MarkerOptions> markerList = app.getMarkerList();
+
+        for(int i=0; i<markerList.size(); i++){
+            mMap.addMarker(markerList.get(i));
+        }
 
         startDronePositionUpdate();
 
@@ -197,7 +205,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private void processIntent(Intent intent){
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
-        if (data.equals(Constants.ALERT_EVENT)) {
+        if (data.equals(Constants.ALERT_EVENT) && app.getCurrentRunningActivity().equals(TAG)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
                     .setTitle("Alert:")

@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.ArrayList;
 
 import jake.imperial.drone.utils.Constants;
@@ -34,6 +36,7 @@ public class DroneApplication extends Application{
 
     // Message log for log activity
     private ArrayList<String> messageLog = new ArrayList<>();
+    private ArrayList<MarkerOptions> markerList = new ArrayList<>();
 
 
     /**
@@ -132,6 +135,10 @@ public class DroneApplication extends Application{
 
     public ArrayList<String> getMessageLog() {
         return messageLog;
+    }
+
+    public ArrayList<MarkerOptions> getMarkerList(){
+        return markerList;
     }
 
 }
