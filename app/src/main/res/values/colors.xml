@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="control_blue">#20209F</color>
     <color name="transparent">#80000000</color>
+    <color name="data_source_button_selected">#0000FF</color>
+    <color name="data_source_button_deselected">#404040</color>
 </resources>

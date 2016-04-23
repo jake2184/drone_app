@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+    xmlns:androidplot="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/sensor_source">
+        <RadioButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/load_saved_data"
             android:text="@string/load_saved_data"/>
-        <Button
+        <RadioButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/mqtt_live_data"
             android:text="@string/mqtt_live_data"/>
-    </LinearLayout>
+    </RadioGroup>
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:layout_height="match_parent"
+    <com.androidplot.xy.XYPlot
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/lineChart"
+        android:id="@+id/linePlot"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        androidplot.renderMode="use_background_thread"
         />
 
 </LinearLayout>
