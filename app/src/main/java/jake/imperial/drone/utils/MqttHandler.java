@@ -97,7 +97,8 @@ public class MqttHandler implements MqttCallback {
                 client.connect(options, context, listener);
                 return true;
             } catch (MqttException e) {
-                Log.e(TAG, "Exception caught while attempting to connect to server", e.getCause());
+                Log.e(TAG, "Exception caught while attempting to connect to server ", e.getCause());
+                Log.e(TAG, e.getMessage() + " " + options + " " + clientId);
                 if (e.getReasonCode() == (Constants.ERROR_BROKER_UNAVAILABLE)) {
                     // error while connecting to the broker - send an intent to inform the user
                     Intent actionIntent = new Intent(Constants.ACTION_INTENT_CONNECTIVITY_MESSAGE_RECEIVED);

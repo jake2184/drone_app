@@ -195,7 +195,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     };
 
     private void startDronePositionUpdate() {
-        updateDronePosition.run();
+        //updateDronePosition.run();
     }
 
     private void stopDronePositionUpdate() {

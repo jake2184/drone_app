@@ -8,6 +8,8 @@ import android.util.Log;
 
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import jake.imperial.drone.utils.Constants;
@@ -37,6 +39,8 @@ public class DroneApplication extends Application{
     // Message log for log activity
     private ArrayList<String> messageLog = new ArrayList<>();
     private ArrayList<MarkerOptions> markerList = new ArrayList<>();
+
+    private JSONObject sensorData = new JSONObject();
 
 
     /**
@@ -125,6 +129,8 @@ public class DroneApplication extends Application{
         this.unreadCount = unreadCount;
     }
 
+
+
     public int getColor() {
         return color;
     }
@@ -139,6 +145,14 @@ public class DroneApplication extends Application{
 
     public ArrayList<MarkerOptions> getMarkerList(){
         return markerList;
+    }
+
+    public JSONObject getSensorData() {
+        return sensorData;
+    }
+
+    public void setSensorData(JSONObject sensorData) {
+        this.sensorData = sensorData;
     }
 
 }

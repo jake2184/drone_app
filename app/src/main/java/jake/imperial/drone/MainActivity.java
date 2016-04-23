@@ -24,6 +24,7 @@ import android.widget.ListView;
 
 import jake.imperial.drone.fragments.ConnectionFragment;
 import jake.imperial.drone.fragments.ControlFragment;
+import jake.imperial.drone.fragments.GraphFragment;
 import jake.imperial.drone.fragments.LogFragment;
 import jake.imperial.drone.fragments.MapFragment;
 import jake.imperial.drone.fragments.VideoFragment;
@@ -215,6 +216,8 @@ public class MainActivity extends AppCompatActivity {
                     return LogFragment.newInstance();
                 case 4:
                     return MapFragment.newInstance();
+                case 5:
+                    return GraphFragment.newInstance();
             }
             return null;
         }

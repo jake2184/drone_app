@@ -12,11 +12,15 @@
     <string name="drawer_open">Open Nav Drawer</string>
     <string name="drawer_close">Close Nav Drawer</string>
 
+    <string name="mqtt_live_data">MQTT Live Data</string>
+    <string name="load_saved_data">Load Saved Data</string>
+
     <string-array name="page_titles">
         <item>Connection</item>
         <item>Video</item>
         <item>Control</item>
         <item>Log</item>
         <item>Map</item>
+        <item>Graph</item>
     </string-array>
 </resources>
