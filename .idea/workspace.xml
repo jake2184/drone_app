@@ -11,16 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99cd8db1-94f0-40a8-9ffa-8f66b9a42e20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/androidplot_core_0_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Jake.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Jake.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/control_pad_button.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/control_pad_button.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
     </list>
     <ignored path="drone_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +55,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="docComment;class#MqttHandler#0" expanded="false" />
                 <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
                 <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
@@ -112,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
+              <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -122,12 +116,14 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="202" selection-end-column="5" />
+              <caret line="197" column="8" selection-start-line="197" selection-start-column="8" selection-end-line="197" selection-end-column="8" />
               <folding>
                 <element signature="method#onDestroyView#0;class#MapFragment#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
                 <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
                 <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
+                <element signature="e#6465#6466#0" expanded="true" />
+                <element signature="e#6506#6507#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,170 +132,16 @@
       <file leaf-file-name="GraphFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49239767">
-              <caret line="170" column="65" selection-start-line="170" selection-start-column="65" selection-end-line="170" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.8978186">
+              <caret line="242" column="54" selection-start-line="242" selection-start-column="54" selection-end-line="242" selection-end-column="54" />
               <folding>
                 <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-                <element signature="e#5426#5427#0" expanded="true" />
-                <element signature="e#5469#5470#0" expanded="true" />
-                <element signature="e#6229#9290#0" expanded="true" />
-                <element signature="e#6809#8847#0" expanded="true" />
-                <element signature="e#8846#8847#0" expanded="true" />
-                <element signature="e#8849#9100#0" expanded="true" />
-                <element signature="e#9099#9100#0" expanded="true" />
-                <element signature="e#9289#9290#0" expanded="true" />
-                <element signature="e#9337#9338#0" expanded="true" />
-                <element signature="e#9369#9370#0" expanded="true" />
-                <element signature="e#9413#9414#0" expanded="true" />
-                <element signature="e#9465#9466#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Widget.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/ui/widget/Widget.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="94" column="6" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XYPlot.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/xy/XYPlot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.4827585">
-              <caret line="159" column="35" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="35" />
-              <folding>
-                <element signature="docComment;class#XYPlot#0" expanded="false" />
-                <element signature="method#XYPlot#3;class#XYPlot#0" expanded="false" />
-                <element signature="method#setGridPadding#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#notifyListenersBeforeDraw#0;class#XYPlot#0" expanded="false" />
-                <element signature="e#10513#10574#0" expanded="false" />
-                <element signature="docComment;method#containsPoint#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#containsPoint#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#containsPoint#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#isXValWithinView#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#isPointVisible#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#isValWithinRange#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#calculateMinMaxVals#0;class#XYPlot#0" expanded="false" />
-                <element signature="e#14565#14636#0" expanded="false" />
-                <element signature="docComment;method#updateDomainMinMaxForEdgeModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#updateDomainMinMaxForEdgeModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#updateRangeMinMaxForEdgeModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#ApplyUserMinMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#ApplyUserMinMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#centerOnDomainOrigin#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#centerOnDomainOrigin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#centerOnDomainOrigin#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#centerOnDomainOrigin#1;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#centerOnRangeOrigin#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#centerOnRangeOrigin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#centerOnRangeOrigin#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#centerOnRangeOrigin#1;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#distance#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#distance#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#updateDomainMinMaxForOriginModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#updateRangeMinMaxForOriginModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getTicksPerRangeLabel#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setTicksPerRangeLabel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setTicksPerRangeLabel#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getTicksPerDomainLabel#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setTicksPerDomainLabel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setTicksPerDomainLabel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainStepMode#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainStepValue#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainStep#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeStep#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainLabelWidget#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeLabelWidget#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getRangeValueFormat#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setRangeValueFormat#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeValueFormat#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getDomainValueFormat#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setDomainValueFormat#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainValueFormat#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setDomainBoundaries#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainBoundaries#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setDomainBoundaries#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainBoundaries#1;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setRangeBoundaries#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeBoundaries#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setRangeBoundaries#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeBoundaries#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainUpperBoundaryMode#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setUserMaxX#0;class#XYPlot#0" expanded="false" />
-                <element signature="e#31918#31936#0" expanded="false" />
-                <element signature="docComment;method#setDomainUpperBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainUpperBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainLowerBoundaryMode#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setUserMinX#0;class#XYPlot#0" expanded="false" />
-                <element signature="e#32760#32778#0" expanded="false" />
-                <element signature="docComment;method#setDomainLowerBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainLowerBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeUpperBoundaryMode#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setUserMaxY#0;class#XYPlot#0" expanded="false" />
-                <element signature="e#33630#33648#0" expanded="false" />
-                <element signature="docComment;method#setRangeUpperBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeUpperBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeLowerBoundaryMode#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setUserMinY#0;class#XYPlot#0" expanded="false" />
-                <element signature="e#34467#34485#0" expanded="false" />
-                <element signature="docComment;method#setRangeLowerBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeLowerBoundary#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setUserDomainOrigin#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setUserRangeOrigin#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainFramingModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#getRangeFramingModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeFramingModel#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getCalculatedMinX#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#getCalculatedMinX#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getCalculatedMaxX#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#getCalculatedMaxX#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getCalculatedMinY#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#getCalculatedMinY#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getCalculatedMaxY#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#getCalculatedMaxY#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDrawDomainOriginEnabled#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDrawRangeOriginEnabled#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#addMarker#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#addMarker#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#removeMarker#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#removeMarker#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#removeMarkers#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#removeMarkers#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#removeYMarkers#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#removeYMarkers#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#addMarker#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#addMarker#1;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#removeMarker#1;class#XYPlot#0" expanded="false" />
-                <element signature="method#removeMarker#1;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#removeXMarkers#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#removeXMarkers#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getRangeTopMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setRangeTopMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getRangeTopMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setRangeTopMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getRangeBottomMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setRangeBottomMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeBottomMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getRangeBottomMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setRangeBottomMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setRangeBottomMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getDomainLeftMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setDomainLeftMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainLeftMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getDomainLeftMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setDomainLeftMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainLeftMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getDomainRightMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setDomainRightMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainRightMin#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#getDomainRightMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="docComment;method#setDomainRightMax#0;class#XYPlot#0" expanded="false" />
-                <element signature="method#setDomainRightMax#0;class#XYPlot#0" expanded="false" />
+                <element signature="e#6256#9808#0" expanded="true" />
+                <element signature="e#6836#9365#0" expanded="true" />
+                <element signature="e#9364#9365#0" expanded="true" />
+                <element signature="e#9367#9618#0" expanded="true" />
+                <element signature="e#9617#9618#0" expanded="true" />
+                <element signature="e#9807#9808#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -308,8 +150,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -321,7 +163,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7818182">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
@@ -1917,12 +1759,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_grapg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
@@ -1933,14 +1773,17 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/data_source_button.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1967,72 +1810,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2103,27 +1896,77 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2420,21 +2263,26 @@
       <option name="project" value="LOCAL" />
       <updated>1461414725834</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed library for plotting, to allow better management of a continuous time-based domain.">
+      <created>1461455368566</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1461455368566</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842582" sideWeight="0.47441363" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.47441363" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" x="0" y="0" width="960" height="1040" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" x="0" y="0" width="960" height="1040" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33522084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2442,8 +2290,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37222221" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2455,6 +2302,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2470,7 +2319,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added GraphFragment, and have it downloading sensorData from server and parsing/adding it to Activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GraphFragment, and have it downloading sensorData from server and parsing/adding it to Activity" />
+    <MESSAGE value="Changed library for plotting, to allow better management of a continuous time-based domain." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed library for plotting, to allow better management of a continuous time-based domain." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2479,6 +2329,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2491,53 +2352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1708#1709#0" expanded="false" />
-            <element signature="e#1737#1738#0" expanded="false" />
-            <element signature="e#1781#1782#0" expanded="false" />
-            <element signature="e#1817#1818#0" expanded="false" />
-            <element signature="e#1856#1857#0" expanded="false" />
-            <element signature="e#1891#1892#0" expanded="false" />
-            <element signature="e#1947#1948#0" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2030#2031#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2109#2110#0" expanded="false" />
-            <element signature="e#2149#2150#0" expanded="false" />
-            <element signature="e#2185#2186#0" expanded="false" />
-            <element signature="e#2217#2218#0" expanded="false" />
-            <element signature="e#2267#2268#0" expanded="false" />
-            <element signature="e#2309#2310#0" expanded="false" />
-            <element signature="e#2377#2378#0" expanded="false" />
-            <element signature="e#2419#2420#0" expanded="false" />
-            <element signature="e#2478#2479#0" expanded="false" />
-            <element signature="e#2520#2521#0" expanded="false" />
-            <element signature="e#2556#2557#0" expanded="false" />
-            <element signature="e#2588#2589#0" expanded="false" />
-            <element signature="e#2639#2640#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2717#2718#0" expanded="false" />
-            <element signature="e#2752#2753#0" expanded="false" />
-            <element signature="e#2805#2806#0" expanded="false" />
-            <element signature="e#2853#2854#0" expanded="false" />
-            <element signature="e#2889#2890#0" expanded="false" />
-            <element signature="e#2924#2925#0" expanded="false" />
-            <element signature="e#2977#2978#0" expanded="false" />
-            <element signature="e#3025#3026#0" expanded="false" />
-            <element signature="e#3060#3061#0" expanded="false" />
-            <element signature="e#3094#3095#0" expanded="false" />
-            <element signature="e#3145#3146#0" expanded="false" />
-            <element signature="e#3191#3192#0" expanded="false" />
-            <element signature="e#3222#3223#0" expanded="false" />
-            <element signature="e#3250#3251#0" expanded="false" />
-            <element signature="e#3289#3290#0" expanded="false" />
-            <element signature="e#3323#3324#0" expanded="false" />
-            <element signature="e#3371#3372#0" expanded="false" />
-            <element signature="e#3404#3405#0" expanded="false" />
-            <element signature="e#3458#3459#0" expanded="false" />
-            <element signature="e#3491#3492#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2546,7 +2360,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#MqttHandler#0" expanded="false" />
             <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
@@ -2598,6 +2411,8 @@
             <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
             <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
             <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6506#6507#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2616,18 +2431,12 @@
           <caret line="209" column="22" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
           <folding>
             <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-            <element signature="e#5426#5427#0" expanded="true" />
-            <element signature="e#5469#5470#0" expanded="true" />
-            <element signature="e#6229#9290#0" expanded="true" />
-            <element signature="e#6809#8847#0" expanded="true" />
-            <element signature="e#8846#8847#0" expanded="true" />
-            <element signature="e#8849#9100#0" expanded="true" />
-            <element signature="e#9099#9100#0" expanded="true" />
-            <element signature="e#9289#9290#0" expanded="true" />
-            <element signature="e#9337#9338#0" expanded="true" />
-            <element signature="e#9369#9370#0" expanded="true" />
-            <element signature="e#9413#9414#0" expanded="true" />
-            <element signature="e#9465#9466#0" expanded="true" />
+            <element signature="e#6256#9808#0" expanded="true" />
+            <element signature="e#6836#9365#0" expanded="true" />
+            <element signature="e#9364#9365#0" expanded="true" />
+            <element signature="e#9367#9618#0" expanded="true" />
+            <element signature="e#9617#9618#0" expanded="true" />
+            <element signature="e#9807#9808#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2663,53 +2472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1708#1709#0" expanded="false" />
-            <element signature="e#1737#1738#0" expanded="false" />
-            <element signature="e#1781#1782#0" expanded="false" />
-            <element signature="e#1817#1818#0" expanded="false" />
-            <element signature="e#1856#1857#0" expanded="false" />
-            <element signature="e#1891#1892#0" expanded="false" />
-            <element signature="e#1947#1948#0" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2030#2031#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2109#2110#0" expanded="false" />
-            <element signature="e#2149#2150#0" expanded="false" />
-            <element signature="e#2185#2186#0" expanded="false" />
-            <element signature="e#2217#2218#0" expanded="false" />
-            <element signature="e#2267#2268#0" expanded="false" />
-            <element signature="e#2309#2310#0" expanded="false" />
-            <element signature="e#2377#2378#0" expanded="false" />
-            <element signature="e#2419#2420#0" expanded="false" />
-            <element signature="e#2478#2479#0" expanded="false" />
-            <element signature="e#2520#2521#0" expanded="false" />
-            <element signature="e#2556#2557#0" expanded="false" />
-            <element signature="e#2588#2589#0" expanded="false" />
-            <element signature="e#2639#2640#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2717#2718#0" expanded="false" />
-            <element signature="e#2752#2753#0" expanded="false" />
-            <element signature="e#2805#2806#0" expanded="false" />
-            <element signature="e#2853#2854#0" expanded="false" />
-            <element signature="e#2889#2890#0" expanded="false" />
-            <element signature="e#2924#2925#0" expanded="false" />
-            <element signature="e#2977#2978#0" expanded="false" />
-            <element signature="e#3025#3026#0" expanded="false" />
-            <element signature="e#3060#3061#0" expanded="false" />
-            <element signature="e#3094#3095#0" expanded="false" />
-            <element signature="e#3145#3146#0" expanded="false" />
-            <element signature="e#3191#3192#0" expanded="false" />
-            <element signature="e#3222#3223#0" expanded="false" />
-            <element signature="e#3250#3251#0" expanded="false" />
-            <element signature="e#3289#3290#0" expanded="false" />
-            <element signature="e#3323#3324#0" expanded="false" />
-            <element signature="e#3371#3372#0" expanded="false" />
-            <element signature="e#3404#3405#0" expanded="false" />
-            <element signature="e#3458#3459#0" expanded="false" />
-            <element signature="e#3491#3492#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2718,7 +2480,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#MqttHandler#0" expanded="false" />
             <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
@@ -2770,6 +2531,8 @@
             <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
             <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
             <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6506#6507#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2788,18 +2551,12 @@
           <caret line="209" column="22" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
           <folding>
             <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-            <element signature="e#5426#5427#0" expanded="true" />
-            <element signature="e#5469#5470#0" expanded="true" />
-            <element signature="e#6229#9290#0" expanded="true" />
-            <element signature="e#6809#8847#0" expanded="true" />
-            <element signature="e#8846#8847#0" expanded="true" />
-            <element signature="e#8849#9100#0" expanded="true" />
-            <element signature="e#9099#9100#0" expanded="true" />
-            <element signature="e#9289#9290#0" expanded="true" />
-            <element signature="e#9337#9338#0" expanded="true" />
-            <element signature="e#9369#9370#0" expanded="true" />
-            <element signature="e#9413#9414#0" expanded="true" />
-            <element signature="e#9465#9466#0" expanded="true" />
+            <element signature="e#6256#9808#0" expanded="true" />
+            <element signature="e#6836#9365#0" expanded="true" />
+            <element signature="e#9364#9365#0" expanded="true" />
+            <element signature="e#9367#9618#0" expanded="true" />
+            <element signature="e#9617#9618#0" expanded="true" />
+            <element signature="e#9807#9808#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2873,7 +2630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2906,7 +2662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08047337">
           <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2949,53 +2704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1708#1709#0" expanded="false" />
-            <element signature="e#1737#1738#0" expanded="false" />
-            <element signature="e#1781#1782#0" expanded="false" />
-            <element signature="e#1817#1818#0" expanded="false" />
-            <element signature="e#1856#1857#0" expanded="false" />
-            <element signature="e#1891#1892#0" expanded="false" />
-            <element signature="e#1947#1948#0" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2030#2031#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2109#2110#0" expanded="false" />
-            <element signature="e#2149#2150#0" expanded="false" />
-            <element signature="e#2185#2186#0" expanded="false" />
-            <element signature="e#2217#2218#0" expanded="false" />
-            <element signature="e#2267#2268#0" expanded="false" />
-            <element signature="e#2309#2310#0" expanded="false" />
-            <element signature="e#2377#2378#0" expanded="false" />
-            <element signature="e#2419#2420#0" expanded="false" />
-            <element signature="e#2478#2479#0" expanded="false" />
-            <element signature="e#2520#2521#0" expanded="false" />
-            <element signature="e#2556#2557#0" expanded="false" />
-            <element signature="e#2588#2589#0" expanded="false" />
-            <element signature="e#2639#2640#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2717#2718#0" expanded="false" />
-            <element signature="e#2752#2753#0" expanded="false" />
-            <element signature="e#2805#2806#0" expanded="false" />
-            <element signature="e#2853#2854#0" expanded="false" />
-            <element signature="e#2889#2890#0" expanded="false" />
-            <element signature="e#2924#2925#0" expanded="false" />
-            <element signature="e#2977#2978#0" expanded="false" />
-            <element signature="e#3025#3026#0" expanded="false" />
-            <element signature="e#3060#3061#0" expanded="false" />
-            <element signature="e#3094#3095#0" expanded="false" />
-            <element signature="e#3145#3146#0" expanded="false" />
-            <element signature="e#3191#3192#0" expanded="false" />
-            <element signature="e#3222#3223#0" expanded="false" />
-            <element signature="e#3250#3251#0" expanded="false" />
-            <element signature="e#3289#3290#0" expanded="false" />
-            <element signature="e#3323#3324#0" expanded="false" />
-            <element signature="e#3371#3372#0" expanded="false" />
-            <element signature="e#3404#3405#0" expanded="false" />
-            <element signature="e#3458#3459#0" expanded="false" />
-            <element signature="e#3491#3492#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3004,7 +2712,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#MqttHandler#0" expanded="false" />
             <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
@@ -3043,10 +2750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.84093565">
           <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
-          <folding>
-            <element signature="e#4707#4708#0" expanded="false" />
-            <element signature="e#4737#4738#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3063,7 +2766,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7818182">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
@@ -3077,14 +2780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/xy/XYGraphWidget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33274338">
@@ -3093,30 +2788,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="202" selection-end-column="5" />
-          <folding>
-            <element signature="method#onDestroyView#0;class#MapFragment#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
-            <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
-            <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="1" selection-start-line="18" selection-start-column="5" selection-end-line="19" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/xy/XYPlot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.4827585">
+        <state vertical-scroll-proportion="0.0">
           <caret line="159" column="35" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="35" />
           <folding>
             <element signature="docComment;class#XYPlot#0" expanded="false" />
@@ -3250,40 +2924,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
+          <caret line="19" column="1" selection-start-line="18" selection-start-column="5" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/ui/widget/Widget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="94" column="6" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.4098737">
+          <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="197" column="8" selection-start-line="197" selection-start-column="8" selection-end-line="197" selection-end-column="8" />
+          <folding>
+            <element signature="method#onDestroyView#0;class#MapFragment#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
+            <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
+            <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6506#6507#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49239767">
-          <caret line="170" column="65" selection-start-line="170" selection-start-column="65" selection-end-line="170" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.8978186">
+          <caret line="242" column="54" selection-start-line="242" selection-start-column="54" selection-end-line="242" selection-end-column="54" />
           <folding>
             <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-            <element signature="e#5426#5427#0" expanded="true" />
-            <element signature="e#5469#5470#0" expanded="true" />
-            <element signature="e#6229#9290#0" expanded="true" />
-            <element signature="e#6809#8847#0" expanded="true" />
-            <element signature="e#8846#8847#0" expanded="true" />
-            <element signature="e#8849#9100#0" expanded="true" />
-            <element signature="e#9099#9100#0" expanded="true" />
-            <element signature="e#9289#9290#0" expanded="true" />
-            <element signature="e#9337#9338#0" expanded="true" />
-            <element signature="e#9369#9370#0" expanded="true" />
-            <element signature="e#9413#9414#0" expanded="true" />
-            <element signature="e#9465#9466#0" expanded="true" />
+            <element signature="e#6256#9808#0" expanded="true" />
+            <element signature="e#6836#9365#0" expanded="true" />
+            <element signature="e#9364#9365#0" expanded="true" />
+            <element signature="e#9367#9618#0" expanded="true" />
+            <element signature="e#9617#9618#0" expanded="true" />
+            <element signature="e#9807#9808#0" expanded="true" />
           </folding>
         </state>
       </provider>

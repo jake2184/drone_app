@@ -42,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
@@ -207,24 +208,36 @@ public class GraphFragment extends Fragment {
 
                                     for(int i=0; i<response.length(); i++){
                                         JSONObject item = response.getJSONObject(i);
-                                        String type = item.getString("readingType");
 
-                                        SimpleXYSeries series = data.get(type);
-                                        if(series != null) {
-                                            series.addLast(item.getLong("time"), item.getDouble("readingValue"));
-                                        } else {
-                                            series = new SimpleXYSeries(type);
-                                            series.addLast(item.getLong("time"), item.getDouble("readingValue"));
+                                        // Item of format {time:111,temp:43,alt:47}
+                                        long time = item.getLong("time");
+                                        JSONArray position = item.getJSONArray("location");
+                                        item.remove("time");
+                                        item.remove("location");
 
-                                            LineAndPointFormatter formatter1 = new LineAndPointFormatter(Color.rgb(0, 0, 0), null, null, null);
-                                            formatter1.getLinePaint().setStrokeJoin(Paint.Join.ROUND);
-                                            formatter1.getLinePaint().setStrokeWidth(10);
+                                        Iterator<String> iter = item.keys();
+                                        while(iter.hasNext()) {
+
+                                            String type = iter.next();
+                                            Double reading = item.getDouble(type);
+
+                                            SimpleXYSeries series = data.get(type);
+                                            if (series != null) {
+                                                series.addLast(time, reading);
+                                            } else {
+                                                series = new SimpleXYSeries(type);
+                                                series.addLast(time, reading);
+
+                                                LineAndPointFormatter formatter1 = new LineAndPointFormatter(Color.rgb(0, 0, 0), null, null, null);
+                                                formatter1.getLinePaint().setStrokeJoin(Paint.Join.ROUND);
+                                                formatter1.getLinePaint().setStrokeWidth(10);
 
 
-                                            linePlot.addSeries(series,formatter1);
-                                            data.put(type, series);
+                                                linePlot.addSeries(series, formatter1);
+                                                data.put(type, series);
+                                            }
                                         }
-                                        Log.d(TAG, item.getLong("time") + " " + item.getDouble("readingValue"));
+
 
                                     }
                                     linePlot.redraw();
