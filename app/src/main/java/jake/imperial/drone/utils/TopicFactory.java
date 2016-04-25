@@ -10,8 +10,9 @@ public class TopicFactory {
      * @param event The event to create a topic string for.
      * @return The event topic for the specified event string.
      */
-    public static String getEventTopic(String event) {
-        return Constants.EVENT_TOPIC + event + Constants.FORMAT_TOPIC;
+    public static String getEventTopic(String type, String id, String event) {
+        //return Constants.EVENT_TOPIC + event + Constants.FORMAT_TOPIC;
+        return "iot-2/type/" + type + "/id/" + id + "/evt/" + event + Constants.FORMAT_TOPIC;
     }
 
     /**

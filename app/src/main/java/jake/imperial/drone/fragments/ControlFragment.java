@@ -128,7 +128,7 @@ public class ControlFragment extends Fragment {
     private void generateCommand(String button){
         String messageData = TopicFactory.getTextMessage(button);
         MqttHandler mqtt = MqttHandler.getInstance(getActivity().getApplicationContext());
-        mqtt.publish(TopicFactory.getEventTopic(Constants.TEXT_EVENT), messageData, false, 0);
+        mqtt.publish(TopicFactory.getEventTopic(Constants.DEVICE_TYPE, "phone", Constants.TEXT_EVENT), messageData, false, 0);
     }
 
     private void processIntent(Intent intent) {

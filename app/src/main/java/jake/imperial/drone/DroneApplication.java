@@ -23,8 +23,10 @@ public class DroneApplication extends Application{
     // Values needed for connecting to IoT
     private String domain;
     private String organization;
+
     private String deviceId;
-    private String authToken;
+    private String APIKey;
+    private String APIToken;
     private Constants.ConnectionType connectionType;
 
 
@@ -81,12 +83,20 @@ public class DroneApplication extends Application{
         this.deviceId = deviceId;
     }
 
-    public String getAuthToken() {
-        return authToken;
+    public String getAPIKey() {
+        return APIKey;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setAPIKey(String APIKey) {
+        this.APIKey = APIKey;
+    }
+
+    public String getAPIToken() {
+        return APIToken;
+    }
+
+    public void setAPIToken(String APIToken) {
+        this.APIToken = APIToken;
     }
 
     public void setConnectionType(Constants.ConnectionType type) {
@@ -129,7 +139,9 @@ public class DroneApplication extends Application{
         this.unreadCount = unreadCount;
     }
 
-
+    public String APIKey(){
+        return "a-gqn7ig-cchluabzjp";
+    }
 
     public int getColor() {
         return color;

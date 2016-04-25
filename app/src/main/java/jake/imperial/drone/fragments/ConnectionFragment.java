@@ -73,8 +73,9 @@ public class ConnectionFragment extends Fragment {
 
         ((EditText)rootView.findViewById(R.id.domain)).setText(settings.getString("domain", ""));
         ((EditText)rootView.findViewById(R.id.organisation)).setText(settings.getString("organisation", ""));
-        ((EditText)rootView.findViewById(R.id.auth_token)).setText(settings.getString("auth_token", ""));
         ((EditText)rootView.findViewById(R.id.deviceID)).setText(settings.getString("device_id", ""));
+        ((EditText)rootView.findViewById(R.id.api_key)).setText(settings.getString("api_key", ""));
+        ((EditText)rootView.findViewById(R.id.api_token)).setText(settings.getString("api_token", ""));
 
         Button submit = (Button)rootView.findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -96,16 +97,18 @@ public class ConnectionFragment extends Fragment {
     private void EditSettings(View rootView){
         String domain = ((EditText) rootView.findViewById(R.id.domain)).getText().toString();
         String organisation = ((EditText)rootView.findViewById(R.id.organisation)).getText().toString();
-        String auth_token = ((EditText)rootView.findViewById(R.id.auth_token)).getText().toString();
         String deviceID = ((EditText)rootView.findViewById(R.id.deviceID)).getText().toString();
+        String APIKey = ((EditText)rootView.findViewById(R.id.api_key)).getText().toString();
+        String APIToken = ((EditText)rootView.findViewById(R.id.api_token)).getText().toString();
 
         app.setDomain(domain);
 
         SharedPreferences.Editor settings = getActivity().getPreferences(0).edit();
         settings.putString("domain", domain);
         settings.putString("organisation", organisation);
-        settings.putString("auth_token", auth_token);
         settings.putString("device_id", deviceID);
+        settings.putString("api_key", APIKey);
+        settings.putString("api_token", APIToken);
         settings.commit();
         new AlertDialog.Builder(getActivity())
                 .setTitle("Credentials Saved")
@@ -120,9 +123,10 @@ public class ConnectionFragment extends Fragment {
 
         MqttHandler mqttHandle = MqttHandler.getInstance(getActivity().getApplicationContext());
         app.setDomain(((EditText)getActivity().findViewById(R.id.domain)).getText().toString());
-        app.setDeviceId(((EditText) getActivity().findViewById(R.id.deviceID)).getText().toString());
         app.setOrganization(((EditText) getActivity().findViewById(R.id.organisation)).getText().toString());
-        app.setAuthToken(((EditText) getActivity().findViewById(R.id.auth_token)).getText().toString());
+        app.setDeviceId(((EditText) getActivity().findViewById(R.id.deviceID)).getText().toString());
+        app.setAPIKey(((EditText) getActivity().findViewById(R.id.api_key)).getText().toString());
+        app.setAPIToken(((EditText) getActivity().findViewById(R.id.api_token)).getText().toString());
 
         if (checkCanConnect()) {
             if(mqttHandle.connect()){
@@ -156,7 +160,9 @@ public class ConnectionFragment extends Fragment {
             app.setConnectionType(Constants.ConnectionType.IOTF);
             if (app.getOrganization() == null || app.getOrganization().equals("") ||
                     app.getDeviceId() == null || app.getDeviceId().equals("") ||
-                    app.getAuthToken() == null || app.getAuthToken().equals("")) {
+                    app.getAPIKey() == null || app.getAPIKey().equals("") ||
+                    app.getAPIToken() == null || app.getAPIToken().equals(""))
+            {
                 return false;
             }
         }

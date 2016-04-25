@@ -12,10 +12,15 @@
   <component name="ChangeListManager">
     <list default="true" id="99cd8db1-94f0-40a8-9ffa-8f66b9a42e20" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="drone_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,129 +53,147 @@
     <favorites_list name="drone_app" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MqttHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-              <folding>
-                <element signature="docComment;class#MqttHandler#0" expanded="false" />
-                <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#getInstance#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#connect#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#connect#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#disconnect#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#disconnect#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#subscribe#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#subscribe#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#publish#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#publish#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#connectionLost#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#connectionLost#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#messageArrived#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#messageArrived#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="1" selection-start-line="18" selection-start-column="5" selection-end-line="19" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="197" column="8" selection-start-line="197" selection-start-column="8" selection-end-line="197" selection-end-column="8" />
-              <folding>
-                <element signature="method#onDestroyView#0;class#MapFragment#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
-                <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
-                <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
-                <element signature="e#6465#6466#0" expanded="true" />
-                <element signature="e#6506#6507#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8978186">
-              <caret line="242" column="54" selection-start-line="242" selection-start-column="54" selection-end-line="242" selection-end-column="54" />
-              <folding>
-                <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-                <element signature="e#6256#9808#0" expanded="true" />
-                <element signature="e#6836#9365#0" expanded="true" />
-                <element signature="e#9364#9365#0" expanded="true" />
-                <element signature="e#9367#9618#0" expanded="true" />
-                <element signature="e#9617#9618#0" expanded="true" />
-                <element signature="e#9807#9808#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_graph.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.59377027">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="MqttHandler.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+                  <folding>
+                    <element signature="docComment;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#getInstance#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#connect#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#disconnect#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#disconnect#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#subscribe#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#subscribe#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#publish#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#publish#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#connectionLost#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#connectionLost#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#messageArrived#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="docComment;method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
+                    <element signature="method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/lang/String.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="1096" column="25" selection-start-line="1096" selection-start-column="25" selection-end-line="1096" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MessageConductor.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TopicFactory.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DroneApplication.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#2057#2058#0" expanded="true" />
+                    <element signature="e#2088#2089#0" expanded="true" />
+                    <element signature="e#2136#2137#0" expanded="true" />
+                    <element signature="e#2176#2177#0" expanded="true" />
+                    <element signature="e#2209#2210#0" expanded="true" />
+                    <element signature="e#2238#2239#0" expanded="true" />
+                    <element signature="e#2282#2283#0" expanded="true" />
+                    <element signature="e#2318#2319#0" expanded="true" />
+                    <element signature="e#2384#2385#0" expanded="true" />
+                    <element signature="e#2432#2433#0" expanded="true" />
+                    <element signature="e#2472#2473#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConnectionFragment.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.5761719">
+                  <caret line="130" column="32" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fragment_connection.xml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml">
+              <provider editor-type-id="android-designer">
+                <state />
+              </provider>
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="1.1159737">
+                  <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#2092#2110#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fragment_graph.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml">
+              <provider editor-type-id="android-designer">
+                <state />
+              </provider>
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-6.490909">
+                  <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1759,14 +1782,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_grapg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/color/data_source_button.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/control_pad_button.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
@@ -1776,6 +1795,15 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" />
       </list>
     </option>
   </component>
@@ -1810,6 +1838,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -1896,7 +1925,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1904,9 +1946,23 @@
               <option name="myItemId" value="drone_app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1950,19 +2006,81 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2269,41 +2387,56 @@
       <option name="project" value="LOCAL" />
       <updated>1461455368566</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adapted handling of sensor data from polling to match server response (which now queries database).">
+      <created>1461524742586</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1461524742587</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.47441363" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" x="0" y="0" width="960" height="1040" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" x="-8" y="-30" width="976" height="1078" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33522084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33481646" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39933258" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2320,88 +2453,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added GraphFragment, and have it downloading sensorData from server and parsing/adding it to Activity" />
     <MESSAGE value="Changed library for plotting, to allow better management of a continuous time-based domain." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed library for plotting, to allow better management of a continuous time-based domain." />
+    <MESSAGE value="Adapted handling of sensor data from polling to match server response (which now queries database)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adapted handling of sensor data from polling to match server response (which now queries database)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="167" column="41" selection-start-line="167" selection-start-column="41" selection-end-line="167" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding>
-            <element signature="docComment;class#MqttHandler#0" expanded="false" />
-            <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#getInstance#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#connect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#connect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#disconnect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#disconnect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#subscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#subscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#publish#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#publish#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#connectionLost#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#connectionLost#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#messageArrived#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#messageArrived#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2485,7 +2546,6 @@
             <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
             <element signature="method#getInstance#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#connect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#connect#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#disconnect#0;class#MqttHandler#0" expanded="false" />
             <element signature="method#disconnect#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#subscribe#0;class#MqttHandler#0" expanded="false" />
@@ -2497,7 +2557,6 @@
             <element signature="docComment;method#connectionLost#0;class#MqttHandler#0" expanded="false" />
             <element signature="method#connectionLost#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#messageArrived#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#messageArrived#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
             <element signature="method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
             <element signature="docComment;method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
@@ -2633,13 +2692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/org/json/JSONObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.032258">
-          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2665,17 +2717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7818182">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2684,64 +2725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="167" column="41" selection-start-line="167" selection-start-column="41" selection-end-line="167" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding>
-            <element signature="docComment;class#MqttHandler#0" expanded="false" />
-            <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#getInstance#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#connect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#connect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#disconnect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#disconnect#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#subscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#subscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#publish#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#publish#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#connectionLost#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#connectionLost#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#messageArrived#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#messageArrived#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-            <element signature="docComment;method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-            <element signature="method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -2761,22 +2748,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/xy/SimpleXYSeries.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3557522">
           <caret line="145" column="57" selection-start-line="145" selection-start-column="57" selection-end-line="145" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2784,7 +2759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33274338">
           <caret line="230" column="16" selection-start-line="230" selection-start-column="16" selection-end-line="230" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2792,135 +2766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="159" column="35" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="35" />
-          <folding>
-            <element signature="docComment;class#XYPlot#0" expanded="false" />
-            <element signature="method#XYPlot#3;class#XYPlot#0" expanded="false" />
-            <element signature="method#setGridPadding#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#notifyListenersBeforeDraw#0;class#XYPlot#0" expanded="false" />
-            <element signature="e#10513#10574#0" expanded="false" />
-            <element signature="docComment;method#containsPoint#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#containsPoint#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#containsPoint#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#isXValWithinView#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#isPointVisible#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#isValWithinRange#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#calculateMinMaxVals#0;class#XYPlot#0" expanded="false" />
-            <element signature="e#14565#14636#0" expanded="false" />
-            <element signature="docComment;method#updateDomainMinMaxForEdgeModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#updateDomainMinMaxForEdgeModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#updateRangeMinMaxForEdgeModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#ApplyUserMinMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#ApplyUserMinMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#centerOnDomainOrigin#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#centerOnDomainOrigin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#centerOnDomainOrigin#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#centerOnDomainOrigin#1;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#centerOnRangeOrigin#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#centerOnRangeOrigin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#centerOnRangeOrigin#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#centerOnRangeOrigin#1;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#distance#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#distance#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#updateDomainMinMaxForOriginModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#updateRangeMinMaxForOriginModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getTicksPerRangeLabel#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setTicksPerRangeLabel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setTicksPerRangeLabel#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getTicksPerDomainLabel#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setTicksPerDomainLabel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setTicksPerDomainLabel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainStepMode#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainStepValue#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainStep#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeStep#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainLabelWidget#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeLabelWidget#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getRangeValueFormat#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setRangeValueFormat#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeValueFormat#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getDomainValueFormat#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setDomainValueFormat#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainValueFormat#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setDomainBoundaries#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainBoundaries#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setDomainBoundaries#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainBoundaries#1;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setRangeBoundaries#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeBoundaries#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setRangeBoundaries#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeBoundaries#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainUpperBoundaryMode#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setUserMaxX#0;class#XYPlot#0" expanded="false" />
-            <element signature="e#31918#31936#0" expanded="false" />
-            <element signature="docComment;method#setDomainUpperBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainUpperBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainLowerBoundaryMode#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setUserMinX#0;class#XYPlot#0" expanded="false" />
-            <element signature="e#32760#32778#0" expanded="false" />
-            <element signature="docComment;method#setDomainLowerBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainLowerBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeUpperBoundaryMode#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setUserMaxY#0;class#XYPlot#0" expanded="false" />
-            <element signature="e#33630#33648#0" expanded="false" />
-            <element signature="docComment;method#setRangeUpperBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeUpperBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeLowerBoundaryMode#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setUserMinY#0;class#XYPlot#0" expanded="false" />
-            <element signature="e#34467#34485#0" expanded="false" />
-            <element signature="docComment;method#setRangeLowerBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeLowerBoundary#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setUserDomainOrigin#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setUserRangeOrigin#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainFramingModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#getRangeFramingModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeFramingModel#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getCalculatedMinX#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#getCalculatedMinX#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getCalculatedMaxX#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#getCalculatedMaxX#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getCalculatedMinY#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#getCalculatedMinY#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getCalculatedMaxY#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#getCalculatedMaxY#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDrawDomainOriginEnabled#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDrawRangeOriginEnabled#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#addMarker#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#addMarker#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#removeMarker#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#removeMarker#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#removeMarkers#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#removeMarkers#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#removeYMarkers#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#removeYMarkers#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#addMarker#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#addMarker#1;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#removeMarker#1;class#XYPlot#0" expanded="false" />
-            <element signature="method#removeMarker#1;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#removeXMarkers#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#removeXMarkers#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getRangeTopMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setRangeTopMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getRangeTopMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setRangeTopMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getRangeBottomMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setRangeBottomMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeBottomMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getRangeBottomMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setRangeBottomMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setRangeBottomMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getDomainLeftMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setDomainLeftMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainLeftMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getDomainLeftMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setDomainLeftMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainLeftMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getDomainRightMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setDomainRightMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainRightMin#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#getDomainRightMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="docComment;method#setDomainRightMax#0;class#XYPlot#0" expanded="false" />
-            <element signature="method#setDomainRightMax#0;class#XYPlot#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2932,33 +2777,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/ui/widget/Widget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4098737">
           <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
-          <folding />
+        <state vertical-scroll-proportion="0.5464983">
+          <caret line="224" column="63" selection-start-line="224" selection-start-column="63" selection-end-line="224" selection-end-column="63" />
+          <folding>
+            <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
+            <element signature="e#6256#9808#0" expanded="true" />
+            <element signature="e#6836#9365#0" expanded="true" />
+            <element signature="e#9364#9365#0" expanded="true" />
+            <element signature="e#9367#9618#0" expanded="true" />
+            <element signature="e#9617#9618#0" expanded="true" />
+            <element signature="e#9807#9808#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="2.673938">
           <caret line="197" column="8" selection-start-line="197" selection-start-column="8" selection-end-line="197" selection-end-column="8" />
           <folding>
             <element signature="method#onDestroyView#0;class#MapFragment#0" expanded="false" />
@@ -2971,19 +2815,171 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8978186">
-          <caret line="242" column="54" selection-start-line="242" selection-start-column="54" selection-end-line="242" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.20118344">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/org/json/JSONObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295062">
+          <caret line="354" column="0" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.811321">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0390356">
+          <caret line="124" column="24" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="170" column="48" selection-start-line="170" selection-start-column="48" selection-end-line="170" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_graph.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.490909">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1159737">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
-            <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-            <element signature="e#6256#9808#0" expanded="true" />
-            <element signature="e#6836#9365#0" expanded="true" />
-            <element signature="e#9364#9365#0" expanded="true" />
-            <element signature="e#9367#9618#0" expanded="true" />
-            <element signature="e#9617#9618#0" expanded="true" />
-            <element signature="e#9807#9808#0" expanded="true" />
+            <element signature="e#2092#2110#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1096" column="25" selection-start-line="1096" selection-start-column="25" selection-end-line="1096" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/libs/org.eclipse.paho.client.mqttv3.jar!/org/eclipse/paho/client/mqttv3/MqttConnectOptions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7175258">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding>
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#3930#3931#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#5887#5888#0" expanded="true" />
+            <element signature="e#5969#5970#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="e#2057#2058#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+            <element signature="e#2176#2177#0" expanded="true" />
+            <element signature="e#2209#2210#0" expanded="true" />
+            <element signature="e#2238#2239#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2318#2319#0" expanded="true" />
+            <element signature="e#2384#2385#0" expanded="true" />
+            <element signature="e#2432#2433#0" expanded="true" />
+            <element signature="e#2472#2473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#MqttHandler#0" expanded="false" />
+            <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#getInstance#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#connect#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#disconnect#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#disconnect#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#subscribe#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#subscribe#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#unsubscribe#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#publish#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#publish#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#connectionLost#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#connectionLost#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#messageArrived#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
+            <element signature="docComment;method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
+            <element signature="method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5761719">
+          <caret line="130" column="32" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

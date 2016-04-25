@@ -67,11 +67,13 @@ public class MqttHandler implements MqttCallback {
                 clientId = "d:" + app.getOrganization() + ":" + Constants.DEVICE_TYPE + ":" + app.getDeviceId();
             } else {
                 serverHost = app.getOrganization() + "." + Constants.SETTINGS_MQTT_SERVER;
-                clientId = "d:" + app.getOrganization() + ":" + Constants.DEVICE_TYPE + ":" + app.getDeviceId();
+                //clientId = "d:" + app.getOrganization() + ":" + Constants.DEVICE_TYPE + ":" + app.getDeviceId();
+                clientId = "a:" + app.getOrganization() + ":" + app.getDeviceId();
             }
 
             Log.d(TAG, ".initMqttConnection() - Host name: " + serverHost + ", Port: " + serverPort
                     + ", client id: " + clientId);
+
 
             String connectionUri = "tcp://" + serverHost + ":" + serverPort;
             if (client != null) {
@@ -88,8 +90,8 @@ public class MqttHandler implements MqttCallback {
             options.setCleanSession(true);
 
             if (app.getConnectionType() == Constants.ConnectionType.IOTF) {
-                options.setUserName(Constants.SETTINGS_USERNAME);
-                options.setPassword(app.getAuthToken().toCharArray());
+                options.setUserName(app.getAPIKey());
+                options.setPassword(app.getAPIToken().toCharArray());
             }
 
             try {

@@ -68,12 +68,21 @@
         />
 
     <EditText
-        android:id="@+id/auth_token"
+        android:id="@+id/api_key"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:inputType="textPassword"
-        android:hint="@string/auth_token"
+        android:hint="@string/api_key"
+        android:textSize="20sp"
+        />
+
+    <EditText
+        android:id="@+id/api_token"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:hint="@string/api_token"
         android:textSize="20sp"
         />
 

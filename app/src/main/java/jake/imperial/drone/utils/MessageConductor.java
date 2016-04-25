@@ -51,31 +51,14 @@ public class MessageConductor {
         Log.d(TAG, ".steerMessage() entered");
         Log.d(TAG, payload);
         JSONObject top = new JSONObject(payload);
+
+        if (topic.contains("pi")) {
+            Log.d(TAG, payload);
+            return;
+        }
         JSONObject d = top.getJSONObject("d");
 
-        if (topic.contains(Constants.COLOR_EVENT)) {
-            Log.d(TAG, "Color Event");
-            int r = d.getInt("r");
-            int g = d.getInt("g");
-            int b = d.getInt("b");
-            // alpha value received is 0.0 < a < 1.0 but Color.agrb expects 0 < a < 255
-            int alpha = (int)(d.getDouble("alpha")*255.0);
-            if ((r > 255 || r < 0) ||
-                    (g > 255 || g < 0) ||
-                    (b > 255 || b < 0) ||
-                    (alpha > 255 || alpha < 0)) {
-                return;
-            }
-
-            app.setColor(Color.argb(alpha, r, g, b));
-
-            String runningActivity = app.getCurrentRunningActivity();
-            if (runningActivity != null && runningActivity.equals(ControlFragment.class.getName())) {
-                Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_DRONE);
-                actionIntent.putExtra(Constants.INTENT_DATA, Constants.COLOR_EVENT);
-                context.sendBroadcast(actionIntent);
-            }
-        }  else if (topic.contains(Constants.LOG_EVENT)) {
+       if (topic.contains(Constants.LOG_EVENT)) {
             app.setUnreadCount(app.getUnreadCount() + 1);
 
             String messageText = d.getString("text");

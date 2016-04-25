@@ -4,11 +4,16 @@
     <string name="connection_video">For image stream:</string>
     <string name="connection_mqtt">For drone control/logging:</string>
     <string name="domain">&lt;domain&gt;.mybluemix.net</string>
+
+
     <string name="organisation">Organisation</string>
     <string name="auth_token">"Auth-token</string>
     <string name="deviceID">Device ID</string>
     <string name="updateCreds">Update Credentials</string>
     <string name="connect">Connect</string>
+
+    <string name="api_key">API Key</string>
+    <string name="api_token">API Token</string>
     <string name="drawer_open">Open Nav Drawer</string>
     <string name="drawer_close">Close Nav Drawer</string>
 
