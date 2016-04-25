@@ -4,13 +4,19 @@ package jake.imperial.drone;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 
+import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.SimpleXYSeries;
+import com.androidplot.xy.XYPlot;
+import com.androidplot.xy.XYSeries;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import jake.imperial.drone.utils.Constants;
 
@@ -42,7 +48,7 @@ public class DroneApplication extends Application{
     private ArrayList<String> messageLog = new ArrayList<>();
     private ArrayList<MarkerOptions> markerList = new ArrayList<>();
 
-    private JSONObject sensorData = new JSONObject();
+    private HashMap<String, SimpleXYSeries> sensorData = new HashMap<>();
 
 
     /**
@@ -139,10 +145,6 @@ public class DroneApplication extends Application{
         this.unreadCount = unreadCount;
     }
 
-    public String APIKey(){
-        return "a-gqn7ig-cchluabzjp";
-    }
-
     public int getColor() {
         return color;
     }
@@ -159,12 +161,32 @@ public class DroneApplication extends Application{
         return markerList;
     }
 
-    public JSONObject getSensorData() {
+    public HashMap<String, SimpleXYSeries> getSensorData(){
         return sensorData;
     }
 
-    public void setSensorData(JSONObject sensorData) {
-        this.sensorData = sensorData;
+    public LineAndPointFormatter getFormatter(){
+        int index = sensorData.size();
+        int colour;
+        switch(index){
+            case 1:
+                colour = Color.rgb(0xff, 0x0, 0x0);
+                break;
+            case 2:
+                colour = Color.rgb(0x0, 0xff, 0x0);
+                break;
+            case 3:
+                colour = Color.rgb(0x0, 0x0, 0xff);
+                break;
+            default:
+                colour = Color.rgb(0,0,0);
+        }
+
+
+        LineAndPointFormatter formatter = new LineAndPointFormatter(colour, null, null, null);
+        formatter.getLinePaint().setStrokeJoin(Paint.Join.ROUND);
+        formatter.getLinePaint().setStrokeWidth(2);
+        return formatter;
     }
 
 }

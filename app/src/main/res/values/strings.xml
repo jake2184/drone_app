@@ -12,6 +12,8 @@
     <string name="updateCreds">Update Credentials</string>
     <string name="connect">Connect</string>
 
+    <string name="clear_sensor_data">Clear Sensor Data</string>
+
     <string name="api_key">API Key</string>
     <string name="api_token">API Token</string>
     <string name="drawer_open">Open Nav Drawer</string>

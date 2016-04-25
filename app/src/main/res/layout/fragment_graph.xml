@@ -7,25 +7,37 @@
     android:layout_height="match_parent">
 
 
-
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/sensor_source">
-        <RadioButton
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/sensor_source">
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/load_saved_data"
+                android:text="@string/load_saved_data"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/mqtt_live_data"
+                android:text="@string/mqtt_live_data"/>
+        </RadioGroup>
+        <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/load_saved_data"
-            android:text="@string/load_saved_data"/>
-        <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/mqtt_live_data"
-            android:text="@string/mqtt_live_data"/>
-    </RadioGroup>
+            android:id="@+id/clear_sensor_data_button"
+            android:text="@string/clear_sensor_data"
+            />
+    </LinearLayout>
 
     <com.androidplot.xy.XYPlot
         android:layout_height="wrap_content"

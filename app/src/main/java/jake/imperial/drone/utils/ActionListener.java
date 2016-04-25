@@ -49,7 +49,7 @@ public class ActionListener implements IMqttActionListener {
      */
     @Override
     public void onSuccess(IMqttToken token) {
-        Log.d(TAG, ".onSuccess() entered");
+        Log.d(TAG, ".onSuccess() entered" + " " + token.toString());
         this.token = token;
         switch (action) {
             case CONNECTING:

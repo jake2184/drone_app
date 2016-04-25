@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioGroup;
 
 import com.android.volley.Request;
@@ -46,11 +47,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Set;
 
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
 import jake.imperial.drone.utils.MqttHandler;
+import jake.imperial.drone.utils.TopicFactory;
 
 import com.androidplot.xy.*;
 import com.github.mikephil.charting.data.LineData;
@@ -84,7 +87,6 @@ public class GraphFragment extends Fragment {
 
     private XYPlot linePlot;
 
-    private Map<String, SimpleXYSeries> data;
 
     public GraphFragment() {
     }
@@ -100,7 +102,6 @@ public class GraphFragment extends Fragment {
         app = (DroneApplication) getActivity().getApplication();
         app.setCurrentRunningActivity(TAG);
 
-        data = new HashMap<>();
 
         if (broadcastReceiver == null) {
             Log.d(TAG, ".onResume() - Registering GraphBroadcastReceiver");
@@ -124,6 +125,7 @@ public class GraphFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_graph, container, false);
+
         mHandler = new Handler();
         //lineChart = (LineChart) rootView.findViewById(R.id.lineChart);
         requestQueue = Volley.newRequestQueue(getContext());
@@ -135,16 +137,30 @@ public class GraphFragment extends Fragment {
                 switch (checkedId){
                     case R.id.load_saved_data:
                         // TODO Stop MQTT
+                        MqttHandler mqttHandler = MqttHandler.getInstance(getContext());
+                        mqttHandler.unsubscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"));
                         startLoadingSensorData();
                         break;
                     case R.id.mqtt_live_data:
                         // TODO Start MQTT
                         stopLoadingSensorData();
+                        mqttHandler = MqttHandler.getInstance(getContext());
+                        mqttHandler.subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"), 0);
                         break;
                 }
             }
         });
 
+        Button button = (Button) rootView.findViewById(R.id.clear_sensor_data_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, ".clear() line plot data");
+                app.getSensorData().clear();
+                linePlot.clear();
+                linePlot.redraw();
+            }
+        });
 
 
         linePlot = (XYPlot) rootView.findViewById(R.id.linePlot);
@@ -221,7 +237,7 @@ public class GraphFragment extends Fragment {
                                             String type = iter.next();
                                             Double reading = item.getDouble(type);
 
-                                            SimpleXYSeries series = data.get(type);
+                                            SimpleXYSeries series = app.getSensorData().get(type);
                                             if (series != null) {
                                                 series.addLast(time, reading);
                                             } else {
@@ -230,11 +246,11 @@ public class GraphFragment extends Fragment {
 
                                                 LineAndPointFormatter formatter1 = new LineAndPointFormatter(Color.rgb(0, 0, 0), null, null, null);
                                                 formatter1.getLinePaint().setStrokeJoin(Paint.Join.ROUND);
-                                                formatter1.getLinePaint().setStrokeWidth(10);
+                                                formatter1.getLinePaint().setStrokeWidth(2);
 
 
                                                 linePlot.addSeries(series, formatter1);
-                                                data.put(type, series);
+                                                app.getSensorData().put(type, series);
                                             }
                                         }
 

@@ -49,6 +49,7 @@ public class Constants {
     public final static String UNREAD_EVENT = "unread";
     public final static String LOG_EVENT = "log";
     public final static String STATUS_EVENT = "status";
+    public final static String SENSOR_EVENT = "sensors";
 
     public final static String CONNECTIVITY_MESSAGE = "connectivityMessage";
     public final static String ACTION_INTENT_CONNECTIVITY_MESSAGE_RECEIVED = Constants.APP_ID + "." + "CONNECTIVITY_MESSAGE_RECEIVED";
