@@ -75,13 +75,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         LatLng London = new LatLng(51.5, -0.12);
         mMap.addMarker(new MarkerOptions().position(London).title("Marker in London"));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(51.485138, -0.187755)));
-
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(51.485138, -0.187755)));
         droneMarker = mMap.addMarker(new MarkerOptions()
-            .position(new LatLng(0, 0))
+            .position(app.getLatestPosition())
             .title("Drone")
             .icon(BitmapDescriptorFactory.fromResource(R.drawable.drone_icon2))
         );
+        droneMarker.setVisible(true);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(droneMarker.getPosition()));
 
         ArrayList <MarkerOptions> markerList = app.getMarkerList();
 
@@ -89,7 +91,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             mMap.addMarker(markerList.get(i));
         }
 
-        startDronePositionUpdate();
+        //startDronePositionUpdate();
 
     }
 
@@ -98,7 +100,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         Log.d(TAG, ".onResume() entered()");
         super.onResume();
         app = (DroneApplication) getActivity().getApplication();
-        app.setCurrentRunningActivity(TAG);
         mapView.onResume();
         if (broadcastReceiver == null) {
             Log.d(TAG, ".onResume() - Registering MapBroadcastReceiver");
@@ -111,7 +112,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                 }
             };
         }
-        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.INTENT_POSITION);
         intentFilter.addAction(Constants.APP_ID + "." + Constants.LOG_EVENT);
         getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
     }
@@ -205,6 +206,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private void processIntent(Intent intent){
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
+
         if (data.equals(Constants.ALERT_EVENT) && app.getCurrentRunningActivity().equals(TAG)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
@@ -222,6 +224,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             mMap.addMarker(new MarkerOptions().title(message).position(new LatLng(lat,lon))
 
             );
+        } else if (data.equals(Constants.INTENT_POSITION)){
+            droneMarker.setPosition(app.getLatestPosition());
+
         }
 
     }

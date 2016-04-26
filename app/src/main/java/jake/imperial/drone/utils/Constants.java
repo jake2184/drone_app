@@ -50,18 +50,20 @@ public class Constants {
     public final static String LOG_EVENT = "log";
     public final static String STATUS_EVENT = "status";
     public final static String SENSOR_EVENT = "sensors";
-
+    public final static String SENSOR_TYPE_EVENT = "sensorType";
     public final static String CONNECTIVITY_MESSAGE = "connectivityMessage";
-    public final static String ACTION_INTENT_CONNECTIVITY_MESSAGE_RECEIVED = Constants.APP_ID + "." + "CONNECTIVITY_MESSAGE_RECEIVED";
 
+    public final static String ACTION_INTENT_CONNECTIVITY_MESSAGE_RECEIVED = Constants.APP_ID + "." + "CONNECTIVITY_MESSAGE_RECEIVED";
     // Fragment intents
     public final static String INTENT_CONNECTION = "INTENT_CONNECTION";
+
     public final static String INTENT_DRONE = "INTENT_DRONE";
     public final static String INTENT_CONTROL = "INTENT_CONTROL";
     public final static String INTENT_VIDEO = "INTENT_VIDEO";
     public final static String INTENT_LOG = "INTENT_LOG";
     public final static String INTENT_MAP = "INTENT_MAP";
     public final static String INTENT_DATA = "data";
+    public final static String INTENT_POSITION = "positionUpdate";
 
     // MQTT action intent data
     public final static String INTENT_DATA_CONNECT = "connect";
@@ -71,6 +73,7 @@ public class Constants {
     public final static String INTENT_DATA_MESSAGE = "message";
     public final static String INTENT_DATA_LOC_LAT = "lat";
     public final static String INTENT_DATA_LOC_LON = "lon";
+    public final static String INTENT_DATA_SENSORTYPE = "sensorType";
 
     public final static int ERROR_BROKER_UNAVAILABLE = 3;
 

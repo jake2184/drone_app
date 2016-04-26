@@ -68,22 +68,11 @@ public class GraphFragment extends Fragment {
     private BroadcastReceiver broadcastReceiver;
 
     private Handler mHandler;
-    private int mInterval = 10000;
+    private int mInterval = 30000;
     private String domain = "";
     private RequestQueue requestQueue;
     private long lastSuccessfulRequest = 0;
 
-    private class PlotUpdater implements Observer {
-        Plot plot;
-
-        public PlotUpdater(Plot plot){
-            this.plot = plot;
-        }
-        @Override
-        public void update(Observable o,Object arg){
-            plot.redraw();
-        }
-    }
 
     private XYPlot linePlot;
 
@@ -100,7 +89,6 @@ public class GraphFragment extends Fragment {
         Log.d(TAG, ".onResume() entered()");
         super.onResume();
         app = (DroneApplication) getActivity().getApplication();
-        app.setCurrentRunningActivity(TAG);
 
 
         if (broadcastReceiver == null) {
@@ -109,6 +97,7 @@ public class GraphFragment extends Fragment {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
+                    Log.d(TAG, intent.toString());
                     if(app.getCurrentRunningActivity().equals(TAG)) {
                         Log.d(TAG, ".onReceive() - Received intent for GraphBroadcastReceiver");
                         processIntent(intent);
@@ -117,9 +106,8 @@ public class GraphFragment extends Fragment {
             };
         }
 
-        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
         getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
-
     }
 
     @Override
@@ -127,7 +115,6 @@ public class GraphFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_graph, container, false);
 
         mHandler = new Handler();
-        //lineChart = (LineChart) rootView.findViewById(R.id.lineChart);
         requestQueue = Volley.newRequestQueue(getContext());
 
         RadioGroup sensorSource = (RadioGroup) rootView.findViewById(R.id.sensor_source);
@@ -136,13 +123,14 @@ public class GraphFragment extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.load_saved_data:
-                        // TODO Stop MQTT
                         MqttHandler mqttHandler = MqttHandler.getInstance(getContext());
                         mqttHandler.unsubscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"));
                         startLoadingSensorData();
+
+                        loadSensorData();
+
                         break;
                     case R.id.mqtt_live_data:
-                        // TODO Start MQTT
                         stopLoadingSensorData();
                         mqttHandler = MqttHandler.getInstance(getContext());
                         mqttHandler.subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"), 0);
@@ -157,6 +145,7 @@ public class GraphFragment extends Fragment {
             public void onClick(View v) {
                 Log.d(TAG, ".clear() line plot data");
                 app.getSensorData().clear();
+                app.resetFormatter();
                 linePlot.clear();
                 linePlot.redraw();
             }
@@ -168,8 +157,7 @@ public class GraphFragment extends Fragment {
 
         linePlot.setDomainStep(XYStepMode.SUBDIVIDE, 10);
 
-        linePlot.setRangeStepMode(XYStepMode.INCREMENT_BY_VAL);
-        linePlot.setRangeStepValue(5);
+        linePlot.setRangeStep(XYStepMode.SUBDIVIDE, 10);
 
         linePlot.setDomainValueFormat(new Format(){
             private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -191,6 +179,12 @@ public class GraphFragment extends Fragment {
         //linePlot.getLegendWidget().setSize(new SizeMetrics(10, SizeLayoutType.ABSOLUTE, 10, SizeLayoutType.ABSOLUTE));
         //linePlot.getLegendWidget().position(100, XLayoutStyle.ABSOLUTE_FROM_LEFT, 100, YLayoutStyle.ABSOLUTE_FROM_TOP, AnchorPosition.LEFT_TOP);
 
+        app.resetFormatter();
+        for(SimpleXYSeries series: app.getSensorData().values()){
+            linePlot.addSeries(series, app.getFormatter());
+        }
+
+        linePlot.redraw();
         //startLoadingSensorData();
         return rootView;
     }
@@ -244,12 +238,7 @@ public class GraphFragment extends Fragment {
                                                 series = new SimpleXYSeries(type);
                                                 series.addLast(time, reading);
 
-                                                LineAndPointFormatter formatter1 = new LineAndPointFormatter(Color.rgb(0, 0, 0), null, null, null);
-                                                formatter1.getLinePaint().setStrokeJoin(Paint.Join.ROUND);
-                                                formatter1.getLinePaint().setStrokeWidth(2);
-
-
-                                                linePlot.addSeries(series, formatter1);
+                                                linePlot.addSeries(series, app.getFormatter());
                                                 app.getSensorData().put(type, series);
                                             }
                                         }
@@ -294,11 +283,16 @@ public class GraphFragment extends Fragment {
 
     }
 
+    private void loadSensorData(){
+
+    }
 
     private void processIntent(Intent intent){
-        if(!app.getCurrentRunningActivity().equals(TAG)){return;}
+        //if(!app.getCurrentRunningActivity().equals(TAG)){return;}
+
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
+        Log.d(TAG, data);
         if (data.equals(Constants.ALERT_EVENT)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())
@@ -308,6 +302,12 @@ public class GraphFragment extends Fragment {
                         public void onClick(DialogInterface dialog, int whichButton) {
                         }
                     }).show();
+        } else if (data.equals(Constants.SENSOR_EVENT)){
+            linePlot.redraw();
+        } else if (data.equals(Constants.SENSOR_TYPE_EVENT)){
+            String type = intent.getStringExtra(Constants.INTENT_DATA_SENSORTYPE);
+            linePlot.addSeries(app.getSensorData().get(type), app.getFormatter());
+            linePlot.redraw();
         }
     }
 }

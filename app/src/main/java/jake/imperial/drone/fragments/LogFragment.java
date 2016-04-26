@@ -39,7 +39,6 @@ public class LogFragment extends ListFragment {
         Log.d(TAG, ".onResume() entered()");
         super.onResume();
         app = (DroneApplication) getActivity().getApplication();
-        app.setCurrentRunningActivity(TAG);
         listAdapter = new ArrayAdapter<>(getContext(), R.layout.list_item, app.getMessageLog());
         setListAdapter(listAdapter);
         if (broadcastReceiver == null) {

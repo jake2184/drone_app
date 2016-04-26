@@ -45,7 +45,6 @@ public class VideoFragment extends Fragment {
         Log.d(TAG, ".onResume() entered()");
         super.onResume();
         app = (DroneApplication) getActivity().getApplication();
-        //app.setCurrentRunningActivity(TAG);
 
         if (broadcastReceiver == null) {
             Log.d(TAG, ".onResume() - Registering VideoBroadcastReceiver");

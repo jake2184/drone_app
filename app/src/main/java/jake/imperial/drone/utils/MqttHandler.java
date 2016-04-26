@@ -266,7 +266,6 @@ public class MqttHandler implements MqttCallback {
         String payload = new String(mqttMessage.getPayload());
         Log.d(TAG, ".messageArrived - Message received on topic " + topic
                 + ": message is " + payload);
-        // TODO: Process message
         try {
             // send the message through the application logic
             MessageConductor.getInstance(context).steerMessage(payload, topic);

@@ -114,7 +114,7 @@ public class ActionListener implements IMqttActionListener {
         if (app.getConnectionType() != Constants.ConnectionType.QUICKSTART) {
             MqttHandler mqttHandler = MqttHandler.getInstance(context);
             //mqttHandler.subscribe(TopicFactory.getCommandTopic("+"), 0);
-            mqttHandler.subscribe(TopicFactory.getEventTopic("pi", "drone", "+"),0);
+            //mqttHandler.subscribe(TopicFactory.getEventTopic("pi", "drone", "+"),0);
         }
 
         String runningActivity = app.getCurrentRunningActivity();

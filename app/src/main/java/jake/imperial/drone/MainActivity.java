@@ -28,6 +28,8 @@ import jake.imperial.drone.fragments.GraphFragment;
 import jake.imperial.drone.fragments.LogFragment;
 import jake.imperial.drone.fragments.MapFragment;
 import jake.imperial.drone.fragments.VideoFragment;
+import jake.imperial.drone.utils.MqttHandler;
+import jake.imperial.drone.utils.TopicFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private DroneApplication app;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MqttHandler.getInstance(getApplicationContext()).unsubscribe(TopicFactory.getEventTopic("pi", "drone", "+"));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        MqttHandler.getInstance(getApplicationContext()).unsubscribe(TopicFactory.getEventTopic("pi", "drone", "+"));
 
     }
 
@@ -258,6 +267,8 @@ public class MainActivity extends AppCompatActivity {
                     return LogFragment.class.getName();
                 case 4:
                     return MapFragment.class.getName();
+                case 5:
+                    return GraphFragment.class.getName();
 
 
             }
