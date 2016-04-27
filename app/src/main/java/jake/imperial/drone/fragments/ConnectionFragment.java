@@ -23,6 +23,7 @@ import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
 import jake.imperial.drone.utils.MqttHandler;
+import jake.imperial.drone.utils.TopicFactory;
 
 
 public class ConnectionFragment extends Fragment {
@@ -138,6 +139,8 @@ public class ConnectionFragment extends Fragment {
                                 // Do nothing.
                             }
                         }).show();
+                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi","drone","sensors"),0);
+
             }
         } else {
             displaySetPropertiesDialog();

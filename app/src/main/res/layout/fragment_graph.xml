@@ -10,32 +10,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <RadioGroup
+        <CheckBox
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:id="@+id/sensor_source">
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/load_saved_data"
-                android:text="@string/load_saved_data"/>
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/mqtt_live_data"
-                android:text="@string/mqtt_live_data"/>
-        </RadioGroup>
+            android:text="@string/mqtt_live_data"
+            android:id="@+id/mqtt_live_data"
+            style="@style/Base.Widget.AppCompat.ButtonBar"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/load_saved_data"
+            android:text="@string/load_saved_data"
+            style="@style/Base.Widget.AppCompat.ButtonBar"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/clear_sensor_data_button"
             android:text="@string/clear_sensor_data"
+            style="@style/Base.Widget.AppCompat.ButtonBar"
             />
     </LinearLayout>
 
