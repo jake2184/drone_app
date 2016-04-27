@@ -88,13 +88,13 @@ public class VideoFragment extends Fragment {
     @Override
     public void onDestroyView(){
         super.onDestroyView();
-        stopRepeatingTask();
+        //stopRepeatingTask();
     }
 
     private Runnable updateView = new Runnable() {
         @Override
         public void run() {
-            if(app != null) {
+            //if(app != null) {
                 domain = app.getDomain();
                 String url = "http://" + domain + "/getLatestImage";
                 Log.d(TAG, "Updating image from " + url);
@@ -108,8 +108,8 @@ public class VideoFragment extends Fragment {
                         .error(R.drawable.control_pad_button)
                         .crossfade(true)
                         .intoImageView(imageView);
-            }
-            mHandler.postDelayed(updateView, mInterval);
+            //}
+            //mHandler.postDelayed(updateView, mInterval);
         }
     };
 
@@ -122,7 +122,11 @@ public class VideoFragment extends Fragment {
     }
 
     private void processIntent(Intent intent){
-        if(!app.getCurrentRunningActivity().equals(TAG)){return;}
+        if (intent.getAction().contains(Constants.IMAGE_EVENT)) {
+            new Thread(updateView).start();
+        }
+
+
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
         if (data.equals(Constants.ALERT_EVENT)) {

@@ -13,16 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="99cd8db1-94f0-40a8-9ffa-8f66b9a42e20" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/LogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/LogFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" />
     </list>
     <ignored path="drone_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageConductor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageConductor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2927669">
-              <caret line="150" column="73" selection-start-line="150" selection-start-column="73" selection-end-line="150" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="105" column="23" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,13 +99,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VideoFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.4385967">
-              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.35591274">
+              <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2982#3681#0" expanded="true" />
+                <element signature="e#3680#3681#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1799,13 +1792,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/LogFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java" />
       </list>
     </option>
   </component>
@@ -2423,7 +2416,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461764222667</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Local Broadcast Manager">
+      <created>1461765591342</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1461765591342</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2517,7 +2516,8 @@
     <MESSAGE value="Correctly connects as an application" />
     <MESSAGE value="Handle sensor mqttt" />
     <MESSAGE value="Load sensor data working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Load sensor data working" />
+    <MESSAGE value="Local Broadcast Manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Local Broadcast Manager" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2929,16 +2929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4385967">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2960,19 +2950,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="44" selection-start-line="100" selection-start-column="44" selection-end-line="100" selection-end-column="44" />
-          <folding>
-            <element signature="method#onDestroyView#0;class#MapFragment#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
-            <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
-            <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2999,10 +2976,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2927669">
-          <caret line="150" column="73" selection-start-line="150" selection-start-column="73" selection-end-line="150" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="23" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="44" selection-start-line="100" selection-start-column="44" selection-end-line="100" selection-end-column="44" />
+          <folding>
+            <element signature="method#onDestroyView#0;class#MapFragment#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MapFragment#0" expanded="false" />
+            <element signature="method#onLowMemory#0;class#MapFragment#0" expanded="false" />
+            <element signature="method#onPause#0;class#MapFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35591274">
+          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2982#3681#0" expanded="true" />
+            <element signature="e#3680#3681#0" expanded="true" />
           </folding>
         </state>
       </provider>
