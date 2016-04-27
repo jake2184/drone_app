@@ -43,7 +43,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private BroadcastReceiver broadcastReceiver;
     private MapView mapView;
 
-    private int mInterval = 5000;
     private Handler mHandler;
     private RequestQueue requestQueue;
 
@@ -192,6 +191,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                 requestQueue.add(request);
 
             }
+            int mInterval = 5000;
             mHandler.postDelayed(updateDronePosition, mInterval);
         }
     };

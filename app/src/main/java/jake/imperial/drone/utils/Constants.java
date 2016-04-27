@@ -1,8 +1,6 @@
 
 package jake.imperial.drone.utils;
 
-import android.content.pm.FeatureInfo;
-
 public class Constants {
 
     public final static String APP_ID = "jake.imperial.drone";

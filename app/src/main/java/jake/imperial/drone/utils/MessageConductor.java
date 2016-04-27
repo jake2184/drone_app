@@ -3,8 +3,6 @@ package jake.imperial.drone.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.graphics.Color;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -20,7 +18,6 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Iterator;
 
-import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.fragments.GraphFragment;
 
@@ -148,7 +145,6 @@ public class MessageConductor {
 
                     }
                 }
-                String runningActivity = app.getCurrentRunningActivity();
                 Intent sensorDataIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
                 sensorDataIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_EVENT);
                 LocalBroadcastManager.getInstance(context).sendBroadcast(sensorDataIntent);

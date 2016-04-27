@@ -2,14 +2,12 @@ package jake.imperial.drone.fragments;
 
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
@@ -28,7 +26,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.androidplot.xy.XYPlot;
 
 
 import java.text.DecimalFormat;
@@ -36,15 +33,12 @@ import java.text.FieldPosition;
 import java.text.Format;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
-import jake.imperial.drone.utils.MqttHandler;
 
 import com.androidplot.xy.*;
 
@@ -57,7 +51,6 @@ public class GraphFragment extends Fragment {
     private DroneApplication app;
     private BroadcastReceiver broadcastReceiver;
 
-    private String domain = "";
     private RequestQueue requestQueue;
     private boolean liveData = false;
 
@@ -202,7 +195,7 @@ public class GraphFragment extends Fragment {
 
                 clearGraph();
 
-                domain = app.getDomain();
+                String domain = app.getDomain();
 
                 String url = "http://" + domain + "/getSensorData?timeFrom=" + timeFrom + "&timeTill=" + timeTill;
                 if(temperature){

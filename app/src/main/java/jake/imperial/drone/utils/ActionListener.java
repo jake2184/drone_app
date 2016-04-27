@@ -35,7 +35,6 @@ public class ActionListener implements IMqttActionListener {
 
     private Context context;
     private Constants.ActionStateStatus action;
-    private IMqttToken token;
     private DroneApplication app;
 
     public ActionListener(Context context, Constants.ActionStateStatus action) {
@@ -51,7 +50,7 @@ public class ActionListener implements IMqttActionListener {
     @Override
     public void onSuccess(IMqttToken token) {
         Log.d(TAG, ".onSuccess() entered" + " " + token.toString());
-        this.token = token;
+        IMqttToken token1 = token;
         switch (action) {
             case CONNECTING:
                 handleConnectSuccess();
@@ -113,7 +112,7 @@ public class ActionListener implements IMqttActionListener {
         app.setConnected(true);
 
         if (app.getConnectionType() != Constants.ConnectionType.QUICKSTART) {
-            MqttHandler mqttHandler = MqttHandler.getInstance(context);
+            //MqttHandler mqttHandler = MqttHandler.getInstance(context);
             //mqttHandler.subscribe(TopicFactory.getCommandTopic("+"), 0);
             //mqttHandler.subscribe(TopicFactory.getEventTopic("pi", "drone", "+"),0);
         }
