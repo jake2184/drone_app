@@ -3,6 +3,7 @@ package jake.imperial.drone.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import jake.imperial.drone.fragments.ConnectionFragment;
@@ -105,7 +106,7 @@ public class MqttHandler implements MqttCallback {
                     // error while connecting to the broker - send an intent to inform the user
                     Intent actionIntent = new Intent(Constants.ACTION_INTENT_CONNECTIVITY_MESSAGE_RECEIVED);
                     actionIntent.putExtra(Constants.CONNECTIVITY_MESSAGE, Constants.ERROR_BROKER_UNAVAILABLE);
-                    context.sendBroadcast(actionIntent);
+                    LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
                 }
                 return false;
             }
@@ -209,7 +210,7 @@ public class MqttHandler implements MqttCallback {
                 if (runningActivity != null && runningActivity.equals(ControlFragment.class.getName())) {
                     Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_DRONE);
                     actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_PUBLISHED);
-                    context.sendBroadcast(actionIntent);
+                    LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
                 }
             } catch (MqttPersistenceException e) {
                 Log.e(TAG, "MqttPersistenceException caught while attempting to publish a message", e.getCause());
@@ -239,7 +240,7 @@ public class MqttHandler implements MqttCallback {
         if (runningActivity != null && runningActivity.equals(ConnectionFragment.class.getName())) {
             Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_CONNECTION);
             actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_DISCONNECT);
-            context.sendBroadcast(actionIntent);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
         }
     }
 
@@ -260,7 +261,7 @@ public class MqttHandler implements MqttCallback {
         if (runningActivity != null && runningActivity.equals(ControlFragment.class.getName())) {
             Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_DRONE);
             actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_RECEIVED);
-            context.sendBroadcast(actionIntent);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
         }
 
         String payload = new String(mqttMessage.getPayload());

@@ -48,6 +48,7 @@ public class Constants {
     public final static String ALERT_EVENT = "alert";
     public final static String UNREAD_EVENT = "unread";
     public final static String LOG_EVENT = "log";
+    public final static String IMAGE_EVENT = "image";
     public final static String STATUS_EVENT = "status";
     public final static String SENSOR_EVENT = "sensors";
     public final static String SENSOR_TYPE_EVENT = "sensorType";

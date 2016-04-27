@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -94,7 +95,7 @@ public class GraphFragment extends Fragment {
         }
 
         IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
-        getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
 
         app.resetFormatter();
         for(SimpleXYSeries series: app.getSensorData().values()){
@@ -335,6 +336,7 @@ public class GraphFragment extends Fragment {
     }
 
     private void processIntent(Intent intent){
+
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
         Log.d(TAG, data);

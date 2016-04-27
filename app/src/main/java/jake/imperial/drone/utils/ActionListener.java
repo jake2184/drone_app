@@ -17,6 +17,7 @@ package jake.imperial.drone.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import jake.imperial.drone.DroneApplication;
@@ -121,7 +122,7 @@ public class ActionListener implements IMqttActionListener {
         if (runningActivity != null && runningActivity.equals(ConnectionFragment.class.getName())) {
             Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_CONNECTION);
             actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_CONNECT);
-            context.sendBroadcast(actionIntent);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
         }
     }
 
@@ -151,7 +152,7 @@ public class ActionListener implements IMqttActionListener {
         if (runningActivity != null && runningActivity.equals(ConnectionFragment.class.getName())) {
             Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_CONNECTION);
             actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_DISCONNECT);
-            context.sendBroadcast(actionIntent);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
         }
     }
 
@@ -170,7 +171,7 @@ public class ActionListener implements IMqttActionListener {
         if (runningActivity != null && runningActivity.equals(ConnectionFragment.class.getName())) {
             Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_CONNECTION);
             actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_DISCONNECT);
-            context.sendBroadcast(actionIntent);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
         }
     }
 

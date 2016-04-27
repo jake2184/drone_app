@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,7 +115,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         }
         IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.INTENT_POSITION);
         intentFilter.addAction(Constants.APP_ID + "." + Constants.LOG_EVENT);
-        getActivity().getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
     }
 
     @Override

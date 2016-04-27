@@ -73,18 +73,16 @@ public class MessageConductor {
                     //.icon // somehow select depending on thingymagig
                     );
 
-            String runningActivity = app.getCurrentRunningActivity();
-            if (runningActivity != null) {
-                Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
-                if (messageText != null) {
-                    logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
-                    logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
-                    logIntent.putExtra(Constants.INTENT_DATA_LOC_LAT, location.getDouble("lat"));
-                    logIntent.putExtra(Constants.INTENT_DATA_LOC_LON, location.getDouble("lon"));
-                    Log.d(TAG, String.valueOf(location.toString()));
-                    context.sendBroadcast(logIntent);
-                }
+            Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
+            if (messageText != null) {
+                logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
+                logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
+                logIntent.putExtra(Constants.INTENT_DATA_LOC_LAT, location.getDouble("lat"));
+                logIntent.putExtra(Constants.INTENT_DATA_LOC_LON, location.getDouble("lon"));
+                Log.d(TAG, String.valueOf(location.toString()));
+                LocalBroadcastManager.getInstance(context).sendBroadcast(logIntent);
             }
+
             // Does Log need revalidating?
             // Should make GPS global. Cos if map not running it not receive
 
@@ -94,14 +92,18 @@ public class MessageConductor {
 
                 String runningActivity = app.getCurrentRunningActivity();
                 if (runningActivity != null) {
-                   Intent alertIntent = new Intent(Constants.APP_ID + "." + Constants.ALERT_EVENT);
-                   String messageText = d.getString("text");
-                   if (messageText != null) {
-                       alertIntent.putExtra(Constants.INTENT_DATA, Constants.ALERT_EVENT);
-                       alertIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
-                       context.sendBroadcast(alertIntent);
-                   }
+                    Intent alertIntent = new Intent(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+                    String messageText = d.getString("text");
+                    if (messageText != null) {
+                        alertIntent.putExtra(Constants.INTENT_DATA, Constants.ALERT_EVENT);
+                        alertIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
+                        LocalBroadcastManager.getInstance(context).sendBroadcast(alertIntent);
+                    }
                 }
+            } else if (topic.contains(Constants.IMAGE_EVENT)){
+                Log.d(TAG, "New image uploaded to server");
+                Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
+                LocalBroadcastManager.getInstance(context).sendBroadcast(newImageIntent);
             } else if (topic.contains(Constants.SENSOR_EVENT)){
                 Log.d(TAG, "he");
                 JSONObject readings = new JSONObject(payload);
@@ -114,7 +116,7 @@ public class MessageConductor {
                 LatLng latLon = new LatLng(position.getDouble(0), position.getDouble(1));
                 app.setLatestPosition(latLon);
                 positionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_POSITION);
-                context.sendBroadcast(positionIntent);
+                LocalBroadcastManager.getInstance(context).sendBroadcast(positionIntent);
 
                 readings.remove("time");
                 readings.remove("location");
@@ -140,18 +142,16 @@ public class MessageConductor {
                             Intent sensorTypeIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
                             sensorTypeIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_TYPE_EVENT);
                             sensorTypeIntent.putExtra(Constants.INTENT_DATA_SENSORTYPE, type);
-                            context.sendBroadcast(sensorTypeIntent);
+                            LocalBroadcastManager.getInstance(context).sendBroadcast(sensorTypeIntent);
 
                         }
 
                     }
                 }
                 String runningActivity = app.getCurrentRunningActivity();
-                if(runningActivity != null && runningActivity.equals(GraphFragment.class.getName())){
-                    Intent sensorDataIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
-                    sensorDataIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_EVENT);
-                    context.sendBroadcast(sensorDataIntent);
-                }
+                Intent sensorDataIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
+                sensorDataIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_EVENT);
+                LocalBroadcastManager.getInstance(context).sendBroadcast(sensorDataIntent);
         } else {
             Log.d(TAG, "No known action for " + topic + " " + payload);
         }
