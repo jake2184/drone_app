@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        MqttHandler.getInstance(getApplicationContext()).unsubscribe(TopicFactory.getEventTopic("pi", "drone", "+"));
+        MqttHandler.getInstance(getApplicationContext()).unsubscribe(TopicFactory.getEventTopic("+", "+", "+"));
     }
 
     @Override

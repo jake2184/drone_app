@@ -13,7 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="99cd8db1-94f0-40a8-9ffa-8f66b9a42e20" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" />
     </list>
     <ignored path="drone_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,6 +54,19 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DroneApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="168" column="15" selection-start-line="168" selection-start-column="15" selection-end-line="168" selection-end-column="15" />
+              <folding>
+                <element signature="e#4027#4028#0" expanded="true" />
+                <element signature="e#4061#4062#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,36 +113,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VideoFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35591274">
-              <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2982#3681#0" expanded="true" />
                 <element signature="e#3680#3681#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
+      <file leaf-file-name="TopicFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8596492">
-              <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.25373134">
+              <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
               <folding>
-                <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-                <element signature="class#4778:5283" expanded="false" />
-                <element signature="method#format#0;class#4778:5283" expanded="false" />
-                <element signature="e#5548#5660#0" expanded="false" />
-                <element signature="method#onDestroyView#0;class#GraphFragment#0" expanded="false" />
-                <element signature="method#loadSensorData#0;class#GraphFragment#0" expanded="false" />
-                <element signature="class#12012:12162" expanded="false" />
-                <element signature="method#onClick#0;class#12012:12162" expanded="false" />
-                <element signature="class#12729:12899" expanded="false" />
-                <element signature="method#onClick#0;class#12729:12899" expanded="false" />
+                <element signature="docComment;field#mSectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#2609#2680#0" expanded="false" />
+                <element signature="class#4467:4880" expanded="false" />
+                <element signature="method#onDrawerClosed#0;class#4467:4880" expanded="false" />
+                <element signature="method#onDrawerOpened#0;class#4467:4880" expanded="false" />
+                <element signature="method#onPostCreate#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#5423#5438#0" expanded="false" />
+                <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#6410#6468#0" expanded="false" />
+                <element signature="docComment;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+                <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#getItem#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#getCount#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#getPageTitle#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#8616#8649#0" expanded="false" />
+                <element signature="method#getPageFragmentName#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -138,7 +171,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+              <caret line="135" column="54" selection-start-line="135" selection-start-column="54" selection-end-line="135" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -150,36 +183,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/LogFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MqttHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.368421">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;class#MqttHandler#0" expanded="false" />
-                <element signature="method#MqttHandler#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#getInstance#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#getInstance#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#connect#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#deliveryComplete#0;class#MqttHandler#0" expanded="false" />
-                <element signature="docComment;method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-                <element signature="method#isMqttConnected#0;class#MqttHandler#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1784,7 +1787,6 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_connection.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_sensor_dialog.xml" />
@@ -1792,13 +1794,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MqttHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/LogFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/MapFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/MessageConductor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2422,7 +2425,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461765591342</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Reacts to IMAGE_EVENT to trigger image reload. Saves polling">
+      <created>1461765772867</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1461765772867</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2517,7 +2526,8 @@
     <MESSAGE value="Handle sensor mqttt" />
     <MESSAGE value="Load sensor data working" />
     <MESSAGE value="Local Broadcast Manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Local Broadcast Manager" />
+    <MESSAGE value="Reacts to IMAGE_EVENT to trigger image reload. Saves polling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reacts to IMAGE_EVENT to trigger image reload. Saves polling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2802,55 +2812,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.655172">
-          <caret line="55" column="62" selection-start-line="55" selection-start-column="61" selection-end-line="55" selection-end-column="62" />
-          <folding>
-            <element signature="docComment;field#mSectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#2614#2685#0" expanded="false" />
-            <element signature="class#4472:4885" expanded="false" />
-            <element signature="method#onDrawerClosed#0;class#4472:4885" expanded="false" />
-            <element signature="method#onDrawerOpened#0;class#4472:4885" expanded="false" />
-            <element signature="method#onPostCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#5428#5443#0" expanded="false" />
-            <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6415#6473#0" expanded="false" />
-            <element signature="docComment;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getItem#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getCount#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getPageTitle#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8621#8654#0" expanded="false" />
-            <element signature="method#getPageFragmentName#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27324915">
-          <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/RepeatListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24228029">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.586207">
-          <caret line="168" column="15" selection-start-line="168" selection-start-column="15" selection-end-line="168" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -2929,22 +2894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/LogFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2999,12 +2948,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35591274">
-          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2982#3681#0" expanded="true" />
             <element signature="e#3680#3681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/DroneApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="168" column="15" selection-start-line="168" selection-start-column="15" selection-end-line="168" selection-end-column="15" />
+          <folding>
+            <element signature="e#4027#4028#0" expanded="true" />
+            <element signature="e#4061#4062#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ControlFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="135" column="54" selection-start-line="135" selection-start-column="54" selection-end-line="135" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25373134">
+          <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+          <folding>
+            <element signature="docComment;field#mSectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#2609#2680#0" expanded="false" />
+            <element signature="class#4467:4880" expanded="false" />
+            <element signature="method#onDrawerClosed#0;class#4467:4880" expanded="false" />
+            <element signature="method#onDrawerOpened#0;class#4467:4880" expanded="false" />
+            <element signature="method#onPostCreate#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5423#5438#0" expanded="false" />
+            <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#6410#6468#0" expanded="false" />
+            <element signature="docComment;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+            <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#getItem#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#getCount#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#getPageTitle#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#8616#8649#0" expanded="false" />
+            <element signature="method#getPageFragmentName#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
