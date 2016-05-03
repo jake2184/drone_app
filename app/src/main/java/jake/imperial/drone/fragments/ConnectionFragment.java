@@ -1,6 +1,7 @@
 package jake.imperial.drone.fragments;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -75,7 +76,7 @@ public class ConnectionFragment extends Fragment {
                 }
             };
         }
-        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.INTENT_CONNECTION);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
         requestQueue = Volley.newRequestQueue(getContext());
     }
@@ -146,6 +147,9 @@ public class ConnectionFragment extends Fragment {
     private void Connect() {
         Log.d(TAG, ".Connect() entered");
 
+        final ProgressDialog dialog = ProgressDialog.show(getContext(), "", "Trying to connect..", true, false);
+
+
         MqttHandler mqttHandle = MqttHandler.getInstance(getActivity().getApplicationContext());
 
         app.setDomain(((EditText)getActivity().findViewById(R.id.domain)).getText().toString());
@@ -162,91 +166,58 @@ public class ConnectionFragment extends Fragment {
             LoginRequest loginRequest = new LoginRequest(url, app.getUsername(), app.getPassword(), new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+                    dialog.cancel();
                     Log.d(TAG, response);
-
-                    try {
-                        URI uri = new URI("http://" + app.getDomain());
-                        List<HttpCookie> bing = ((CookieManager) CookieManager.getDefault()).getCookieStore().get(uri);
-                        Log.d(TAG, "coo");
-                    } catch (Exception e){
-                        Log.d(TAG, e.toString());
-                    }
-
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    dialog.cancel();
                     Log.d(TAG, error.toString());
-
+                    String errorType;
                     if(error instanceof AuthFailureError) {
-                        Log.d(TAG, "Authentication error");
+                        errorType = "Authentication Error";
                     } else if(error instanceof TimeoutError){
-                        Log.d(TAG, "Connection timeout error");
+                        errorType = "Connection Timeout Error";
                     } else if(error instanceof NetworkError) {
-                        Log.d(TAG, "Network Error");
+                        errorType = "Network Error";
+                    } else {
+                        errorType = "Unknown Error";
                     }
 
-
-                }
-            });
-
-
-            requestQueue.add(loginRequest);
-
-
-
-
-
-            if(mqttHandle.connect()){
-
-
-
-
-
-
-
-
-
-                Log.d(TAG, "Connection successful");
-                app.getMessageLog().add("[" + new Timestamp((new Date()).getTime()) + "]: Connected successfully");
-                new AlertDialog.Builder(getActivity())
-                        .setTitle("Connected Successfully")
+                    Log.e(TAG, errorType);
+                    new AlertDialog.Builder(getActivity())
+                        .setTitle("Failed To Connect to server")
+                        .setMessage(errorType)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 // Do nothing.
                             }
                         }).show();
-                //MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
-                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
-                //MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
+                }
+            });
 
+            requestQueue.add(loginRequest);
+
+            if(mqttHandle.connect()){
+                Log.d(TAG, "client.connect() returned true");
             }
+
         } else {
             displaySetPropertiesDialog();
         }
     }
 
     private boolean checkCanConnect() {
-        if (app.getOrganization().equals(Constants.QUICKSTART)) {
-            app.setConnectionType(Constants.ConnectionType.QUICKSTART);
-            if (app.getDeviceId() == null || app.getDeviceId().equals("")) {
-                return false;
-            }
-        } else if (app.getOrganization().equals(Constants.M2M)) {
-            app.setConnectionType(Constants.ConnectionType.M2M);
-            if (app.getDeviceId() == null || app.getDeviceId().equals("")) {
-                return false;
-            }
-        } else {
-            app.setConnectionType(Constants.ConnectionType.IOTF);
-            if (app.getOrganization() == null || app.getOrganization().equals("") ||
-                    app.getDeviceId() == null || app.getDeviceId().equals("") ||
-                    app.getAPIKey() == null || app.getAPIKey().equals("") ||
-                    app.getAPIToken() == null || app.getAPIToken().equals(""))
-            {
-                return false;
-            }
+        app.setConnectionType(Constants.ConnectionType.IOTF);
+        if (app.getOrganization() == null || app.getOrganization().equals("") ||
+                app.getDeviceId() == null || app.getDeviceId().equals("") ||
+                app.getAPIKey() == null || app.getAPIKey().equals("") ||
+                app.getAPIToken() == null || app.getAPIToken().equals(""))
+        {
+            return false;
         }
+
         return true;
     }
 
@@ -264,19 +235,22 @@ public class ConnectionFragment extends Fragment {
 
     private void processIntent(Intent intent){
 
-        if(!app.getCurrentRunningActivity().equals(TAG)){return;}
-
         String data = intent.getStringExtra(Constants.INTENT_DATA);
         assert data != null;
-        if (data.equals(Constants.ALERT_EVENT)) {
-            String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
+        if (data.equals(Constants.INTENT_DATA_FAILURE)) {
+            Log.e(TAG, "Connection unsuccessful");
             new AlertDialog.Builder(getActivity())
-                    .setTitle("Alert:")
-                    .setMessage(message)
+                    .setTitle("Failed to connect to MQTT")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                         }
                     }).show();
+        } else if(data.equals(Constants.INTENT_DATA_SUCCESS)){
+            Log.d(TAG, "Connection successful");
+            app.getMessageLog().add("[" + new Timestamp((new Date()).getTime()) + "]: Connected successfully");
+            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
+            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
+            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
         } else {
             Log.d(TAG, data);
         }

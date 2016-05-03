@@ -117,12 +117,9 @@ public class ActionListener implements IMqttActionListener {
             //mqttHandler.subscribe(TopicFactory.getEventTopic("pi", "drone", "+"),0);
         }
 
-        String runningActivity = app.getCurrentRunningActivity();
-        if (runningActivity != null && runningActivity.equals(ConnectionFragment.class.getName())) {
-            Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_CONNECTION);
-            actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_CONNECT);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
-        }
+        Intent actionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_CONNECTION);
+        actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_SUCCESS);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
     }
 
     /**
@@ -147,12 +144,10 @@ public class ActionListener implements IMqttActionListener {
 
         app.setConnected(false);
 
-        String runningActivity = app.getCurrentRunningActivity();
-        if (runningActivity != null && runningActivity.equals(ConnectionFragment.class.getName())) {
-            Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_CONNECTION);
-            actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_DISCONNECT);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
-        }
+        Intent actionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_CONNECTION);
+        actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_DISCONNECT);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
+
     }
 
     /**
@@ -166,12 +161,9 @@ public class ActionListener implements IMqttActionListener {
 
         app.setConnected(false);
 
-        String runningActivity = app.getCurrentRunningActivity();
-        if (runningActivity != null && runningActivity.equals(ConnectionFragment.class.getName())) {
-            Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_CONNECTION);
-            actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_DISCONNECT);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
-        }
+        Intent actionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_CONNECTION);
+        actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_FAILURE);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
     }
 
     /**

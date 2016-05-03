@@ -10,17 +10,6 @@ public class Constants {
     public final static String SETTINGS_MQTT_PORT = "1883";
     public final static String SETTINGS_USERNAME = "use-token-auth";
 
-    public final static String M2M = "m2m";
-    public final static String M2M_DEMO_SERVER = "messagesight.demos.ibm.com";
-    public final static String M2M_CLIENTID = "d:m2m:";
-
-    public static final String QUICKSTART = "quickstart";
-    public final static String QUICKSTART_SERVER = "184.172.124.189";
-
-    public static final String LOGIN_LABEL = "LOGIN";
-    public static final String IOT_LABEL = "IOT";
-    public static final String LOG_LABEL = "LOG";
-
     public enum ConnectionType {
         M2M, QUICKSTART, IOTF
     }
@@ -66,6 +55,8 @@ public class Constants {
 
     // MQTT action intent data
     public final static String INTENT_DATA_CONNECT = "connect";
+    public final static String INTENT_DATA_FAILURE = "failure";
+    public final static String INTENT_DATA_SUCCESS = "success";
     public final static String INTENT_DATA_DISCONNECT = "disconnect";
     public final static String INTENT_DATA_PUBLISHED = "publish";
     public final static String INTENT_DATA_RECEIVED = "receive";

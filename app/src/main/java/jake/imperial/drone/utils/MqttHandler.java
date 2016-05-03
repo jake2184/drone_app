@@ -60,17 +60,9 @@ public class MqttHandler implements MqttCallback {
             String serverHost;
             String serverPort = Constants.SETTINGS_MQTT_PORT;
             String clientId;
-            if (app.getConnectionType() == Constants.ConnectionType.M2M) {
-                serverHost = Constants.M2M_DEMO_SERVER;
-                clientId = Constants.M2M_CLIENTID + app.getDeviceId();
-            } else if (app.getConnectionType() == Constants.ConnectionType.QUICKSTART) {
-                serverHost = Constants.QUICKSTART_SERVER;
-                clientId = "d:" + app.getOrganization() + ":" + Constants.DEVICE_TYPE + ":" + app.getDeviceId();
-            } else {
-                serverHost = app.getOrganization() + "." + Constants.SETTINGS_MQTT_SERVER;
-                //clientId = "d:" + app.getOrganization() + ":" + Constants.DEVICE_TYPE + ":" + app.getDeviceId();
-                clientId = "a:" + app.getOrganization() + ":" + app.getDeviceId();
-            }
+            serverHost = app.getOrganization() + "." + Constants.SETTINGS_MQTT_SERVER;
+            //clientId = "d:" + app.getOrganization() + ":" + Constants.DEVICE_TYPE + ":" + app.getDeviceId();
+            clientId = "a:" + app.getOrganization() + ":" + app.getDeviceId();
 
             Log.d(TAG, ".initMqttConnection() - Host name: " + serverHost + ", Port: " + serverPort
                     + ", client id: " + clientId);
