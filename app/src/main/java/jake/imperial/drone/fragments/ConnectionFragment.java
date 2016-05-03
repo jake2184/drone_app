@@ -209,16 +209,11 @@ public class ConnectionFragment extends Fragment {
     }
 
     private boolean checkCanConnect() {
-        app.setConnectionType(Constants.ConnectionType.IOTF);
-        if (app.getOrganization() == null || app.getOrganization().equals("") ||
+        return !(app.getOrganization() == null || app.getOrganization().equals("") ||
                 app.getDeviceId() == null || app.getDeviceId().equals("") ||
                 app.getAPIKey() == null || app.getAPIKey().equals("") ||
-                app.getAPIToken() == null || app.getAPIToken().equals(""))
-        {
-            return false;
-        }
+                app.getAPIToken() == null || app.getAPIToken().equals(""));
 
-        return true;
     }
 
 

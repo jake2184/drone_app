@@ -82,10 +82,9 @@ public class MqttHandler implements MqttCallback {
             MqttConnectOptions options = new MqttConnectOptions();
             options.setCleanSession(true);
 
-            if (app.getConnectionType() == Constants.ConnectionType.IOTF) {
-                options.setUserName(app.getAPIKey());
-                options.setPassword(app.getAPIToken().toCharArray());
-            }
+            options.setUserName(app.getAPIKey());
+            options.setPassword(app.getAPIToken().toCharArray());
+
 
             try {
                 // connect

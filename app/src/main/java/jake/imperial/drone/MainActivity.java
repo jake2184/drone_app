@@ -131,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         MqttHandler.getInstance(getApplicationContext()).unsubscribe(TopicFactory.getEventTopic("pi", "drone", "+"));
 
-        CookieManager manager = new CookieManager();
         CookieHandler.setDefault(Ion.getDefault(getApplicationContext()).getCookieMiddleware().getCookieManager());
 
     }

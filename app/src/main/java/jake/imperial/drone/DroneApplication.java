@@ -30,7 +30,6 @@ public class DroneApplication extends Application{
     private String deviceId;
     private String APIKey;
     private String APIToken;
-    private Constants.ConnectionType connectionType;
 
 
     // Application state variables
@@ -135,14 +134,6 @@ public class DroneApplication extends Application{
 
     public void setAPIToken(String APIToken) {
         this.APIToken = APIToken;
-    }
-
-    public void setConnectionType(Constants.ConnectionType type) {
-        this.connectionType = type;
-    }
-
-    public Constants.ConnectionType getConnectionType() {
-        return this.connectionType;
     }
 
     public boolean isConnected() {

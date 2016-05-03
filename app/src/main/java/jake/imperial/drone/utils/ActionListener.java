@@ -111,12 +111,6 @@ public class ActionListener implements IMqttActionListener {
 
         app.setConnected(true);
 
-        if (app.getConnectionType() != Constants.ConnectionType.QUICKSTART) {
-            //MqttHandler mqttHandler = MqttHandler.getInstance(context);
-            //mqttHandler.subscribe(TopicFactory.getCommandTopic("+"), 0);
-            //mqttHandler.subscribe(TopicFactory.getEventTopic("pi", "drone", "+"),0);
-        }
-
         Intent actionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_CONNECTION);
         actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_SUCCESS);
         LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);

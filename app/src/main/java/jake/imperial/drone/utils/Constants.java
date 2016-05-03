@@ -4,24 +4,15 @@ package jake.imperial.drone.utils;
 public class Constants {
 
     public final static String APP_ID = "jake.imperial.drone";
-    public final static String SETTINGS = APP_ID+".Settings";
 
     public final static String SETTINGS_MQTT_SERVER = "messaging.internetofthings.ibmcloud.com";
     public final static String SETTINGS_MQTT_PORT = "1883";
     public final static String SETTINGS_USERNAME = "use-token-auth";
 
-    public enum ConnectionType {
-        M2M, QUICKSTART, IOTF
-    }
-
     public enum ActionStateStatus {
         CONNECTING, DISCONNECTING, SUBSCRIBE, UNSUBSCRIBE, PUBLISH
     }
 
-    // IoT properties
-    public final static String AUTH_TOKEN = "authtoken";
-    public final static String DEVICE_ID = "deviceid";
-    public final static String ORGANIZATION = "organization";
     public final static String DEVICE_TYPE = "Android";
 
     // IoT topic formats
@@ -30,13 +21,11 @@ public class Constants {
     public final static String FORMAT_TOPIC = "/fmt/json";
 
     // IoT events and commands
-    public final static String COLOR_EVENT = "color";
     public final static String TEXT_EVENT = "text";
     public final static String ALERT_EVENT = "alert";
     public final static String UNREAD_EVENT = "unread";
     public final static String LOG_EVENT = "log";
     public final static String IMAGE_EVENT = "image";
-    public final static String STATUS_EVENT = "status";
     public final static String SENSOR_EVENT = "sensors";
     public final static String SENSOR_TYPE_EVENT = "sensorType";
     public final static String CONNECTIVITY_MESSAGE = "connectivityMessage";
@@ -46,10 +35,6 @@ public class Constants {
     public final static String INTENT_CONNECTION = "INTENT_CONNECTION";
 
     public final static String INTENT_DRONE = "INTENT_DRONE";
-    public final static String INTENT_CONTROL = "INTENT_CONTROL";
-    public final static String INTENT_VIDEO = "INTENT_VIDEO";
-    public final static String INTENT_LOG = "INTENT_LOG";
-    public final static String INTENT_MAP = "INTENT_MAP";
     public final static String INTENT_DATA = "data";
     public final static String INTENT_POSITION = "positionUpdate";
 
@@ -67,7 +52,4 @@ public class Constants {
 
     public final static int ERROR_BROKER_UNAVAILABLE = 3;
 
-    // Location Services
-    public final static int LOCATION_MIN_TIME = 30000;
-    public final static float LOCATION_MIN_DISTANCE = 5;
 }
