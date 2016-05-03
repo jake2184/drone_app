@@ -11,6 +11,7 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.net.CookieManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -44,8 +45,14 @@ public class DroneApplication extends Application{
     private ArrayList<String> messageLog = new ArrayList<>();
     private ArrayList<MarkerOptions> markerList = new ArrayList<>();
 
-    private HashMap<String, SimpleXYSeries> sensorData = new HashMap<>();
+    private LatLng latestPosition = new LatLng(51.48, -0.18);
 
+
+    private String username;
+    private String password;
+
+
+    private HashMap<String, SimpleXYSeries> sensorData = new HashMap<>();
 
     public void setLatestPosition(LatLng latestPosition) {
         this.latestPosition = latestPosition;
@@ -55,9 +62,21 @@ public class DroneApplication extends Application{
         return latestPosition;
     }
 
-    private LatLng latestPosition = new LatLng(51.48, -0.18);
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
 
     private int formatLevel = 1;
@@ -69,6 +88,8 @@ public class DroneApplication extends Application{
     public void onCreate() {
         Log.d(TAG, ".onCreate() entered");
         super.onCreate();
+
+
     }
 
     // Getters and Setters

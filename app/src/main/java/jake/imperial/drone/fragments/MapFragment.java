@@ -135,7 +135,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onDestroyView(){
         super.onDestroyView();
-        stopDronePositionUpdate();
+        //stopDronePositionUpdate();
     }
 
     @Override

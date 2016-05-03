@@ -22,6 +22,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.net.CookieHandler;
+import java.net.CookieManager;
+
 import jake.imperial.drone.fragments.ConnectionFragment;
 import jake.imperial.drone.fragments.ControlFragment;
 import jake.imperial.drone.fragments.GraphFragment;
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private DroneApplication app;
+
+    public String session;
 
     @Override
     protected void onDestroy() {
@@ -123,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         MqttHandler.getInstance(getApplicationContext()).unsubscribe(TopicFactory.getEventTopic("pi", "drone", "+"));
+
+        CookieManager manager = new CookieManager();
+        CookieHandler.setDefault(manager);
 
     }
 

@@ -18,6 +18,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.cookie.CookieMiddleware;
+
+import java.net.CookieManager;
+import java.net.CookieStore;
+import java.net.HttpCookie;
+import java.net.URI;
+import java.util.List;
 
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
@@ -30,7 +37,6 @@ public class VideoFragment extends Fragment {
     private BroadcastReceiver broadcastReceiver;
 
     private Handler mHandler;
-    private int mInterval = 10000;
     private ImageView imageView;
     private String domain = "";
 
@@ -53,15 +59,13 @@ public class VideoFragment extends Fragment {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    if(app.getCurrentRunningActivity().equals(TAG)) {
-                        Log.d(TAG, ".onReceive() - Received intent for VideoBroadcastReceiver");
-                        processIntent(intent);
-                    }
+                    Log.d(TAG, ".onReceive() - Received intent for VideoBroadcastReceiver");
+                    processIntent(intent);
                 }
             };
         }
 
-        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+        IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
 
         domain = app.getDomain();
@@ -113,6 +117,56 @@ public class VideoFragment extends Fragment {
         }
     };
 
+    private Runnable updateViewNew = new Runnable() {
+        @Override
+        public void run() {
+            domain = app.getDomain();
+            String url = "http://" + domain + "/api/images/latest";
+            Log.d(TAG, "Updating image from " + url);
+
+            Ion.with(getContext())
+                    .load(url)
+                    .noCache()
+                    .withBitmap()
+                    .error(R.drawable.control_pad_button)
+                    .crossfade(true)
+                    .intoImageView(imageView);
+
+        }
+    };
+
+    private void updateImageView(){
+        domain = app.getDomain();
+        String url = "http://" + domain + "/api/images/latest";
+        Log.d(TAG, "Updating image from " + url);
+
+        CookieMiddleware middle = Ion.getDefault(getContext()).getCookieMiddleware();
+        URI uri;
+        try{
+            uri = new URI(url);
+        }catch(Exception e){
+            return;
+        }
+
+        List<HttpCookie> bing = middle.getCookieStore().get(uri);
+        CookieStore store = middle.getCookieStore();
+
+        List<HttpCookie> cookies = ((CookieManager)CookieManager.getDefault()).getCookieStore().get(uri);
+        HttpCookie cookie = cookies.get(0);
+
+        Ion.with(getContext())
+                .load(url)
+                .noCache()
+                .setHeader("Cookie", cookie.toString())
+                .withBitmap()
+                .error(R.drawable.control_pad_button)
+                .crossfade(true)
+                .intoImageView(imageView);
+
+
+
+    }
+
     private void startRepeatingTask() {
         updateView.run();
     }
@@ -121,23 +175,10 @@ public class VideoFragment extends Fragment {
         mHandler.removeCallbacks(updateView);
     }
 
-    private void processIntent(Intent intent){
+    private void processIntent(Intent intent) {
         if (intent.getAction().contains(Constants.IMAGE_EVENT)) {
-            new Thread(updateView).start();
-        }
-
-
-        String data = intent.getStringExtra(Constants.INTENT_DATA);
-        assert data != null;
-        if (data.equals(Constants.ALERT_EVENT)) {
-            String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
-            new AlertDialog.Builder(getActivity())
-                    .setTitle("Alert:")
-                    .setMessage(message)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                        }
-                    }).show();
+            //new Thread(updateViewNew).start();
+            updateImageView();
         }
     }
 }

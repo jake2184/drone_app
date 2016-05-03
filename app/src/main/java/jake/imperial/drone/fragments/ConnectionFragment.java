@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +18,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.TimeoutError;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.net.CookieManager;
+import java.net.HttpCookie;
+import java.net.URI;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
@@ -31,6 +48,7 @@ public class ConnectionFragment extends Fragment {
     private final static String TAG = ConnectionFragment.class.getName();
     private DroneApplication app;
     private BroadcastReceiver broadcastReceiver;
+    private RequestQueue requestQueue;
 
 
     public ConnectionFragment() {
@@ -59,7 +77,7 @@ public class ConnectionFragment extends Fragment {
         }
         IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.ALERT_EVENT);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
-
+        requestQueue = Volley.newRequestQueue(getContext());
     }
 
     @Override
@@ -73,6 +91,8 @@ public class ConnectionFragment extends Fragment {
         SharedPreferences settings = getActivity().getPreferences(0);
 
         ((EditText)rootView.findViewById(R.id.domain)).setText(settings.getString("domain", ""));
+        ((EditText)rootView.findViewById(R.id.username)).setText(settings.getString("username", ""));
+        ((EditText)rootView.findViewById(R.id.password)).setText(settings.getString("password", ""));
         ((EditText)rootView.findViewById(R.id.organisation)).setText(settings.getString("organisation", ""));
         ((EditText)rootView.findViewById(R.id.deviceID)).setText(settings.getString("device_id", ""));
         ((EditText)rootView.findViewById(R.id.api_key)).setText(settings.getString("api_key", ""));
@@ -97,6 +117,8 @@ public class ConnectionFragment extends Fragment {
 
     private void EditSettings(View rootView){
         String domain = ((EditText) rootView.findViewById(R.id.domain)).getText().toString();
+        String username = ((EditText) rootView.findViewById(R.id.username)).getText().toString();
+        String password = ((EditText) rootView.findViewById(R.id.password)).getText().toString();
         String organisation = ((EditText)rootView.findViewById(R.id.organisation)).getText().toString();
         String deviceID = ((EditText)rootView.findViewById(R.id.deviceID)).getText().toString();
         String APIKey = ((EditText)rootView.findViewById(R.id.api_key)).getText().toString();
@@ -106,6 +128,8 @@ public class ConnectionFragment extends Fragment {
 
         SharedPreferences.Editor settings = getActivity().getPreferences(0).edit();
         settings.putString("domain", domain);
+        settings.putString("username", username);
+        settings.putString("password", password);
         settings.putString("organisation", organisation);
         settings.putString("device_id", deviceID);
         settings.putString("api_key", APIKey);
@@ -123,14 +147,66 @@ public class ConnectionFragment extends Fragment {
         Log.d(TAG, ".Connect() entered");
 
         MqttHandler mqttHandle = MqttHandler.getInstance(getActivity().getApplicationContext());
+
         app.setDomain(((EditText)getActivity().findViewById(R.id.domain)).getText().toString());
+        app.setUsername(((EditText)getActivity().findViewById(R.id.username)).getText().toString());
+        app.setPassword(((EditText)getActivity().findViewById(R.id.password)).getText().toString());
         app.setOrganization(((EditText) getActivity().findViewById(R.id.organisation)).getText().toString());
         app.setDeviceId(((EditText) getActivity().findViewById(R.id.deviceID)).getText().toString());
         app.setAPIKey(((EditText) getActivity().findViewById(R.id.api_key)).getText().toString());
         app.setAPIToken(((EditText) getActivity().findViewById(R.id.api_token)).getText().toString());
 
         if (checkCanConnect()) {
+            app.getDomain();
+            String url = "http://" + app.getDomain() + "/login";
+            LoginRequest loginRequest = new LoginRequest(url, app.getUsername(), app.getPassword(), new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d(TAG, response);
+
+                    try {
+                        URI uri = new URI("http://" + app.getDomain());
+                        List<HttpCookie> bing = ((CookieManager) CookieManager.getDefault()).getCookieStore().get(uri);
+                        Log.d(TAG, "coo");
+                    } catch (Exception e){
+                        Log.d(TAG, e.toString());
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d(TAG, error.toString());
+
+                    if(error instanceof AuthFailureError) {
+                        Log.d(TAG, "Authentication error");
+                    } else if(error instanceof TimeoutError){
+                        Log.d(TAG, "Connection timeout error");
+                    } else if(error instanceof NetworkError) {
+                        Log.d(TAG, "Network Error");
+                    }
+
+
+                }
+            });
+
+
+            requestQueue.add(loginRequest);
+
+
+
+
+
             if(mqttHandle.connect()){
+
+
+
+
+
+
+
+
+
                 Log.d(TAG, "Connection successful");
                 app.getMessageLog().add("[" + new Timestamp((new Date()).getTime()) + "]: Connected successfully");
                 new AlertDialog.Builder(getActivity())
@@ -142,7 +218,7 @@ public class ConnectionFragment extends Fragment {
                         }).show();
                 //MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
                 MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
-                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
+                //MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
 
             }
         } else {
@@ -203,6 +279,29 @@ public class ConnectionFragment extends Fragment {
                     }).show();
         } else {
             Log.d(TAG, data);
+        }
+
+    }
+
+    private class LoginRequest extends StringRequest{
+
+        public LoginRequest(String url, String username, String password, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+            super(Request.Method.POST, url, listener, errorListener);
+            if (username != null && password != null) {
+                String loginEncoded = new String(Base64.encode((username + ":" + password).getBytes(), Base64.NO_WRAP));
+                this.headers.put("Authorization", "Basic " + loginEncoded);
+            }
+        }
+
+        private Map<String, String> headers = new HashMap<String, String>();
+
+        @Override
+        public Map<String, String> getHeaders() throws AuthFailureError {
+            return headers;
+        }
+
+        public void setHeader(String title, String content) {
+            headers.put(title, content);
         }
 
     }
