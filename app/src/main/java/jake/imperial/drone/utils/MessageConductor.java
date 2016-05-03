@@ -57,13 +57,13 @@ public class MessageConductor {
 
 
         if (topic.contains(Constants.LOG_EVENT)) {
-            JSONObject d = top.getJSONObject("d");
             app.setUnreadCount(app.getUnreadCount() + 1);
 
-            String messageText = d.getString("text");
-            JSONObject location = d.getJSONObject("location");
+            String messageText = top.getString("text");
+            JSONObject location = top.getJSONObject("location");
 
             app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + messageText);
+
             app.getMarkerList().add(new MarkerOptions()
                     .position(new LatLng(location.getDouble("lat"), location.getDouble("lon")))
                     .title(messageText)
@@ -73,7 +73,7 @@ public class MessageConductor {
             Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
             if (messageText != null) {
                 logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
-                logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
+                logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, top.getString("text"));
                 logIntent.putExtra(Constants.INTENT_DATA_LOC_LAT, location.getDouble("lat"));
                 logIntent.putExtra(Constants.INTENT_DATA_LOC_LON, location.getDouble("lon"));
                 Log.d(TAG, String.valueOf(location.toString()));
@@ -83,71 +83,98 @@ public class MessageConductor {
             // Does Log need revalidating?
             // Should make GPS global. Cos if map not running it not receive
 
-            } else if (topic.contains(Constants.ALERT_EVENT)) {
-                JSONObject d = top.getJSONObject("d");
-                app.setUnreadCount(app.getUnreadCount() + 1);
+        }else if (topic.contains("event")){
+            Log.d(TAG, "Received event");
+            app.setUnreadCount(app.getUnreadCount() + 1);
 
-                String runningActivity = app.getCurrentRunningActivity();
-                if (runningActivity != null) {
-                    Intent alertIntent = new Intent(Constants.APP_ID + "." + Constants.ALERT_EVENT);
-                    String messageText = d.getString("text");
-                    if (messageText != null) {
-                        alertIntent.putExtra(Constants.INTENT_DATA, Constants.ALERT_EVENT);
-                        alertIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
-                        LocalBroadcastManager.getInstance(context).sendBroadcast(alertIntent);
-                    }
+            String messageText = top.getString("text");
+            JSONObject location = top.getJSONObject("location");
+
+            app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + messageText);
+
+            app.getMarkerList().add(new MarkerOptions()
+                            .position(new LatLng(location.getDouble("latitude"), location.getDouble("longitude")))
+                            .title(messageText)
+                    //.icon // somehow select depending on thingymagig
+            );
+
+            Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
+            if (messageText != null) {
+                logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
+                logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, top.getString("text"));
+                logIntent.putExtra(Constants.INTENT_DATA_LOC_LAT, location.getDouble("latitude"));
+                logIntent.putExtra(Constants.INTENT_DATA_LOC_LON, location.getDouble("longitude"));
+                Log.d(TAG, String.valueOf(location.toString()));
+                LocalBroadcastManager.getInstance(context).sendBroadcast(logIntent);
+            }
+        }else if (topic.contains(Constants.ALERT_EVENT)) {
+            JSONObject d = top.getJSONObject("d");
+            app.setUnreadCount(app.getUnreadCount() + 1);
+
+            String runningActivity = app.getCurrentRunningActivity();
+            if (runningActivity != null) {
+                Intent alertIntent = new Intent(Constants.APP_ID + "." + Constants.ALERT_EVENT);
+                String messageText = d.getString("text");
+                if (messageText != null) {
+                    alertIntent.putExtra(Constants.INTENT_DATA, Constants.ALERT_EVENT);
+                    alertIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
+                    LocalBroadcastManager.getInstance(context).sendBroadcast(alertIntent);
                 }
-            } else if (topic.contains(Constants.IMAGE_EVENT)){
-                Log.d(TAG, "New image uploaded to server");
-                Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
-                LocalBroadcastManager.getInstance(context).sendBroadcast(newImageIntent);
-            } else if (topic.contains(Constants.SENSOR_EVENT)){
-                Log.d(TAG, "he");
-                JSONObject readings = new JSONObject(payload);
-                long time = readings.getLong("time");
-                JSONArray position = readings.getJSONArray("location");
+            }
+        } else if (topic.contains(Constants.IMAGE_EVENT)){
+            Log.d(TAG, "New image uploaded to server");
+            Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(newImageIntent);
+        } else if (topic.contains(Constants.SENSOR_EVENT)){
+            JSONObject readings = new JSONObject(payload);
+            long time = readings.getLong("time");
+            JSONArray position = readings.getJSONArray("location");
 
-                // Send out position information
-                Intent positionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_POSITION);
+            // Send out position information
+            Intent positionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_POSITION);
 
-                LatLng latLon = new LatLng(position.getDouble(0), position.getDouble(1));
-                app.setLatestPosition(latLon);
-                positionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_POSITION);
-                LocalBroadcastManager.getInstance(context).sendBroadcast(positionIntent);
+            LatLng latLon = new LatLng(position.getDouble(0), position.getDouble(1));
+            app.setLatestPosition(latLon);
+            positionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_POSITION);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(positionIntent);
 
-                readings.remove("time");
-                readings.remove("location");
+            readings.remove("time");
+            readings.remove("location");
 
-                Iterator<String> iter = readings.keys();
-                while(iter.hasNext()) {
+            Iterator<String> iter = readings.keys();
+            while(iter.hasNext()) {
 
-                    String type = iter.next();
-                    Double reading = readings.getDouble(type);
+                String type = iter.next();
+                Double reading;
+                try {
+                    reading = readings.getDouble(type);
+                } catch (JSONException e){
+                    continue; // Sensor reading was null
+                }
+                SimpleXYSeries series = app.getSensorData().get(type);
+                if (series != null) {
+                    series.addLast(time, reading);
 
-                    SimpleXYSeries series = app.getSensorData().get(type);
-                    if (series != null) {
-                        series.addLast(time, reading);
+                } else {
+                    series = new SimpleXYSeries(type);
+                    series.addLast(time, reading);
 
-                    } else {
-                        series = new SimpleXYSeries(type);
-                        series.addLast(time, reading);
+                    app.getSensorData().put(type, series);
 
-                        app.getSensorData().put(type, series);
-
-                        String runningActivity = app.getCurrentRunningActivity();
-                        if(runningActivity != null && runningActivity.equals(GraphFragment.class.getName())){
-                            Intent sensorTypeIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
-                            sensorTypeIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_TYPE_EVENT);
-                            sensorTypeIntent.putExtra(Constants.INTENT_DATA_SENSORTYPE, type);
-                            LocalBroadcastManager.getInstance(context).sendBroadcast(sensorTypeIntent);
-
-                        }
+                    String runningActivity = app.getCurrentRunningActivity();
+                    if(runningActivity != null && runningActivity.equals(GraphFragment.class.getName())){
+                        Intent sensorTypeIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
+                        sensorTypeIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_TYPE_EVENT);
+                        sensorTypeIntent.putExtra(Constants.INTENT_DATA_SENSORTYPE, type);
+                        LocalBroadcastManager.getInstance(context).sendBroadcast(sensorTypeIntent);
 
                     }
+
                 }
-                Intent sensorDataIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
-                sensorDataIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_EVENT);
-                LocalBroadcastManager.getInstance(context).sendBroadcast(sensorDataIntent);
+            }
+            Intent sensorDataIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
+            sensorDataIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_EVENT);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(sensorDataIntent);
         } else {
             Log.d(TAG, "No known action for " + topic + " " + payload);
         }

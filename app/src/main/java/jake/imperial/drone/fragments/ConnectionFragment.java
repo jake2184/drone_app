@@ -140,8 +140,9 @@ public class ConnectionFragment extends Fragment {
                                 // Do nothing.
                             }
                         }).show();
-                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
+                //MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
                 MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
+                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
 
             }
         } else {
