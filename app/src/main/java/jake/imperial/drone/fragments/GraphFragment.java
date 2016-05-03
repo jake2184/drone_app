@@ -2,6 +2,9 @@ package jake.imperial.drone.fragments;
 
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,7 +21,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TimePicker;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,7 +40,9 @@ import java.text.Format;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
@@ -52,7 +60,9 @@ public class GraphFragment extends Fragment {
     private BroadcastReceiver broadcastReceiver;
 
     private RequestQueue requestQueue;
-    private boolean liveData = false;
+    private AtomicInteger queryNumber;
+
+    private boolean liveData = true;
 
 
     private XYPlot linePlot;
@@ -106,6 +116,7 @@ public class GraphFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_graph, container, false);
 
         requestQueue = Volley.newRequestQueue(getContext());
+        queryNumber = new AtomicInteger(0);
 
         final CheckBox mqtt_live_data = (CheckBox) rootView.findViewById(R.id.mqtt_live_data);
 
@@ -130,7 +141,7 @@ public class GraphFragment extends Fragment {
             public void onClick(View v) {
                 liveData = false;
                 mqtt_live_data.setChecked(false);
-                loadSensorData();
+                loadSensorData3();
             }
         });
 
@@ -183,9 +194,11 @@ public class GraphFragment extends Fragment {
     private Runnable querySensorDatabase = new Runnable() {
         @Override
         public void run() {
+
+            final ProgressDialog dialog = ProgressDialog.show(getContext(), "", "Trying to connect..", true, false);
+
             SharedPreferences settings = getActivity().getPreferences(0);
             try {
-
                 String timeFrom = settings.getString("dialog_data_from", "0");
                 String timeTill = settings.getString("dialog_data_till", String.valueOf(System.currentTimeMillis()));
 
@@ -199,12 +212,15 @@ public class GraphFragment extends Fragment {
 
                 String url = "http://" + domain + "/getSensorData?timeFrom=" + timeFrom + "&timeTill=" + timeTill;
                 if(temperature){
+                    queryNumber.incrementAndGet();
                     runDatabaseQuery(url + "&type=temperature");
                 }
                 if(altitude){
+                    queryNumber.incrementAndGet();
                     runDatabaseQuery(url + "&type=altitude");
                 }
                 if(airpurity){
+                    queryNumber.incrementAndGet();
                     runDatabaseQuery(url + "&type=airPurity");
                 }
 
@@ -255,12 +271,15 @@ public class GraphFragment extends Fragment {
                                     }
                                 }
 
-
                             }
+
                             linePlot.redraw();
 
                         } catch (JSONException e) {
                             Log.d(TAG, e.toString());
+                        }
+                        if(queryNumber.decrementAndGet() == 0){
+                            //Sdialog.dismiss();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -326,6 +345,89 @@ public class GraphFragment extends Fragment {
         AlertDialog b = dialogBuilder.create();
         b.show();
 
+
+
+
+    }
+
+
+    private void loadSensorData2(){
+        DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_Holo_Dialog, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                int cal = getContext().getResources().getIdentifier("android:", null, null);
+
+
+            }
+        }, 2000, 1, 1){
+            @Override
+            protected void onCreate(Bundle savedInstanceState){
+                super.onCreate(savedInstanceState);
+
+            }
+        };
+        dialog.getDatePicker().setCalendarViewShown(false);
+        dialog.show();
+    }
+
+    private void loadSensorData3(){
+
+        final Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.time_choice_dialog);
+        dialog.setTitle("Select time range:");
+
+        SharedPreferences settings = getActivity().getPreferences(0);
+
+        final CheckBox temp_check = (CheckBox) dialog.findViewById(R.id.temperature_check);
+        final CheckBox alt_check = (CheckBox) dialog.findViewById(R.id.altitude_check);
+        final CheckBox air_check = (CheckBox) dialog.findViewById(R.id.airpurity_check);
+
+
+        temp_check.setChecked(settings.getBoolean("temperature_check", false));
+        alt_check.setChecked(settings.getBoolean("altitude_check", false));
+        air_check.setChecked(settings.getBoolean("airpurity_check", false));
+
+        dialog.findViewById(R.id.accept).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePicker datePicker = (DatePicker) dialog.findViewById(R.id.from_date_picker);
+                TimePicker timePicker = (TimePicker) dialog.findViewById(R.id.from_time_picker);
+                GregorianCalendar date = new GregorianCalendar(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(),
+                        timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 0);
+                long fromTime = date.getTimeInMillis();
+
+                datePicker = (DatePicker) dialog.findViewById(R.id.till_date_picker);
+                timePicker = (TimePicker) dialog.findViewById(R.id.till_time_picker);
+                date = new GregorianCalendar(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(),
+                        timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 0);
+                long tillTime = date.getTimeInMillis();
+
+
+
+                SharedPreferences.Editor sett = getActivity().getPreferences(0).edit();
+                sett.putString("dialog_data_from" , String.valueOf(fromTime));
+                sett.putString("dialog_data_till", String.valueOf(tillTime));
+                sett.putBoolean("temperature_check", temp_check.isChecked());
+                sett.putBoolean("altitude_check", alt_check.isChecked());
+                sett.putBoolean("airpurity_check", air_check.isChecked());
+                sett.commit();
+                new Thread(querySensorDatabase).start();
+
+                dialog.dismiss();
+
+
+
+            }
+        });
+
+        dialog.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
     private void processIntent(Intent intent){

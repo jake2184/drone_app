@@ -8,6 +8,9 @@
     <string name="domain">&lt;domain&gt;.mybluemix.net</string>
 
 
+    <string name="time_from">From:</string>
+    <string name="time_until">Until:</string>
+
     <string name="organisation">Organisation</string>
     <string name="auth_token">"Auth-token</string>
     <string name="deviceID">Device ID</string>
