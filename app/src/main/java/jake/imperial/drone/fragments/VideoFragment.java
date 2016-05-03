@@ -157,7 +157,7 @@ public class VideoFragment extends Fragment {
         Ion.with(getContext())
                 .load(url)
                 .noCache()
-                .setHeader("Cookie", cookie.toString())
+                //.setHeader("Cookie", cookie.toString())
                 .withBitmap()
                 .error(R.drawable.control_pad_button)
                 .crossfade(true)

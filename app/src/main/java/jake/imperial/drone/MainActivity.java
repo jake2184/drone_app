@@ -22,6 +22,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.koushikdutta.ion.Ion;
+
 import java.net.CookieHandler;
 import java.net.CookieManager;
 
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         MqttHandler.getInstance(getApplicationContext()).unsubscribe(TopicFactory.getEventTopic("pi", "drone", "+"));
 
         CookieManager manager = new CookieManager();
-        CookieHandler.setDefault(manager);
+        CookieHandler.setDefault(Ion.getDefault(getApplicationContext()).getCookieMiddleware().getCookieManager());
 
     }
 
