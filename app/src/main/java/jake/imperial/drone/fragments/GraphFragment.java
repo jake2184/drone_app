@@ -153,11 +153,8 @@ public class GraphFragment extends Fragment {
 
         linePlot = (XYPlot) rootView.findViewById(R.id.linePlot);
 
-
         linePlot.setDomainStep(XYStepMode.SUBDIVIDE, 10);
-
         linePlot.setRangeStep(XYStepMode.SUBDIVIDE, 10);
-
         linePlot.setDomainValueFormat(new Format() {
             private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
@@ -173,6 +170,8 @@ public class GraphFragment extends Fragment {
             }
         });
         linePlot.setRangeValueFormat(new DecimalFormat("###.#"));
+
+
         linePlot.getGraphWidget().setDomainLabelOrientation(-45);
         linePlot.getLegendWidget().setPadding(10, 10, 10, 10);
         linePlot.getGraphWidget().setPadding(10, 10, 10, 10);

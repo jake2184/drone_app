@@ -153,6 +153,12 @@ public class MessageConductor {
                 }
                 SimpleXYSeries series = app.getSensorData().get(type);
                 if (series != null) {
+
+                    // Could still show > MAX_GRAPH_SIZE over different series
+                    if(series.size() >= Constants.MAX_GRAPH_SIZE){
+                        series.removeFirst();
+                    }
+
                     series.addLast(time, reading);
 
                 } else {
@@ -162,13 +168,11 @@ public class MessageConductor {
                     app.getSensorData().put(type, series);
 
                     String runningActivity = app.getCurrentRunningActivity();
-                    if(runningActivity != null && runningActivity.equals(GraphFragment.class.getName())){
-                        Intent sensorTypeIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
-                        sensorTypeIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_TYPE_EVENT);
-                        sensorTypeIntent.putExtra(Constants.INTENT_DATA_SENSORTYPE, type);
-                        LocalBroadcastManager.getInstance(context).sendBroadcast(sensorTypeIntent);
+                    Intent sensorTypeIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
+                    sensorTypeIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_TYPE_EVENT);
+                    sensorTypeIntent.putExtra(Constants.INTENT_DATA_SENSORTYPE, type);
+                    LocalBroadcastManager.getInstance(context).sendBroadcast(sensorTypeIntent);
 
-                    }
 
                 }
             }

@@ -52,4 +52,5 @@ public class Constants {
 
     public final static int ERROR_BROKER_UNAVAILABLE = 3;
 
+    public final static int MAX_GRAPH_SIZE = 100;
 }
