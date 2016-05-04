@@ -11,6 +11,8 @@
     <string name="time_from">From:</string>
     <string name="time_until">Until:</string>
 
+    <string name="min_date">01/01/2010</string>
+
     <string name="organisation">Organisation</string>
     <string name="auth_token">"Auth-token</string>
     <string name="deviceID">Device ID</string>

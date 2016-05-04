@@ -13,12 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99cd8db1-94f0-40a8-9ffa-8f66b9a42e20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/time_choice_dialog.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/time_choice_dialog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/time_choice_dialog.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <ignored path="drone_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,24 +62,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/VideoFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="154" column="27" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1275#1276#0" expanded="false" />
-                <element signature="e#1317#1318#0" expanded="false" />
-                <element signature="e#5303#5304#0" expanded="false" />
-                <element signature="e#5335#5336#0" expanded="false" />
-                <element signature="e#5375#5376#0" expanded="false" />
-                <element signature="e#5427#5428#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ActionListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/ActionListener.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -100,26 +82,36 @@
       <file leaf-file-name="GraphFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8989667">
-              <caret line="281" column="31" selection-start-line="281" selection-start-column="31" selection-end-line="281" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.49253732">
+              <caret line="369" column="13" selection-start-line="369" selection-start-column="13" selection-end-line="369" selection-end-column="13" />
               <folding>
                 <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-                <element signature="class#4925:5430" expanded="false" />
-                <element signature="method#format#0;class#4925:5430" expanded="false" />
-                <element signature="e#5695#5807#0" expanded="false" />
+                <element signature="method#onResume#0;class#GraphFragment#0" expanded="false" />
+                <element signature="method#onCreateView#0;class#GraphFragment#0" expanded="false" />
+                <element signature="class#5194:5703" expanded="false" />
+                <element signature="method#format#0;class#5194:5703" expanded="false" />
+                <element signature="e#5971#6083#0" expanded="false" />
                 <element signature="method#onDestroyView#0;class#GraphFragment#0" expanded="false" />
-                <element signature="e#8121#10156#0" expanded="true" />
-                <element signature="e#10155#10156#0" expanded="true" />
-                <element signature="e#10158#10341#0" expanded="true" />
-                <element signature="e#10340#10341#0" expanded="true" />
+                <element signature="method#clearGraph#0;class#GraphFragment#0" expanded="false" />
+                <element signature="e#6790#8868#0" expanded="true" />
+                <element signature="e#8867#8868#0" expanded="true" />
+                <element signature="e#8870#9111#0" expanded="true" />
+                <element signature="e#9110#9111#0" expanded="true" />
+                <element signature="e#9123#9165#0" expanded="false" />
+                <element signature="class#11578:11772" expanded="false" />
+                <element signature="method#onClick#0;class#11578:11772" expanded="false" />
+                <element signature="method#onPreExecute#0;class#dlTask#0;class#GraphFragment#0" expanded="false" />
+                <element signature="class#14475:14657" expanded="false" />
+                <element signature="method#onClick#0;class#14475:14657" expanded="false" />
+                <element signature="method#processIntent#0;class#GraphFragment#0" expanded="false" />
+                <element signature="class#16718:16888" expanded="false" />
+                <element signature="method#onClick#0;class#16718:16888" expanded="false" />
                 <element signature="method#loadSensorData#0;class#GraphFragment#0" expanded="false" />
-                <element signature="method#onClick#0;class#12576:12726" expanded="false" />
-                <element signature="e#14337#15963#0" expanded="true" />
-                <element signature="e#15962#15963#0" expanded="true" />
-                <element signature="e#16027#16177#0" expanded="true" />
-                <element signature="e#16176#16177#0" expanded="true" />
-                <element signature="class#16696:16866" expanded="false" />
-                <element signature="method#onClick#0;class#16696:16866" expanded="false" />
+                <element signature="class#21024:21175" expanded="false" />
+                <element signature="method#onClick#0;class#21024:21175" expanded="false" />
+                <element signature="method#loadSensorData2#0;class#GraphFragment#0" expanded="false" />
+                <element signature="class#21331:21855" expanded="false" />
+                <element signature="method#onCreate#0;class#21331:21855" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -135,43 +127,55 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.6666665">
+              <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="time_choice_dialog.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/time_choice_dialog.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.654546">
-              <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+            <state vertical-scroll-proportion="-15.145454">
+              <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
               <folding>
                 <element signature="e#360#387#0" expanded="true" />
                 <element signature="e#515#534#0" expanded="true" />
-                <element signature="e#1560#1580#0" expanded="true" />
-                <element signature="e#2807#2828#0" expanded="true" />
-                <element signature="e#3045#3063#0" expanded="true" />
-                <element signature="e#3281#3300#0" expanded="true" />
+                <element signature="e#945#963#0" expanded="true" />
+                <element signature="e#1607#1627#0" expanded="true" />
+                <element signature="e#2038#2056#0" expanded="true" />
+                <element signature="e#2901#2922#0" expanded="true" />
+                <element signature="e#3139#3157#0" expanded="true" />
+                <element signature="e#3375#3394#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="fragment_sensor_dialog.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_sensor_dialog.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5454545">
+            <state vertical-scroll-proportion="0.0">
               <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-7.1923075">
               <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
               <folding />
             </state>
@@ -182,7 +186,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="149" column="112" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="112" />
+              <caret line="158" column="101" selection-start-line="158" selection-start-column="101" selection-end-line="158" selection-end-column="101" />
               <folding />
             </state>
           </provider>
@@ -194,6 +198,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="docComment;field#mSectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
                 <element signature="e#2734#2805#0" expanded="false" />
                 <element signature="class#4592:5005" expanded="false" />
@@ -207,8 +212,12 @@
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
                 <element signature="e#6652#6710#0" expanded="false" />
+                <element signature="e#7195#7196#0" expanded="false" />
+                <element signature="e#7241#7242#0" expanded="false" />
                 <element signature="docComment;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
                 <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#7877#7878#0" expanded="false" />
+                <element signature="e#7910#7911#0" expanded="false" />
                 <element signature="method#getItem#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#getCount#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#getPageTitle#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
@@ -1609,7 +1618,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4385109463032" />
+        <entry key="$PROJECT_DIR$" value="4386019002541" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1898,7 +1907,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/control_pad_button.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/data_source_button.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/TopicFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_sensor_dialog.xml" />
@@ -1916,9 +1924,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/time_choice_dialog.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java" />
       </list>
     </option>
@@ -1954,158 +1963,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drone_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
@@ -2183,6 +2040,50 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drone_app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2582,7 +2483,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462300534189</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added new way to choose from/till time. TODO manage the progress dialog.&#10;">
+      <created>1462311123061</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1462311123061</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2604,7 +2511,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" x="-8" y="-30" width="976" height="1078" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" x="-8" y="-30" width="976" height="1078" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33481646" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2618,7 +2525,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38820913" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2685,43 +2592,16 @@
     <MESSAGE value="Use ion cookie manager" />
     <MESSAGE value="Added progress dialog and more correct connection" />
     <MESSAGE value="Cleanup&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup&#10;" />
+    <MESSAGE value="Added new way to choose from/till time. TODO manage the progress dialog.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new way to choose from/till time. TODO manage the progress dialog.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="28" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/xy/SimpleXYSeries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3557522">
-          <caret line="145" column="57" selection-start-line="145" selection-start-column="57" selection-end-line="145" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/xy/XYGraphWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33274338">
-          <caret line="230" column="16" selection-start-line="230" selection-start-column="16" selection-end-line="230" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="1" selection-start-line="18" selection-start-column="5" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/b077fe6f32342cda2815129f29f509109ec7260c/androidplot-core-0.6.1-sources.jar!/com/androidplot/ui/widget/Widget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4098737">
-          <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3002,67 +2882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1557#1558#0" expanded="false" />
-            <element signature="e#1609#1610#0" expanded="false" />
-            <element signature="e#1650#1651#0" expanded="false" />
-            <element signature="e#1687#1688#0" expanded="false" />
-            <element signature="e#1722#1723#0" expanded="false" />
-            <element signature="e#1753#1754#0" expanded="false" />
-            <element signature="e#1801#1802#0" expanded="false" />
-            <element signature="e#1841#1842#0" expanded="false" />
-            <element signature="e#1876#1877#0" expanded="false" />
-            <element signature="e#1907#1908#0" expanded="false" />
-            <element signature="e#1955#1956#0" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2517#2518#0" expanded="false" />
-            <element signature="e#2546#2547#0" expanded="false" />
-            <element signature="e#2590#2591#0" expanded="false" />
-            <element signature="e#2626#2627#0" expanded="false" />
-            <element signature="e#2665#2666#0" expanded="false" />
-            <element signature="e#2700#2701#0" expanded="false" />
-            <element signature="e#2756#2757#0" expanded="false" />
-            <element signature="e#2804#2805#0" expanded="false" />
-            <element signature="e#2839#2840#0" expanded="false" />
-            <element signature="e#2870#2871#0" expanded="false" />
-            <element signature="e#2918#2919#0" expanded="false" />
-            <element signature="e#2958#2959#0" expanded="false" />
-            <element signature="e#2991#2992#0" expanded="false" />
-            <element signature="e#3020#3021#0" expanded="false" />
-            <element signature="e#3064#3065#0" expanded="false" />
-            <element signature="e#3100#3101#0" expanded="false" />
-            <element signature="e#3135#3136#0" expanded="false" />
-            <element signature="e#3166#3167#0" expanded="false" />
-            <element signature="e#3214#3215#0" expanded="false" />
-            <element signature="e#3254#3255#0" expanded="false" />
-            <element signature="e#3290#3291#0" expanded="false" />
-            <element signature="e#3322#3323#0" expanded="false" />
-            <element signature="e#3373#3374#0" expanded="false" />
-            <element signature="e#3415#3416#0" expanded="false" />
-            <element signature="e#3451#3452#0" expanded="false" />
-            <element signature="e#3486#3487#0" expanded="false" />
-            <element signature="e#3539#3540#0" expanded="false" />
-            <element signature="e#3587#3588#0" expanded="false" />
-            <element signature="e#3623#3624#0" expanded="false" />
-            <element signature="e#3658#3659#0" expanded="false" />
-            <element signature="e#3711#3712#0" expanded="false" />
-            <element signature="e#3759#3760#0" expanded="false" />
-            <element signature="e#3794#3795#0" expanded="false" />
-            <element signature="e#3828#3829#0" expanded="false" />
-            <element signature="e#3879#3880#0" expanded="false" />
-            <element signature="e#3925#3926#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#3982#3983#0" expanded="false" />
-            <element signature="e#4021#4022#0" expanded="false" />
-            <element signature="e#4055#4056#0" expanded="false" />
-            <element signature="e#4103#4104#0" expanded="false" />
-            <element signature="e#4136#4137#0" expanded="false" />
-            <element signature="e#4190#4191#0" expanded="false" />
-            <element signature="e#4223#4224#0" expanded="false" />
-            <element signature="e#4284#4285#0" expanded="false" />
-            <element signature="e#4317#4318#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3108,14 +2927,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3134,7 +2945,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_sensor_dialog.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5454545">
+        <state vertical-scroll-proportion="0.0">
           <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding />
         </state>
@@ -3151,37 +2962,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/time_choice_dialog.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.654546">
-          <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-          <folding>
-            <element signature="e#360#387#0" expanded="true" />
-            <element signature="e#515#534#0" expanded="true" />
-            <element signature="e#1560#1580#0" expanded="true" />
-            <element signature="e#2807#2828#0" expanded="true" />
-            <element signature="e#3045#3063#0" expanded="true" />
-            <element signature="e#3281#3300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;field#mSectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
             <element signature="e#2734#2805#0" expanded="false" />
             <element signature="class#4592:5005" expanded="false" />
@@ -3195,8 +2981,12 @@
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="e#6652#6710#0" expanded="false" />
+            <element signature="e#7195#7196#0" expanded="false" />
+            <element signature="e#7241#7242#0" expanded="false" />
             <element signature="docComment;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
             <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#7877#7878#0" expanded="false" />
+            <element signature="e#7910#7911#0" expanded="false" />
             <element signature="method#getItem#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
             <element signature="method#getCount#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
             <element signature="method#getPageTitle#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
@@ -3209,33 +2999,111 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/ConnectionFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="149" column="112" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="112" />
+          <caret line="158" column="101" selection-start-line="158" selection-start-column="101" selection-end-line="158" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/os/AsyncTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295062">
+          <caret line="367" column="19" selection-start-line="367" selection-start-column="19" selection-end-line="367" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.volley/volley/1.0.0/c79696d64f9520675054e27b77f490c17d8b4b9e/volley-1.0.0-sources.jar!/com/android/volley/DefaultRetryPolicy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295062">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/time_choice_dialog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.145454">
+          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+          <folding>
+            <element signature="e#360#387#0" expanded="true" />
+            <element signature="e#515#534#0" expanded="true" />
+            <element signature="e#945#963#0" expanded="true" />
+            <element signature="e#1607#1627#0" expanded="true" />
+            <element signature="e#2038#2056#0" expanded="true" />
+            <element signature="e#2901#2922#0" expanded="true" />
+            <element signature="e#3139#3157#0" expanded="true" />
+            <element signature="e#3375#3394#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.6666665">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jake/imperial/drone/fragments/GraphFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8989667">
-          <caret line="281" column="31" selection-start-line="281" selection-start-column="31" selection-end-line="281" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.49253732">
+          <caret line="369" column="13" selection-start-line="369" selection-start-column="13" selection-end-line="369" selection-end-column="13" />
           <folding>
             <element signature="method#GraphFragment#0;class#GraphFragment#0" expanded="false" />
-            <element signature="class#4925:5430" expanded="false" />
-            <element signature="method#format#0;class#4925:5430" expanded="false" />
-            <element signature="e#5695#5807#0" expanded="false" />
+            <element signature="method#onResume#0;class#GraphFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#GraphFragment#0" expanded="false" />
+            <element signature="class#5194:5703" expanded="false" />
+            <element signature="method#format#0;class#5194:5703" expanded="false" />
+            <element signature="e#5971#6083#0" expanded="false" />
             <element signature="method#onDestroyView#0;class#GraphFragment#0" expanded="false" />
-            <element signature="e#8121#10156#0" expanded="true" />
-            <element signature="e#10155#10156#0" expanded="true" />
-            <element signature="e#10158#10341#0" expanded="true" />
-            <element signature="e#10340#10341#0" expanded="true" />
+            <element signature="method#clearGraph#0;class#GraphFragment#0" expanded="false" />
+            <element signature="e#6790#8868#0" expanded="true" />
+            <element signature="e#8867#8868#0" expanded="true" />
+            <element signature="e#8870#9111#0" expanded="true" />
+            <element signature="e#9110#9111#0" expanded="true" />
+            <element signature="e#9123#9165#0" expanded="false" />
+            <element signature="class#11578:11772" expanded="false" />
+            <element signature="method#onClick#0;class#11578:11772" expanded="false" />
+            <element signature="method#onPreExecute#0;class#dlTask#0;class#GraphFragment#0" expanded="false" />
+            <element signature="class#14475:14657" expanded="false" />
+            <element signature="method#onClick#0;class#14475:14657" expanded="false" />
+            <element signature="method#processIntent#0;class#GraphFragment#0" expanded="false" />
+            <element signature="class#16718:16888" expanded="false" />
+            <element signature="method#onClick#0;class#16718:16888" expanded="false" />
             <element signature="method#loadSensorData#0;class#GraphFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#12576:12726" expanded="false" />
-            <element signature="e#14337#15963#0" expanded="true" />
-            <element signature="e#15962#15963#0" expanded="true" />
-            <element signature="e#16027#16177#0" expanded="true" />
-            <element signature="e#16176#16177#0" expanded="true" />
-            <element signature="class#16696:16866" expanded="false" />
-            <element signature="method#onClick#0;class#16696:16866" expanded="false" />
+            <element signature="class#21024:21175" expanded="false" />
+            <element signature="method#onClick#0;class#21024:21175" expanded="false" />
+            <element signature="method#loadSensorData2#0;class#GraphFragment#0" expanded="false" />
+            <element signature="class#21331:21855" expanded="false" />
+            <element signature="method#onCreate#0;class#21331:21855" expanded="false" />
           </folding>
         </state>
       </provider>
