@@ -246,6 +246,10 @@ public class ConnectionFragment extends Fragment {
             MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
             MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
             MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
+
+            // Trigger image to load
+            Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
+            LocalBroadcastManager.getInstance(getContext()).sendBroadcast(newImageIntent);
         } else {
             Log.d(TAG, data);
         }

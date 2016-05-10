@@ -8,7 +8,6 @@ import android.content.IntentFilter;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
@@ -16,20 +15,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 
 import org.apache.http.message.BasicNameValuePair;
 
-import com.koushikdutta.async.ByteBufferList;
-import com.koushikdutta.async.DataEmitter;
-import com.koushikdutta.async.callback.DataCallback;
-import com.koushikdutta.async.callback.WritableCallback;
-import com.koushikdutta.async.future.Future;
-import com.koushikdutta.async.http.AsyncHttpClient;
 //import com.koushikdutta.async.http.BasicNameValuePair;
-import com.koushikdutta.async.http.WebSocket;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.cookie.CookieMiddleware;
 
@@ -39,7 +32,6 @@ import java.net.HttpCookie;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.ShortBuffer;
 import java.util.Arrays;
 import java.util.List;
 
@@ -100,10 +92,10 @@ public class VideoFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         imageView = (ImageView) rootView.findViewById(R.id.imageview);
 
-        ((Button) rootView.findViewById(R.id.stream_audio)).setOnClickListener(new View.OnClickListener() {
+        ((CheckBox) rootView.findViewById(R.id.stream_audio)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                startAudioStream();
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                toggleAudioStream(isChecked);
             }
         });
 
@@ -113,28 +105,25 @@ public class VideoFragment extends Fragment {
     @Override
     public void onDestroyView(){
         super.onDestroyView();
-        //stopRepeatingTask();
     }
 
     private Runnable updateView = new Runnable() {
         @Override
         public void run() {
-            //if(app != null) {
-                domain = app.getDomain();
-                String url = "http://" + domain + "/getLatestImage";
-                Log.d(TAG, "Updating image from " + url);
+            domain = app.getDomain();
+            String url = "http://" + domain + "/getLatestImage";
+            Log.d(TAG, "Updating image from " + url);
 
-                // null check on context?
+            // null check on context?
 
-                Ion.with(getContext())
-                        .load(url)
-                        .noCache()
-                        .withBitmap()
-                        .error(R.drawable.control_pad_button)
-                        .crossfade(true)
-                        .intoImageView(imageView);
-            //}
-            //mHandler.postDelayed(updateView, mInterval);
+            Ion.with(getContext())
+                    .load(url)
+                    .noCache()
+                    .withBitmap()
+                    .error(R.drawable.control_pad_button)
+                    .crossfade(true)
+                    .intoImageView(imageView);
+
         }
     };
 
@@ -190,24 +179,35 @@ public class VideoFragment extends Fragment {
 
     private void processIntent(Intent intent) {
         if (intent.getAction().contains(Constants.IMAGE_EVENT)) {
-            //new Thread(updateViewNew).start();
             updateImageView();
         }
     }
 
-    private void startAudioStream(){
-        Log.d(TAG, ".startAudioStream() entered");
-        AudioTrack audioTrack = app.getAudioTrack();
-        if(audioTrack == null){
+    private void toggleAudioStream(boolean enabled){
+        Log.d(TAG, ".toggleAudioStream() entered");
 
+        AudioTrack audioTrack = app.getAudioTrack();
+        WebSocketClient client = app.getClient();
+
+        if(!enabled){
+            if(audioTrack != null) {
+                audioTrack.stop();
+                audioTrack.flush();
+            }
+            if(client != null){
+                client.disconnect();
+            }
+            return;
+        }
+
+        if(audioTrack == null){
             // The formatting must be assumed/predetermined
             int buffSize = AudioTrack.getMinBufferSize(44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
             audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT, 8 * buffSize, AudioTrack.MODE_STREAM );
-            audioTrack.play();
             app.setAudioTrack(audioTrack);
         }
+        audioTrack.play();
 
-        WebSocketClient client = app.getClient();
         if(client == null){
             String uri = "ws://" + app.getDomain() + "/api/audio/stream/listen";
 
@@ -251,10 +251,10 @@ public class VideoFragment extends Fragment {
                     Log.e(TAG, "WebSocket Error: ", error);
                 }
             }, extraHeaders);
-            client.connect();
 
             app.setClient(client);
         }
+        client.connect();
 
     }
 }
