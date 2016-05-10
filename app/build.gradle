@@ -34,7 +34,6 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
     compile 'com.androidplot:androidplot:0.6.1'
     compile 'com.androidplot:androidplot-core:0.6.1'
-    compile 'com.koushikdutta.async:androidasync:2.+'
     compile "org.apache.httpcomponents:httpmime:4.2.3"
     compile files('libs/org.eclipse.paho.android.service.jar')
     compile files('libs/org.eclipse.paho.client.mqttv3.jar')

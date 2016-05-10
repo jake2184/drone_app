@@ -54,7 +54,6 @@ public class VideoFragment extends Fragment {
     private DroneApplication app;
     private BroadcastReceiver broadcastReceiver;
 
-    private Handler mHandler;
     private ImageView imageView;
     private String domain = "";
 
@@ -86,8 +85,7 @@ public class VideoFragment extends Fragment {
         IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
 
-        domain = app.getDomain();
-        String url = "http://"+domain+"/getLatestImage";
+        String url = "http://" + app.getDomain() + "/api/images/latest";
         Ion     .with(getContext())
                 .load(url)
                 .noCache()
@@ -101,7 +99,6 @@ public class VideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         imageView = (ImageView) rootView.findViewById(R.id.imageview);
-        mHandler = new Handler();
 
         ((Button) rootView.findViewById(R.id.stream_audio)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,14 +188,6 @@ public class VideoFragment extends Fragment {
 
     }
 
-    private void startRepeatingTask() {
-        updateView.run();
-    }
-
-    private void stopRepeatingTask() {
-        mHandler.removeCallbacks(updateView);
-    }
-
     private void processIntent(Intent intent) {
         if (intent.getAction().contains(Constants.IMAGE_EVENT)) {
             //new Thread(updateViewNew).start();
@@ -210,6 +199,8 @@ public class VideoFragment extends Fragment {
         Log.d(TAG, ".startAudioStream() entered");
         AudioTrack audioTrack = app.getAudioTrack();
         if(audioTrack == null){
+
+            // The formatting must be assumed/predetermined
             int buffSize = AudioTrack.getMinBufferSize(44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
             audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT, 8 * buffSize, AudioTrack.MODE_STREAM );
             audioTrack.play();
@@ -235,20 +226,16 @@ public class VideoFragment extends Fragment {
 
                 @Override
                 public void onConnect() {
-                    Log.d(TAG, "Connected!");
+                    Log.d(TAG, "WebSocket Connected");
                 }
 
                 @Override
                 public void onMessage(String message) {
-                    Log.d(TAG, String.format("Got string message! %s", message));
+                    Log.d(TAG, String.format("Got WebSocket string message: %s", message));
                 }
 
                 @Override
                 public void onMessage(byte[] data) {
-                    Log.d(TAG, String.format("Got binary message! %s", data));
-                    Log.d(TAG, "Writing.. " + app.getAudioTrack().getPlayState());
-
-
                     short[] shortData = new short[data.length / 2];
                     ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shortData);
                     app.getAudioTrack().write(shortData, 0, shortData.length);
@@ -256,12 +243,12 @@ public class VideoFragment extends Fragment {
 
                 @Override
                 public void onDisconnect(int code, String reason) {
-                    Log.d(TAG, String.format("Disconnected! Code: %d Reason: %s", code, reason));
+                    Log.d(TAG, String.format("Disconnected from WebSocket. Code: %d Reason: %s", code, reason));
                 }
 
                 @Override
                 public void onError(Exception error) {
-                    Log.e(TAG, "Error!", error);
+                    Log.e(TAG, "WebSocket Error: ", error);
                 }
             }, extraHeaders);
             client.connect();
