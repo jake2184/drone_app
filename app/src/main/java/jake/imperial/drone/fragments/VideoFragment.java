@@ -1,12 +1,13 @@
 package jake.imperial.drone.fragments;
 
 
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioTrack;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -15,8 +16,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
+
+import org.apache.http.message.BasicNameValuePair;
+
+import com.koushikdutta.async.ByteBufferList;
+import com.koushikdutta.async.DataEmitter;
+import com.koushikdutta.async.callback.DataCallback;
+import com.koushikdutta.async.callback.WritableCallback;
+import com.koushikdutta.async.future.Future;
+import com.koushikdutta.async.http.AsyncHttpClient;
+//import com.koushikdutta.async.http.BasicNameValuePair;
+import com.koushikdutta.async.http.WebSocket;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.cookie.CookieMiddleware;
 
@@ -24,11 +37,16 @@ import java.net.CookieManager;
 import java.net.CookieStore;
 import java.net.HttpCookie;
 import java.net.URI;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.ShortBuffer;
+import java.util.Arrays;
 import java.util.List;
 
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
 import jake.imperial.drone.utils.Constants;
+import jake.imperial.drone.utils.WebSocketClient;
 
 
 public class VideoFragment extends Fragment {
@@ -85,7 +103,13 @@ public class VideoFragment extends Fragment {
         imageView = (ImageView) rootView.findViewById(R.id.imageview);
         mHandler = new Handler();
 
-        //startRepeatingTask();
+        ((Button) rootView.findViewById(R.id.stream_audio)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAudioStream();
+            }
+        });
+
         return rootView;
     }
 
@@ -180,6 +204,71 @@ public class VideoFragment extends Fragment {
             //new Thread(updateViewNew).start();
             updateImageView();
         }
+    }
+
+    private void startAudioStream(){
+        Log.d(TAG, ".startAudioStream() entered");
+        AudioTrack audioTrack = app.getAudioTrack();
+        if(audioTrack == null){
+            int buffSize = AudioTrack.getMinBufferSize(44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
+            audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT, 8 * buffSize, AudioTrack.MODE_STREAM );
+            audioTrack.play();
+            app.setAudioTrack(audioTrack);
+        }
+
+        WebSocketClient client = app.getClient();
+        if(client == null){
+            String uri = "ws://" + app.getDomain() + "/api/audio/stream/listen";
+
+            Log.d(TAG, "Trying to connect to " + uri);
+            URI url;
+            try{
+                url = new URI(uri);
+            }catch(Exception e){
+                return;
+            }
+            List<HttpCookie> cookies = ((CookieManager)CookieManager.getDefault()).getCookieStore().get(url);
+            HttpCookie cookie = cookies.get(0);
+
+            List<BasicNameValuePair> extraHeaders = Arrays.asList(new BasicNameValuePair("Cookie", "session="+cookie.getValue()));
+            client = new WebSocketClient(URI.create(uri), new WebSocketClient.Listener(){
+
+                @Override
+                public void onConnect() {
+                    Log.d(TAG, "Connected!");
+                }
+
+                @Override
+                public void onMessage(String message) {
+                    Log.d(TAG, String.format("Got string message! %s", message));
+                }
+
+                @Override
+                public void onMessage(byte[] data) {
+                    Log.d(TAG, String.format("Got binary message! %s", data));
+                    Log.d(TAG, "Writing.. " + app.getAudioTrack().getPlayState());
+
+
+                    short[] shortData = new short[data.length / 2];
+                    ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shortData);
+                    app.getAudioTrack().write(shortData, 0, shortData.length);
+                }
+
+                @Override
+                public void onDisconnect(int code, String reason) {
+                    Log.d(TAG, String.format("Disconnected! Code: %d Reason: %s", code, reason));
+                }
+
+                @Override
+                public void onError(Exception error) {
+                    Log.e(TAG, "Error!", error);
+                }
+            }, extraHeaders);
+            client.connect();
+
+            app.setClient(client);
+        }
+
     }
 }
 

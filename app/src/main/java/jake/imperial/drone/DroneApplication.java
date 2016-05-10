@@ -4,18 +4,23 @@ package jake.imperial.drone;
 import android.app.Application;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.media.AudioTrack;
 import android.util.Log;
 
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.koushikdutta.async.future.Future;
+import com.koushikdutta.async.http.AsyncHttpClient;
+import com.koushikdutta.async.http.WebSocket;
 
 import java.net.CookieManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import jake.imperial.drone.utils.Constants;
+import jake.imperial.drone.utils.WebSocketClient;
 
 public class DroneApplication extends Application{
     private final static String TAG = DroneApplication.class.getName();
@@ -213,4 +218,24 @@ public class DroneApplication extends Application{
     }
 
     public void resetFormatter(){formatLevel = 1;}
+
+    public AudioTrack getAudioTrack() {
+        return audioTrack;
+    }
+
+    public void setAudioTrack(AudioTrack audioTrack) {
+        this.audioTrack = audioTrack;
+    }
+
+    private AudioTrack audioTrack;
+
+    public WebSocketClient getClient() {
+        return client;
+    }
+
+    public void setClient(WebSocketClient client) {
+        this.client = client;
+    }
+
+    private WebSocketClient client;
 }
