@@ -26,8 +26,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonArray;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.net.CookieManager;
 import java.net.HttpCookie;
@@ -162,12 +168,62 @@ public class ConnectionFragment extends Fragment {
 
         if (checkCanConnect()) {
             app.getDomain();
-            String url = "http://" + app.getDomain() + "/login";
+            final String url = "http://" + app.getDomain() + "/login";
             LoginRequest loginRequest = new LoginRequest(url, app.getUsername(), app.getPassword(), new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    dialog.cancel();
                     Log.d(TAG, response);
+                    String droneInfoUri = "http://" + app.getDomain() + "/api/drones";
+                    JsonArrayRequest droneInfoRequest = new JsonArrayRequest(droneInfoUri, new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            Log.d(TAG, response.toString());
+                            String droneName = "";
+                            for(int i=0; i<response.length(); i++){
+                                try {
+                                    droneName = response.getJSONObject(i).getString("name");
+                                    app.getDroneNames().add(droneName);
+                                } catch (JSONException e){
+                                    Log.d(TAG, "Badly formed JSON");
+                                }
+                            }
+                            app.setCurrentDrone(droneName);
+                            dialog.cancel();
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            dialog.cancel();
+                            Log.d(TAG, error.toString());
+                            String errorType;
+                            if(error instanceof AuthFailureError) {
+                                errorType = "Authentication Error";
+                            } else if(error instanceof TimeoutError){
+                                errorType = "Connection Timeout Error";
+                            } else if(error instanceof NetworkError) {
+                                errorType = "Network Error";
+                            } else {
+                                errorType = "Unknown Error";
+                            }
+
+                            Log.e(TAG, errorType);
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle("Failed To Connect to server")
+                                    .setMessage(errorType)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int whichButton) {
+                                            // Do nothing.
+                                        }
+                                    }).show();
+                        }
+                    });
+                    requestQueue.add(droneInfoRequest);
+
+
+
+
+                    //dialog.cancel();
+
                 }
             }, new Response.ErrorListener() {
                 @Override

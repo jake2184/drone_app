@@ -22,7 +22,6 @@ import android.widget.ImageView;
 
 import org.apache.http.message.BasicNameValuePair;
 
-//import com.koushikdutta.async.http.BasicNameValuePair;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.cookie.CookieMiddleware;
 
@@ -77,7 +76,7 @@ public class VideoFragment extends Fragment {
         IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
 
-        String url = "http://" + app.getDomain() + "/api/images/latest";
+        String url = "http://" + app.getDomain() + "/api/" + app.getCurrentDrone() + "/images/latest";
         Ion     .with(getContext())
                 .load(url)
                 .noCache()
@@ -107,26 +106,6 @@ public class VideoFragment extends Fragment {
         super.onDestroyView();
     }
 
-    private Runnable updateView = new Runnable() {
-        @Override
-        public void run() {
-            domain = app.getDomain();
-            String url = "http://" + domain + "/getLatestImage";
-            Log.d(TAG, "Updating image from " + url);
-
-            // null check on context?
-
-            Ion.with(getContext())
-                    .load(url)
-                    .noCache()
-                    .withBitmap()
-                    .error(R.drawable.control_pad_button)
-                    .crossfade(true)
-                    .intoImageView(imageView);
-
-        }
-    };
-
     private Runnable updateViewNew = new Runnable() {
         @Override
         public void run() {
@@ -147,7 +126,7 @@ public class VideoFragment extends Fragment {
 
     private void updateImageView(){
         domain = app.getDomain();
-        String url = "http://" + domain + "/api/images/latest";
+        String url = "http://" + domain + "/api/" + app.getCurrentDrone() + "/images/latest";
         Log.d(TAG, "Updating image from " + url);
 
         CookieMiddleware middle = Ion.getDefault(getContext()).getCookieMiddleware();
@@ -162,8 +141,11 @@ public class VideoFragment extends Fragment {
         CookieStore store = middle.getCookieStore();
 
         List<HttpCookie> cookies = ((CookieManager)CookieManager.getDefault()).getCookieStore().get(uri);
-        HttpCookie cookie = cookies.get(0);
-
+        try {
+            HttpCookie cookie = cookies.get(0);
+        } catch (IndexOutOfBoundsException e){
+            return;
+        }
         Ion.with(getContext())
                 .load(url)
                 .noCache()
@@ -209,7 +191,7 @@ public class VideoFragment extends Fragment {
         audioTrack.play();
 
         if(client == null){
-            String uri = "ws://" + app.getDomain() + "/api/audio/stream/listen";
+            String uri = "ws://" + app.getDomain() + "/api/" + app.getCurrentDrone() + "/audio/stream/listen";
 
             Log.d(TAG, "Trying to connect to " + uri);
             URI url;
@@ -219,7 +201,12 @@ public class VideoFragment extends Fragment {
                 return;
             }
             List<HttpCookie> cookies = ((CookieManager)CookieManager.getDefault()).getCookieStore().get(url);
-            HttpCookie cookie = cookies.get(0);
+            HttpCookie cookie;
+            try {
+                cookie = cookies.get(0);
+            } catch (IndexOutOfBoundsException e){
+                return;
+            }
 
             List<BasicNameValuePair> extraHeaders = Arrays.asList(new BasicNameValuePair("Cookie", "session="+cookie.getValue()));
             client = new WebSocketClient(URI.create(uri), new WebSocketClient.Listener(){

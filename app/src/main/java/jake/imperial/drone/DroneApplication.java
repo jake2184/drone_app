@@ -12,11 +12,9 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.net.CookieManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import jake.imperial.drone.utils.Constants;
 import jake.imperial.drone.utils.WebSocketClient;
 
 public class DroneApplication extends Application{
@@ -79,6 +77,25 @@ public class DroneApplication extends Application{
         this.username = username;
     }
 
+    public ArrayList<String> getDroneNames() {
+        return droneNames;
+    }
+
+    public void setDroneNames(ArrayList<String> droneNames) {
+        this.droneNames = droneNames;
+    }
+
+    private ArrayList<String> droneNames = new ArrayList<>();
+
+    public String getCurrentDrone() {
+        return currentDrone;
+    }
+
+    public void setCurrentDrone(String currentDrone) {
+        this.currentDrone = currentDrone;
+    }
+
+    private String currentDrone = "";
 
     private int formatLevel = 1;
 

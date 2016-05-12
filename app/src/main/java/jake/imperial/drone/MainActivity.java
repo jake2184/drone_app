@@ -1,6 +1,10 @@
 package jake.imperial.drone;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,8 +25,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.loader.StreamLoader;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
@@ -95,16 +102,44 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                // Change current drone
+                final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {}
+                        })
+                        .setTitle("Current Drone:")
+                        .create();
+
+
+                final Spinner v = new Spinner(getApplicationContext());
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item, app.getDroneNames());
+                v.setAdapter(adapter);
+
+                v.setSelection(adapter.getPosition(app.getCurrentDrone()));
+                v.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+                        app.setCurrentDrone(v.getSelectedItem().toString());
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                dialog.setView(v);
+                dialog.show();
+
             }
         });
-
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
