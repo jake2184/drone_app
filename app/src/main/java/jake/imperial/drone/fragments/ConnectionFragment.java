@@ -182,6 +182,12 @@ public class ConnectionFragment extends Fragment {
                             for(int i=0; i<response.length(); i++){
                                 try {
                                     droneName = response.getJSONObject(i).getString("name");
+
+                                    MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", droneName , "sensors"), 0);
+                                    MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", droneName, "image"), 0);
+                                    MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", droneName, "event"), 0);
+
+
                                     app.getDroneNames().add(droneName);
                                 } catch (JSONException e){
                                     Log.d(TAG, "Badly formed JSON");
@@ -189,6 +195,8 @@ public class ConnectionFragment extends Fragment {
                             }
                             app.setCurrentDrone(droneName);
                             dialog.cancel();
+
+
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -299,9 +307,9 @@ public class ConnectionFragment extends Fragment {
         } else if(data.equals(Constants.INTENT_DATA_SUCCESS)){
             Log.d(TAG, "Connection successful");
             app.getMessageLog().add("[" + new Timestamp((new Date()).getTime()) + "]: Connected successfully");
-            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
-            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
-            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
+//            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
+//            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
+//            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
 
             // Trigger image to load
             Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
