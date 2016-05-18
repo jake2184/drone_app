@@ -51,6 +51,7 @@ public class MqttHandler implements MqttCallback {
 
     /**
      * Connect MqttAndroidClient to the MQTT server
+     * @return true if the client connects successfully
      */
     public boolean connect() {
         Log.d(TAG, ".connect() entered");
@@ -62,6 +63,7 @@ public class MqttHandler implements MqttCallback {
             String clientId;
             serverHost = app.getOrganization() + "." + Constants.SETTINGS_MQTT_SERVER;
             //clientId = "d:" + app.getOrganization() + ":" + Constants.DEVICE_TYPE + ":" + app.getDeviceId();
+            // Register the client as an application
             clientId = "a:" + app.getOrganization() + ":" + app.getDeviceId();
 
             Log.d(TAG, ".initMqttConnection() - Host name: " + serverHost + ", Port: " + serverPort

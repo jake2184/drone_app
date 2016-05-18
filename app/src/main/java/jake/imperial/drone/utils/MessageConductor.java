@@ -3,6 +3,7 @@ package jake.imperial.drone.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Path;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -126,16 +127,24 @@ public class MessageConductor {
             Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
             LocalBroadcastManager.getInstance(context).sendBroadcast(newImageIntent);
         } else if (topic.contains(Constants.SENSOR_EVENT)){
+
+            int fourthSlash = ordinalIndexOf(topic, '/', 3);
+            int fifthSlash = ordinalIndexOf(topic, '/', 4);
+            String droneName = topic.substring(fourthSlash+1, fifthSlash);
+
+            Log.d(TAG, "Name :" + droneName);
+
             JSONObject readings = new JSONObject(payload);
             long time = readings.getLong("time");
             JSONArray position = readings.getJSONArray("location");
 
             // Send out position information
             Intent positionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_POSITION);
+            positionIntent.putExtra(Constants.INTENT_DATA_MESSAGE, droneName);
 
             LatLng latLon = new LatLng(position.getDouble(0), position.getDouble(1));
-            app.setLatestPosition(latLon);
-            positionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_POSITION);
+
+            app.setDronePosition(droneName, latLon);
             LocalBroadcastManager.getInstance(context).sendBroadcast(positionIntent);
 
             readings.remove("time");
@@ -167,7 +176,6 @@ public class MessageConductor {
 
                     app.getSensorData().put(type, series);
 
-                    String runningActivity = app.getCurrentRunningActivity();
                     Intent sensorTypeIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
                     sensorTypeIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_TYPE_EVENT);
                     sensorTypeIntent.putExtra(Constants.INTENT_DATA_SENSORTYPE, type);
@@ -182,5 +190,12 @@ public class MessageConductor {
         } else {
             Log.d(TAG, "No known action for " + topic + " " + payload);
         }
+    }
+
+    public static int ordinalIndexOf(String str, char c, int n) {
+        int pos = str.indexOf(c, 0);
+        while (n-- > 0 && pos != -1)
+            pos = str.indexOf(c, pos+1);
+        return pos;
     }
 }

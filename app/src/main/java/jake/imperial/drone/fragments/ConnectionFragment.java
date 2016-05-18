@@ -156,7 +156,7 @@ public class ConnectionFragment extends Fragment {
         final ProgressDialog dialog = ProgressDialog.show(getContext(), "", "Trying to connect..", true, false);
 
 
-        MqttHandler mqttHandle = MqttHandler.getInstance(getActivity().getApplicationContext());
+        final MqttHandler mqttHandle = MqttHandler.getInstance(getActivity().getApplicationContext());
 
         app.setDomain(((EditText)getActivity().findViewById(R.id.domain)).getText().toString());
         app.setUsername(((EditText)getActivity().findViewById(R.id.username)).getText().toString());
@@ -183,10 +183,6 @@ public class ConnectionFragment extends Fragment {
                                 try {
                                     droneName = response.getJSONObject(i).getString("name");
 
-                                    MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", droneName , "sensors"), 0);
-                                    MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", droneName, "image"), 0);
-                                    MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", droneName, "event"), 0);
-
 
                                     app.getDroneNames().add(droneName);
                                 } catch (JSONException e){
@@ -194,6 +190,12 @@ public class ConnectionFragment extends Fragment {
                                 }
                             }
                             app.setCurrentDrone(droneName);
+
+                            if(mqttHandle.connect()){
+                                Log.d(TAG, "client.connect() returned true");
+                            }
+
+
                             dialog.cancel();
 
 
@@ -263,10 +265,6 @@ public class ConnectionFragment extends Fragment {
 
             requestQueue.add(loginRequest);
 
-            if(mqttHandle.connect()){
-                Log.d(TAG, "client.connect() returned true");
-            }
-
         } else {
             displaySetPropertiesDialog();
         }
@@ -307,10 +305,13 @@ public class ConnectionFragment extends Fragment {
         } else if(data.equals(Constants.INTENT_DATA_SUCCESS)){
             Log.d(TAG, "Connection successful");
             app.getMessageLog().add("[" + new Timestamp((new Date()).getTime()) + "]: Connected successfully");
-//            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", "drone", "sensors"),0);
-//            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "image"), 0);
-//            MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", "server", "event"), 0);
 
+            for(int i = 0; i < app.getDroneNames().size(); i++) {
+                String droneName = app.getDroneNames().get(i);
+                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("pi", droneName, "sensors"), 0);
+                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", droneName, "image"), 0);
+                MqttHandler.getInstance(getContext()).subscribe(TopicFactory.getEventTopic("node", droneName, "event"), 0);
+            }
             // Trigger image to load
             Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
             LocalBroadcastManager.getInstance(getContext()).sendBroadcast(newImageIntent);

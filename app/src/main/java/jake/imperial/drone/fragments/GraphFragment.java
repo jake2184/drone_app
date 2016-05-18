@@ -190,8 +190,7 @@ public class GraphFragment extends Fragment {
     }
 
     private void clearGraph() {
-        app.getSensorData().clear();
-        app.resetFormatter();
+        app.clearSensorData();
         linePlot.clear();
         linePlot.redraw();
     }

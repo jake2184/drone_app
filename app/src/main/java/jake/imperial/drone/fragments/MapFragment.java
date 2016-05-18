@@ -31,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import jake.imperial.drone.DroneApplication;
 import jake.imperial.drone.R;
@@ -46,7 +47,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private Handler mHandler;
     private RequestQueue requestQueue;
 
-    private Marker droneMarker;
+    private HashMap<String, Marker> droneMarkers = new HashMap<>();
     private GoogleMap mMap;
 
     public static MapFragment newInstance() {
@@ -68,31 +69,32 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         }
 
 
+        LatLng London = new LatLng(51.498807, -0.176813);
+        mMap.addMarker(new MarkerOptions().position(London).title("Home"));
 
         // Change to load latest from drone.
         mMap.moveCamera(CameraUpdateFactory.zoomTo(12));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(51.485138, -0.187755)));
 
-        LatLng London = new LatLng(51.5, -0.12);
-        mMap.addMarker(new MarkerOptions().position(London).title("Marker in London"));
 
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(51.485138, -0.187755)));
-        droneMarker = mMap.addMarker(new MarkerOptions()
-            .position(app.getLatestPosition())
-            .title("Drone")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.drone_icon2))
-        );
-        droneMarker.setVisible(true);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(droneMarker.getPosition()));
-
+        for(int i = 0; i < app.getDroneNames().size(); i++) {
+            String droneName = app.getDroneNames().get(i);
+            LatLng dronePosition = app.getDronePosition(droneName);
+            if(dronePosition != null){
+                Marker droneMarker = mMap.addMarker(new MarkerOptions()
+                        .position(app.getDronePosition(droneName))
+                        .title(droneName)
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.drone_icon2))
+                );
+                droneMarkers.put(droneName, droneMarker);
+                droneMarker.setVisible(true);
+            }
+        }
         ArrayList <MarkerOptions> markerList = app.getMarkerList();
 
         for(int i=0; i<markerList.size(); i++){
             mMap.addMarker(markerList.get(i));
         }
-
-        //startDronePositionUpdate();
-
     }
 
     @Override
@@ -108,6 +110,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                 @Override
                 public void onReceive(Context context, Intent intent) {
                     Log.d(TAG, ".onReceive() - Received intent for MapBroadcastReceiver");
+                    Log.d(TAG, "Intent " + intent.getAction());
                     processIntent(intent);
                 }
             };
@@ -160,24 +163,25 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private Runnable updateDronePosition = new Runnable() {
         @Override
         public void run() {
-            if(app != null){
+            if (app != null) {
                 String domain = app.getDomain();
                 String url = "http://" + domain + "/getLatestGPS";
                 Log.d(TAG, "Updating drone position from " + url);
 
-                JsonObjectRequest request  = new JsonObjectRequest(Request.Method.GET, url, null,
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
                                 try {
+                                    String droneName = response.getString("droneName");
                                     double lat = response.getDouble("lat");
                                     double lon = response.getDouble("lon");
-                                    LatLng dronePos = new LatLng (lat, lon);
+                                    LatLng dronePos = new LatLng(lat, lon);
 
-                                    droneMarker.setPosition(dronePos);
-                                    Log.d(TAG, "New drone position is: " + String.valueOf(lat) + "," + String.valueOf(lon) );
+                                    droneMarkers.get(droneName).setPosition(dronePos);
+                                    Log.d(TAG, "New drone position is: " + String.valueOf(lat) + "," + String.valueOf(lon));
 
-                                }catch (JSONException e){
+                                } catch (JSONException e) {
                                     Log.d(TAG, e.toString());
                                 }
                             }
@@ -196,28 +200,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         }
     };
 
-    private void startDronePositionUpdate() {
-        updateDronePosition.run();
-    }
-
-    private void stopDronePositionUpdate() {
-        mHandler.removeCallbacks(updateDronePosition);
-    }
 
     private void processIntent(Intent intent){
-        String data = intent.getStringExtra(Constants.INTENT_DATA);
-        assert data != null;
 
-        if (data.equals(Constants.ALERT_EVENT) && app.getCurrentRunningActivity().equals(TAG)) {
-            String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
-            new AlertDialog.Builder(getActivity())
-                    .setTitle("Alert:")
-                    .setMessage(message)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                        }
-                    }).show();
-        } else if(data.equals(Constants.LOG_EVENT)){
+
+        if(intent.getAction().contains(Constants.LOG_EVENT)){
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             double lat = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LAT, 0.0);
             double lon = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LON, 0.0);
@@ -225,9 +212,23 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             mMap.addMarker(new MarkerOptions().title(message).position(new LatLng(lat,lon))
 
             );
-        } else if (data.equals(Constants.INTENT_POSITION)){
-            droneMarker.setPosition(app.getLatestPosition());
-
+        } else if (intent.getAction().contains(Constants.INTENT_POSITION)){
+            // Assumption that it exists
+            String droneName = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
+            Marker droneMarker = droneMarkers.get(droneName);
+            if(droneMarker == null){
+                Log.d(TAG, "Adding drone marker..");
+                droneMarker = mMap.addMarker(new MarkerOptions()
+                    .position(app.getDronePosition(droneName))
+                    .title(droneName)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.drone_icon2))
+                );
+                droneMarkers.put(droneName, droneMarker);
+                droneMarker.setVisible(true);
+            } else {
+                Log.d(TAG, "Updating position to " + app.getDronePosition(droneName).toString());
+                droneMarkers.get(droneName).setPosition(app.getDronePosition(droneName));
+            }
         }
 
     }

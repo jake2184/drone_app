@@ -17,19 +17,28 @@ import java.util.HashMap;
 
 import jake.imperial.drone.utils.WebSocketClient;
 
+
+/**
+ * Main Application class. Works for persistent storage that fragments can interact with
+ */
 public class DroneApplication extends Application{
     private final static String TAG = DroneApplication.class.getName();
 
-    // Current activity of the application, updated whenever activity is changed
+    /**
+     * Current visible fragment, updated whenever the fragment is changed
+     */
     private String currentRunningActivity;
 
     // Values needed for connecting to IoT
     private String domain;
     private String organization;
-
     private String deviceId;
     private String APIKey;
     private String APIToken;
+
+    // Values to authorise connections to the server
+    private String username;
+    private String password;
 
 
     // Application state variables
@@ -44,21 +53,35 @@ public class DroneApplication extends Application{
     private ArrayList<String> messageLog = new ArrayList<>();
     private ArrayList<MarkerOptions> markerList = new ArrayList<>();
 
-    private LatLng latestPosition = new LatLng(51.48, -0.18);
+    private HashMap<String, LatLng> latestPosition = new HashMap<>();
 
 
-    private String username;
-    private String password;
+
+    private String currentDrone = "";
+
+    private int formatLevel = 1;
+    private ArrayList<String> droneNames = new ArrayList<>();
 
 
+    /**
+     * WebSocket client for audio streaming
+     */
+    private WebSocketClient client;
+    /**
+     * For playing an audio stream recorded by a drone
+     */
+    private AudioTrack audioTrack;
+    /**
+     * Storage for graph data. Is persistent throughout GraphFragment lifecycle
+     */
     private HashMap<String, SimpleXYSeries> sensorData = new HashMap<>();
 
-    public void setLatestPosition(LatLng latestPosition) {
-        this.latestPosition = latestPosition;
+    public void setDronePosition(String droneName, LatLng latestPosition) {
+        this.latestPosition.put(droneName, latestPosition);
     }
 
-    public LatLng getLatestPosition() {
-        return latestPosition;
+    public LatLng getDronePosition(String droneName) {
+        return latestPosition.get(droneName);
     }
 
     public String getPassword() {
@@ -85,7 +108,6 @@ public class DroneApplication extends Application{
         this.droneNames = droneNames;
     }
 
-    private ArrayList<String> droneNames = new ArrayList<>();
 
     public String getCurrentDrone() {
         return currentDrone;
@@ -95,9 +117,6 @@ public class DroneApplication extends Application{
         this.currentDrone = currentDrone;
     }
 
-    private String currentDrone = "";
-
-    private int formatLevel = 1;
 
     /**
      * Called when the application is created. Initializes the application.
@@ -106,13 +125,17 @@ public class DroneApplication extends Application{
     public void onCreate() {
         Log.d(TAG, ".onCreate() entered");
         super.onCreate();
-
-
     }
 
-    // Getters and Setters
+
+    /**
+     * @return the name of the current visible fragment
+     */
     public String getCurrentRunningActivity() { return currentRunningActivity; }
 
+    /**
+     * @param currentRunningActivity the name of the currently visible fragment
+     */
     public void setCurrentRunningActivity(String currentRunningActivity) { this.currentRunningActivity = currentRunningActivity; }
 
     public String getDomain() {
@@ -207,6 +230,14 @@ public class DroneApplication extends Application{
         return sensorData;
     }
 
+    public void clearSensorData(){
+        sensorData.clear();
+        resetFormatter();
+    }
+
+    /**
+     * @return line formatter for the GraphFragment, dependent on existing number of datasets
+     */
     public LineAndPointFormatter getFormatter(){
         int index = formatLevel++;
         int colour;
@@ -241,8 +272,6 @@ public class DroneApplication extends Application{
         this.audioTrack = audioTrack;
     }
 
-    private AudioTrack audioTrack;
-
     public WebSocketClient getClient() {
         return client;
     }
@@ -251,5 +280,5 @@ public class DroneApplication extends Application{
         this.client = client;
     }
 
-    private WebSocketClient client;
+
 }
