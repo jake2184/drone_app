@@ -74,7 +74,7 @@ public class DroneApplication extends Application{
     /**
      * Storage for graph data. Is persistent throughout GraphFragment lifecycle
      */
-    private HashMap<String, SimpleXYSeries> sensorData = new HashMap<>();
+    private HashMap <String, HashMap<String, SimpleXYSeries> >sensorData = new HashMap<>();
 
     public void setDronePosition(String droneName, LatLng latestPosition) {
         this.latestPosition.put(droneName, latestPosition);
@@ -226,12 +226,15 @@ public class DroneApplication extends Application{
         return markerList;
     }
 
-    public HashMap<String, SimpleXYSeries> getSensorData(){
-        return sensorData;
+    public HashMap<String, SimpleXYSeries> getSensorData(String droneName){
+        if(sensorData.get(droneName) == null) {
+            sensorData.put(droneName, new HashMap<String, SimpleXYSeries>());
+        }
+        return sensorData.get(droneName);
     }
 
-    public void clearSensorData(){
-        sensorData.clear();
+    public void clearSensorData(String droneName){
+        sensorData.get(droneName).clear();
         resetFormatter();
     }
 

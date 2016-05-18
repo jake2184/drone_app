@@ -105,9 +105,8 @@ public class GraphFragment extends Fragment {
         IntentFilter intentFilter = new IntentFilter(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, intentFilter);
 
-        app.resetFormatter();
-        for (SimpleXYSeries series : app.getSensorData().values()) {
-            linePlot.addSeries(series, app.getFormatter());
+        if(liveData){
+            loadLiveSensorData();
         }
 
         linePlot.redraw();
@@ -129,6 +128,12 @@ public class GraphFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 liveData = isChecked;
+
+                if(liveData){
+                    linePlot.clear();
+                    loadLiveSensorData();
+                    linePlot.redraw();
+                }
             }
         });
 
@@ -190,7 +195,7 @@ public class GraphFragment extends Fragment {
     }
 
     private void clearGraph() {
-        app.clearSensorData();
+        app.clearSensorData(app.getCurrentDrone());
         linePlot.clear();
         linePlot.redraw();
     }
@@ -220,7 +225,7 @@ public class GraphFragment extends Fragment {
                                     String type = iter.next();
                                     Double reading = item.getDouble(type);
 
-                                    SimpleXYSeries series = app.getSensorData().get(type);
+                                    SimpleXYSeries series = app.getSensorData(app.getCurrentDrone()).get(type);
                                     if (series != null) {
                                         series.addLast(time, reading);
                                     } else {
@@ -228,7 +233,7 @@ public class GraphFragment extends Fragment {
                                         series.addLast(time, reading);
 
                                         linePlot.addSeries(series, app.getFormatter());
-                                        app.getSensorData().put(type, series);
+                                        app.getSensorData(app.getCurrentDrone()).put(type, series);
                                     }
                                 }
                             }catch (JSONException e) {
@@ -355,7 +360,7 @@ public class GraphFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             dialog.dismiss();
-            if(app.getSensorData().isEmpty()){
+            if(app.getSensorData(app.getCurrentDrone()).isEmpty()){
 
                 new AlertDialog.Builder(getActivity())
                         .setTitle("No data found.")
@@ -406,26 +411,27 @@ public class GraphFragment extends Fragment {
         }
     }
 
-    private void processIntent(Intent intent) {
+    private void loadLiveSensorData(){
+        app.resetFormatter();
+        for (SimpleXYSeries series : app.getSensorData(app.getCurrentDrone()).values()) {
+            linePlot.addSeries(series, app.getFormatter());
+        }
+    }
 
-        String data = intent.getStringExtra(Constants.INTENT_DATA);
-        assert data != null;
-        Log.d(TAG, data);
-        if (data.equals(Constants.ALERT_EVENT)) {
-            String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
-            new AlertDialog.Builder(getActivity())
-                    .setTitle("Alert:")
-                    .setMessage(message)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                        }
-                    }).show();
-        } else if (data.equals(Constants.SENSOR_EVENT) && liveData) {
-            linePlot.redraw();
-        } else if (data.equals(Constants.SENSOR_TYPE_EVENT) && liveData) {
-            String type = intent.getStringExtra(Constants.INTENT_DATA_SENSORTYPE);
-            linePlot.addSeries(app.getSensorData().get(type), app.getFormatter());
-            linePlot.redraw();
+    private void processIntent(Intent intent) {
+        if(intent.getAction().contains(Constants.SENSOR_EVENT)) {
+            String data = intent.getStringExtra(Constants.INTENT_DATA);
+            if (data.equals(Constants.SENSOR_EVENT) && liveData) {
+                linePlot.redraw();
+            } else if (data.equals(Constants.SENSOR_TYPE_EVENT) && liveData) {
+                String droneName = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
+                String type = intent.getStringExtra(Constants.INTENT_DATA_SENSORTYPE);
+                linePlot.addSeries(app.getSensorData(droneName).get(type), app.getFormatter());
+                linePlot.redraw();
+            }
+        } else if(intent.getAction().contains(Constants.INTENT_DRONE_CHANGE) && liveData){
+            linePlot.clear();
+            loadLiveSensorData();
         }
     }
 

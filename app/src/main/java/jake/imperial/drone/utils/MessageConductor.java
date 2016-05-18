@@ -160,7 +160,7 @@ public class MessageConductor {
                 } catch (JSONException e){
                     continue; // Sensor reading was null
                 }
-                SimpleXYSeries series = app.getSensorData().get(type);
+                SimpleXYSeries series = app.getSensorData(droneName).get(type);
                 if (series != null) {
 
                     // Could still show > MAX_GRAPH_SIZE over different series
@@ -174,10 +174,11 @@ public class MessageConductor {
                     series = new SimpleXYSeries(type);
                     series.addLast(time, reading);
 
-                    app.getSensorData().put(type, series);
+                    app.getSensorData(droneName).put(type, series);
 
                     Intent sensorTypeIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
                     sensorTypeIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_TYPE_EVENT);
+                    sensorTypeIntent.putExtra(Constants.INTENT_DATA_MESSAGE, droneName);
                     sensorTypeIntent.putExtra(Constants.INTENT_DATA_SENSORTYPE, type);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(sensorTypeIntent);
 
@@ -186,11 +187,14 @@ public class MessageConductor {
             }
             Intent sensorDataIntent = new Intent(Constants.APP_ID + "." + Constants.SENSOR_EVENT);
             sensorDataIntent.putExtra(Constants.INTENT_DATA, Constants.SENSOR_EVENT);
+            sensorDataIntent.putExtra(Constants.INTENT_DATA_MESSAGE, droneName);
             LocalBroadcastManager.getInstance(context).sendBroadcast(sensorDataIntent);
         } else {
             Log.d(TAG, "No known action for " + topic + " " + payload);
         }
     }
+
+    // https://stackoverflow.com/questions/3976616/how-to-find-nth-occurrence-of-character-in-a-string
 
     public static int ordinalIndexOf(String str, char c, int n) {
         int pos = str.indexOf(c, 0);
