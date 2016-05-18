@@ -47,6 +47,7 @@ public class VideoFragment extends Fragment {
 
     private ImageView imageView;
     private String domain = "";
+    private boolean streamingAudio = false;
 
     public VideoFragment() {
     }
@@ -95,6 +96,7 @@ public class VideoFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 toggleAudioStream(isChecked);
+                streamingAudio = isChecked;
             }
         });
 
@@ -162,6 +164,10 @@ public class VideoFragment extends Fragment {
     private void processIntent(Intent intent) {
         if (intent.getAction().contains(Constants.IMAGE_EVENT)) {
             updateImageView();
+        } else if (intent.getAction().contains(Constants.INTENT_DRONE_CHANGE)) {
+            updateImageView();
+            app.resetAudio();
+            toggleAudioStream(streamingAudio);
         }
     }
 

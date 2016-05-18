@@ -3,11 +3,13 @@ package jake.imperial.drone;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +42,7 @@ import jake.imperial.drone.fragments.GraphFragment;
 import jake.imperial.drone.fragments.LogFragment;
 import jake.imperial.drone.fragments.MapFragment;
 import jake.imperial.drone.fragments.VideoFragment;
+import jake.imperial.drone.utils.Constants;
 import jake.imperial.drone.utils.MqttHandler;
 import jake.imperial.drone.utils.TopicFactory;
 
@@ -110,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
                 final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {}
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
                         })
                         .setTitle("Current Drone:")
                         .create();
@@ -126,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
                         app.setCurrentDrone(v.getSelectedItem().toString());
-
+                        Intent intent = new Intent(Constants.APP_ID + "." + Constants.INTENT_DRONE_CHANGE);
+                        LocalBroadcastManager.getInstance(getBaseContext()).sendBroadcast(intent);
                     }
 
                     @Override

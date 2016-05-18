@@ -51,8 +51,8 @@ public class DroneApplication extends Application{
 
     // Message log for log activity
     private ArrayList<String> messageLog = new ArrayList<>();
-    private ArrayList<MarkerOptions> markerList = new ArrayList<>();
 
+    private ArrayList<MarkerOptions> markerList = new ArrayList<>();
     private HashMap<String, LatLng> latestPosition = new HashMap<>();
 
 
@@ -278,6 +278,11 @@ public class DroneApplication extends Application{
 
     public void setClient(WebSocketClient client) {
         this.client = client;
+    }
+
+    public void resetAudio(){
+        setClient(null);
+        setAudioTrack(null);
     }
 
 

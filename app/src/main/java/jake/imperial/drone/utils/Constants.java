@@ -49,6 +49,7 @@ public class Constants {
     public final static String INTENT_DATA_LOC_LAT = "lat";
     public final static String INTENT_DATA_LOC_LON = "lon";
     public final static String INTENT_DATA_SENSORTYPE = "sensorType";
+    public final static String INTENT_DRONE_CHANGE = "droneChange";
 
     public final static int ERROR_BROKER_UNAVAILABLE = 3;
 

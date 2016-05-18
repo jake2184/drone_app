@@ -126,25 +126,25 @@ public class MessageConductor {
             Log.d(TAG, "New image uploaded to server");
             Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);
             LocalBroadcastManager.getInstance(context).sendBroadcast(newImageIntent);
+
+
         } else if (topic.contains(Constants.SENSOR_EVENT)){
 
             int fourthSlash = ordinalIndexOf(topic, '/', 3);
             int fifthSlash = ordinalIndexOf(topic, '/', 4);
             String droneName = topic.substring(fourthSlash+1, fifthSlash);
 
-            Log.d(TAG, "Name :" + droneName);
-
             JSONObject readings = new JSONObject(payload);
             long time = readings.getLong("time");
             JSONArray position = readings.getJSONArray("location");
 
-            // Send out position information
+            // Update position information
+            LatLng latLon = new LatLng(position.getDouble(0), position.getDouble(1));
+            app.setDronePosition(droneName, latLon);
+
+            // Notify of new position information
             Intent positionIntent = new Intent(Constants.APP_ID + "." + Constants.INTENT_POSITION);
             positionIntent.putExtra(Constants.INTENT_DATA_MESSAGE, droneName);
-
-            LatLng latLon = new LatLng(position.getDouble(0), position.getDouble(1));
-
-            app.setDronePosition(droneName, latLon);
             LocalBroadcastManager.getInstance(context).sendBroadcast(positionIntent);
 
             readings.remove("time");

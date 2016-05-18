@@ -209,9 +209,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             double lat = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LAT, 0.0);
             double lon = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LON, 0.0);
             Log.d(TAG, message+ " "+String.valueOf(lat) + " " + String.valueOf(lon));
-            mMap.addMarker(new MarkerOptions().title(message).position(new LatLng(lat,lon))
-
-            );
+            mMap.addMarker(new MarkerOptions().title(message).position(new LatLng(lat,lon)));
         } else if (intent.getAction().contains(Constants.INTENT_POSITION)){
             // Assumption that it exists
             String droneName = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
