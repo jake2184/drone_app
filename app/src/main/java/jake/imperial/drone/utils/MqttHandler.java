@@ -250,12 +250,6 @@ public class MqttHandler implements MqttCallback {
 
         int receiveCount = app.getReceiveCount();
         app.setReceiveCount(++receiveCount);
-        String runningActivity = app.getCurrentRunningActivity();
-        if (runningActivity != null && runningActivity.equals(ControlFragment.class.getName())) {
-            Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_DRONE);
-            actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_RECEIVED);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(actionIntent);
-        }
 
         String payload = new String(mqttMessage.getPayload());
         Log.d(TAG, ".messageArrived - Message received on topic " + topic

@@ -10,6 +10,7 @@ import android.util.Log;
 import com.androidplot.xy.SimpleXYSeries;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,25 +90,29 @@ public class MessageConductor {
             app.setUnreadCount(app.getUnreadCount() + 1);
 
             String messageText = top.getString("text");
-            JSONObject location = top.getJSONObject("location");
+            JSONArray location = top.getJSONArray("location");
+            double lat = location.getDouble(0);
+            double lon = location.getDouble(1);
 
-            app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + messageText);
+            app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + messageText + "  at lat:" + String.valueOf(lat) + " lon: " + String.valueOf(lon));
 
             app.getMarkerList().add(new MarkerOptions()
-                            .position(new LatLng(location.getDouble("latitude"), location.getDouble("longitude")))
+                            .position(new LatLng(lat, lon))
                             .title(messageText)
                     //.icon // somehow select depending on thingymagig
             );
 
             Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
-            if (messageText != null) {
-                logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
-                logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, top.getString("text"));
-                logIntent.putExtra(Constants.INTENT_DATA_LOC_LAT, location.getDouble("latitude"));
-                logIntent.putExtra(Constants.INTENT_DATA_LOC_LON, location.getDouble("longitude"));
-                Log.d(TAG, String.valueOf(location.toString()));
-                LocalBroadcastManager.getInstance(context).sendBroadcast(logIntent);
-            }
+
+//            logIntent.putExtra(Constants.INTENT_DATA, Constants.LOG_EVENT); // Un needed?
+//            logIntent.putExtra(Constants.INTENT_DATA_MESSAGE, top.getString("text"));
+//            logIntent.putExtra(Constants.INTENT_DATA_LOC_LAT, location.getDouble(0));
+//            logIntent.putExtra(Constants.INTENT_DATA_LOC_LON, location.getDouble(1));
+
+            logIntent.putExtra(Constants.INTENT_DATA, app.getMarkerList().size() - 1);
+
+            Log.d(TAG, String.valueOf(location.toString()));
+            LocalBroadcastManager.getInstance(context).sendBroadcast(logIntent);
         }else if (topic.contains(Constants.ALERT_EVENT)) {
             JSONObject d = top.getJSONObject("d");
             app.setUnreadCount(app.getUnreadCount() + 1);
