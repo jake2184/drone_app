@@ -338,9 +338,5 @@ public class ConnectionFragment extends Fragment {
             return headers;
         }
 
-        public void setHeader(String title, String content) {
-            headers.put(title, content);
-        }
-
     }
 }

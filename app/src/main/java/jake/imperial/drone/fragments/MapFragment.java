@@ -70,7 +70,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
 
 
         LatLng London = new LatLng(51.498807, -0.176813);
-        mMap.addMarker(new MarkerOptions().position(London).title("Home"));
+        mMap.addMarker(new MarkerOptions()
+                .position(London)
+                .title("Home")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.home)));
 
         // Change to load latest from drone.
         mMap.moveCamera(CameraUpdateFactory.zoomTo(12));
@@ -208,11 +211,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             // Revalidate map
             int index = intent.getIntExtra(Constants.INTENT_DATA, app.getMarkerList().size()-1);
             mMap.addMarker(app.getMarkerList().get(index));
-//            String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
-//            double lat = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LAT, 0.0);
-//            double lon = intent.getDoubleExtra(Constants.INTENT_DATA_LOC_LON, 0.0);
-//            Log.d(TAG, message+ " "+String.valueOf(lat) + " " + String.valueOf(lon));
-//            mMap.addMarker(new MarkerOptions().title(message).position(new LatLng(lat,lon)));
         } else if (intent.getAction().contains(Constants.INTENT_POSITION)){
             // Assumption that it exists
             String droneName = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);

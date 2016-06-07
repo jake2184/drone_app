@@ -8,6 +8,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.androidplot.xy.SimpleXYSeries;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.JsonArray;
@@ -17,10 +19,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
 
 import jake.imperial.drone.DroneApplication;
+import jake.imperial.drone.R;
 import jake.imperial.drone.fragments.GraphFragment;
 
 /**
@@ -90,17 +94,26 @@ public class MessageConductor {
             app.setUnreadCount(app.getUnreadCount() + 1);
 
             String messageText = top.getString("text");
-            JSONArray location = top.getJSONArray("location");
-            double lat = location.getDouble(0);
-            double lon = location.getDouble(1);
+            JSONObject location = top.getJSONObject("location");
+//            double lat = location.getDouble(0);
+//            double lon = location.getDouble(1);
+            double lat = location.getDouble("latitude");
+            double lon = location.getDouble("longitude");
 
             app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + messageText + "  at lat:" + String.valueOf(lat) + " lon: " + String.valueOf(lon));
-
-            app.getMarkerList().add(new MarkerOptions()
-                            .position(new LatLng(lat, lon))
-                            .title(messageText)
-                    //.icon // somehow select depending on thingymagig
-            );
+            int icon = imageChoice(messageText);
+            if(icon != 0 ) {
+                app.getMarkerList().add(new MarkerOptions()
+                                .position(new LatLng(lat, lon))
+                                .title(messageText)
+                                .icon(BitmapDescriptorFactory.fromResource(icon))
+                );
+            } else {
+                app.getMarkerList().add(new MarkerOptions()
+                        .position(new LatLng(lat, lon))
+                        .title(messageText)
+                );
+            }
 
             Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
 
@@ -206,5 +219,24 @@ public class MessageConductor {
         while (n-- > 0 && pos != -1)
             pos = str.indexOf(c, pos+1);
         return pos;
+    }
+
+    private static int imageChoice(String inEvents) {
+        String[] fire = {"Wild_Fire", "Burning", "Smoke", "Explosion"};
+        String[] person = {"Person", "Adult", "Female_Adult", "Male_Adult", "Human", "Child"};
+        String[] building = {"Building", "Skyscraper", "Public_Building", "Rural_Building", "Urban_Building"};
+
+        String[] events = inEvents.split(",");
+        for (String event : events) {
+            if (Arrays.asList(person).contains(event)) {
+                return R.drawable.person;
+            } else if (Arrays.asList(fire).contains(event)) {
+                return R.drawable.fire;
+            } else if (Arrays.asList(building).contains(event)) {
+                return R.drawable.building;
+            }
+        }
+        return 0;
+
     }
 }

@@ -42,9 +42,13 @@ import java.text.Format;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import jake.imperial.drone.DroneApplication;
@@ -180,11 +184,10 @@ public class GraphFragment extends Fragment {
         linePlot.getGraphWidget().setDomainLabelOrientation(-45);
         linePlot.getLegendWidget().setPadding(10, 10, 10, 10);
         linePlot.getGraphWidget().setPadding(10, 10, 10, 10);
-        //linePlot.getLegendWidget().setSize(new SizeMetrics(10, SizeLayoutType.ABSOLUTE, 10, SizeLayoutType.ABSOLUTE));
-        //linePlot.getLegendWidget().position(100, XLayoutStyle.ABSOLUTE_FROM_LEFT, 100, YLayoutStyle.ABSOLUTE_FROM_TOP, AnchorPosition.LEFT_TOP);
 
-
-        //startLoadingSensorData();
+        if(liveData){
+            loadLiveSensorData();
+        }
         return rootView;
     }
 
@@ -413,9 +416,13 @@ public class GraphFragment extends Fragment {
 
     private void loadLiveSensorData(){
         app.resetFormatter();
+        Collection<SimpleXYSeries> series2 = app.getSensorData(app.getCurrentDrone()).values();
         for (SimpleXYSeries series : app.getSensorData(app.getCurrentDrone()).values()) {
+            Log.d(TAG, "Adding a series");
             linePlot.addSeries(series, app.getFormatter());
         }
+        linePlot.redraw();
+        Log.d(TAG, "RE");
     }
 
     private void processIntent(Intent intent) {
@@ -425,9 +432,11 @@ public class GraphFragment extends Fragment {
                 linePlot.redraw();
             } else if (data.equals(Constants.SENSOR_TYPE_EVENT) && liveData) {
                 String droneName = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
-                String type = intent.getStringExtra(Constants.INTENT_DATA_SENSORTYPE);
-                linePlot.addSeries(app.getSensorData(droneName).get(type), app.getFormatter());
-                linePlot.redraw();
+                if(droneName.equals(app.getCurrentDrone())) {
+                    String type = intent.getStringExtra(Constants.INTENT_DATA_SENSORTYPE);
+                    linePlot.addSeries(app.getSensorData(droneName).get(type), app.getFormatter());
+                    linePlot.redraw();
+                }
             }
         } else if(intent.getAction().contains(Constants.INTENT_DRONE_CHANGE) && liveData){
             linePlot.clear();

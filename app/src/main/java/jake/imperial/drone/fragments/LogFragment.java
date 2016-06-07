@@ -66,10 +66,10 @@ public class LogFragment extends ListFragment {
     }
 
     private void processIntent(Intent intent){
-        String data = intent.getStringExtra(Constants.INTENT_DATA);
-        if (data.equals(Constants.TEXT_EVENT)) {
+        //String data = intent.getStringExtra(Constants.INTENT_DATA);
+        //if (data.equals(Constants.TEXT_EVENT)) {
             listAdapter.notifyDataSetInvalidated();
-        }
+        //}
     }
 }
 
