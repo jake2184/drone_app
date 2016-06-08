@@ -71,10 +71,10 @@ public class MessageConductor {
             app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + messageText);
 
             app.getMarkerList().add(new MarkerOptions()
-                    .position(new LatLng(location.getDouble("lat"), location.getDouble("lon")))
-                    .title(messageText)
+                            .position(new LatLng(location.getDouble("lat"), location.getDouble("lon")))
+                            .title(messageText)
                     //.icon // somehow select depending on thingymagig
-                    );
+            );
 
             Intent logIntent = new Intent(Constants.APP_ID + "." + Constants.LOG_EVENT);
             if (messageText != null) {
@@ -88,6 +88,13 @@ public class MessageConductor {
 
             // Does Log need revalidating?
             // Should make GPS global. Cos if map not running it not receive
+
+        } else if(topic.contains("modeChange")){
+            Log.d(TAG, "Received modeChange");
+            String newMode = top.getString("mode");
+            String drone = top.getString("drone");
+            app.getMessageLog().add("[" + new Timestamp(new Date().getTime()) + "]: " + drone + " entered mode " + newMode);
+
 
         }else if (topic.contains("event")){
             Log.d(TAG, "Received event");
@@ -126,20 +133,6 @@ public class MessageConductor {
 
             Log.d(TAG, String.valueOf(location.toString()));
             LocalBroadcastManager.getInstance(context).sendBroadcast(logIntent);
-        }else if (topic.contains(Constants.ALERT_EVENT)) {
-            JSONObject d = top.getJSONObject("d");
-            app.setUnreadCount(app.getUnreadCount() + 1);
-
-            String runningActivity = app.getCurrentRunningActivity();
-            if (runningActivity != null) {
-                Intent alertIntent = new Intent(Constants.APP_ID + "." + Constants.ALERT_EVENT);
-                String messageText = d.getString("text");
-                if (messageText != null) {
-                    alertIntent.putExtra(Constants.INTENT_DATA, Constants.ALERT_EVENT);
-                    alertIntent.putExtra(Constants.INTENT_DATA_MESSAGE, d.getString("text"));
-                    LocalBroadcastManager.getInstance(context).sendBroadcast(alertIntent);
-                }
-            }
         } else if (topic.contains(Constants.IMAGE_EVENT)){
             Log.d(TAG, "New image uploaded to server");
             Intent newImageIntent = new Intent(Constants.APP_ID + "." + Constants.IMAGE_EVENT);

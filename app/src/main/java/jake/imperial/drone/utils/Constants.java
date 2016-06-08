@@ -26,6 +26,7 @@ public class Constants {
     public final static String UNREAD_EVENT = "unread";
     public final static String LOG_EVENT = "log";
     public final static String IMAGE_EVENT = "image";
+    public final static String MODE_CHANGE = "modeChange";
     public final static String SENSOR_EVENT = "sensors";
     public final static String SENSOR_TYPE_EVENT = "sensorType";
     public final static String CONNECTIVITY_MESSAGE = "connectivityMessage";
